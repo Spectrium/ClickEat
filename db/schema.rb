@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_191748) do
     t.string "last_name"
     t.string "username"
     t.string "profile_picture"
+    t.string "location"
     t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

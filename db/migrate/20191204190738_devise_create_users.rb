@@ -36,6 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :username
       t.string :profile_picture
+      t.string :location
       t.references :cart , index: true
 
       t.timestamps null: false
