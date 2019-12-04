@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_200541) do
+ActiveRecord::Schema.define(version: 2019_12_04_213108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,43 @@ ActiveRecord::Schema.define(version: 2019_12_04_200541) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "category_dishes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "details_orders", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "order_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_details_orders_on_dish_id"
+    t.index ["order_id"], name: "index_details_orders_on_order_id"
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price", precision: 10, scale: 2
+    t.time "preparation_time"
+    t.string "picture"
+    t.bigint "restaurant_id"
+    t.bigint "category_dish_id"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_dish_id"], name: "index_dishes_on_category_dish_id"
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+    t.index ["type_id"], name: "index_dishes_on_type_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -44,6 +81,12 @@ ActiveRecord::Schema.define(version: 2019_12_04_200541) do
   end
 
   create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
