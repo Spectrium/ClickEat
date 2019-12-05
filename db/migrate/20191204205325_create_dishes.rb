@@ -8,7 +8,6 @@ class CreateDishes < ActiveRecord::Migration[6.0]
       t.string :picture
       t.references :restaurant, index: true
       t.references :category_dish, index: true
-      t.references :type, index: true
       t.timestamps
     end
   end
