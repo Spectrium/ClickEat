@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Clickeat</title>
+  <title>Connection</title>
   <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,9 +12,10 @@
             <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
-  <%= yield %>
-    <%= javascript_pack_tag 'sign_in', 'data-turbolinks-track': 'reload' %>
+<body class="background-sign-in">
+  <div class="container" id="container">
+    <%= yield %>
+  </div>
 </body>
 
 </html>
