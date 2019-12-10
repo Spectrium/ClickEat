@@ -1,0 +1,28 @@
+<div class="form-container sign-up-container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {multipart: :true, class:"container-form"}) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <h1 class="header-h1">Create Account</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="message-connection">or use your email for registration</span>
+      <!-- <input type="text" placeholder="Name" class="form-input" /> -->
+      <!-- <input type="email" placeholder="Email" class="form-input" /> -->
+
+
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
+
+        <!-- <input type="password" placeholder="Password" class="form-input" /> -->
+        <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password", class:"form-input" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+
+              <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirmation Password", class:"form-input" %>
+
+                <!-- <button class="connection-btn all-btn">Sign Up</button> -->
+                <%= f.submit "Sign up", class:"connection-btn all-btn" %>
+                  <% end %>
+</div>

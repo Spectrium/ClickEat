@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Connection</title>
+  <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= stylesheet_link_tag 'sign_in', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="background-sign-in">
+  <div class="container" id="container">
+    <%= yield %>
+  </div>
+
+  <%= javascript_pack_tag 'sign_in', 'data-turbolinks-track': 'reload' %>
+</body>
+
+</html>
