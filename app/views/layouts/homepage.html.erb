@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Clickeat</title>
+  <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+      <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+          <style>
+            #main-nav>ul>li>ul {
+              width: 143px;
+            }
+          </style>
+
+</head>
+
+<body>
+  <%= yield %>
+</body>
+
+</html>

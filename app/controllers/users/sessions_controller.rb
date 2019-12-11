@@ -6,6 +6,8 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   # def new
   #   super
+  #   puts "wa"*80
+  #   connection_index_path
   # end
 
   # POST /resource/sign_in
@@ -19,6 +21,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # protected
+
+  # def after_sign_in_path_for(resource)
+  #   stored_location_for(resource) || welcome_path
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
