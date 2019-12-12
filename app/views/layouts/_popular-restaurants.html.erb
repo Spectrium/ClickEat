@@ -1,0 +1,76 @@
+<!--POPULAR DISHES-->
+<section id="popular-dishes">
+    <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
+    <h2>Restaurant Populaire</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <hr>
+    <ul class="dishes resto">
+        <!--RETSO-->
+        <li>
+            <div>
+                <img src="/assets/menu/menu_photo.png" alt="menu-dish">
+                <!-- <a href="/assets/menu/full_size.png"> -->
+                <%= link_to test_show_restaurant_path do %>
+                    <%= content_tag(:div) do %>
+                        <%= image_tag("/assets/plus-icon.png", alt:"plus-icon") %>
+                            <%= content_tag(:p, "Click pour en savoir plus") %>
+                                <% end %>
+                                    <% end %>
+                                        <!-- <div>
+                                    <img src="/assets/plus-icon.png" alt="plus-icon">
+                                    <p>Click pour en savoir plus</p>
+                                </div> -->
+                                        </a>
+            </div>
+            <h5>Garlic Capresse Pizza</h5>
+        </li>
+        <!--/RESTO-->
+
+        <!--RETSO-->
+        <li>
+            <div>
+                <img src="/assets/menu/menu_photo.png" alt="menu-dish">
+                <a href="/assets/menu/full_size.png">
+                    <div>
+                        <img src="/assets/plus-icon.png" alt="plus-icon">
+                        <p>Click pour en savoir plus</p>
+                    </div>
+                </a>
+            </div>
+            <h5>Charcoal Chicken Wings</h5>
+        </li>
+        <!--/RESTO-->
+
+        <!--RETSO-->
+        <li>
+            <div>
+                <img src="/assets/menu/menu_photo.png" alt="menu-dish">
+                <a href="/assets/menu/full_size.png">
+                    <div>
+                        <img src="/assets/plus-icon.png" alt="plus-icon">
+                        <p>Click pour en savoir plus</p>
+                    </div>
+                </a>
+            </div>
+            <h5>The Volcano Sandwich</h5>
+
+        </li>
+        <!--/RESTO-->
+        <!--RETSO-->
+        <li>
+            <div>
+                <img src="/assets/menu/menu_photo.png" alt="menu-dish">
+                <a href="/assets/menu/full_size.png">
+                    <div>
+                        <img src="/assets/plus-icon.png" alt="plus-icon">
+                        <p>Click pour en savoir plus</p>
+                    </div>
+                </a>
+            </div>
+            <h5>The Volcano Sandwich</h5>
+
+        </li>
+        <!--/RESTO-->
+
+    </ul>
+</section>

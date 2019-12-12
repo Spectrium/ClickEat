@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: Clickeat_production
-  username: Clickeat
-  password: <%= ENV['CLICKEAT_DATABASE_PASSWORD'] %>
+  # username: Clickeat
+  # password: <%= ENV['CLICKEAT_DATABASE_PASSWORD'] %>
