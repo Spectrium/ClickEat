@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
     #relation
-    has_one :cart
+    belongs_to :user
 end

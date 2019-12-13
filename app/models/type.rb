@@ -1,4 +1,4 @@
 class Type < ApplicationRecord
     #relation
-    has_many :dishes
+    has_many :category_dishes
 end

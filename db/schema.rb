@@ -67,10 +67,18 @@ ActiveRecord::Schema.define(version: 2019_12_10_164632) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "category_dishes", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_dishes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_category_dishes_on_type_id"
   end
 
   create_table "details_orders", force: :cascade do |t|
@@ -90,12 +98,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_164632) do
     t.string "picture"
     t.bigint "restaurant_id"
     t.bigint "category_dish_id"
-    t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_dish_id"], name: "index_dishes_on_category_dish_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
-    t.index ["type_id"], name: "index_dishes_on_type_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -127,8 +133,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_164632) do
 
   create_table "specialities", force: :cascade do |t|
     t.string "name"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_specialities_on_category_id"
   end
 
   create_table "types", force: :cascade do |t|
