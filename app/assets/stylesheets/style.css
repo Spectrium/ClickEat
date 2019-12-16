@@ -721,7 +721,7 @@ header ul.main-slider h2 {
 
 #our-dishes {
     background-color: #fff;
-    padding: 60px 0 130px;
+    padding: 60px 0 20px;
     position: relative;
     overflow: hidden;
 }
@@ -741,13 +741,15 @@ header ul.main-slider h2 {
 #dishes-left {
     width: 300px;
     float: left;
-    margin-left: 8%;
+    /* 8% d'origine */
+    margin-left: 20%;
 }
 
 #dishes-right {
     width: 300px;
     float: right;
-    margin-right: 8%;
+    /* 8% d'origine */
+    margin-right: 20%;
 }
 
 #dishes-left>article,

@@ -49,7 +49,7 @@
       <li><a href="menu.html">Menu</a></li>
       <!-- <li><a href="index.html#contact">Contact</a></li> -->
       <!-- if connected -->
-      <% if !current_user %>
+      <% unless current_user %>
         (((
         <li class="sub-items"><a href="#">Connexion</a>
           <ul>
