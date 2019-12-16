@@ -1,55 +1,64 @@
 <!--OUR DISHES-->
-		<section id="our-dishes">
-			<img src="<%= image_path('title-detail.png')%>" alt="title-detail">
-			<h2>Our Dishes</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			<hr>
-			<article id="dishes-left">
-				<article>
-					<div>
-						<h5>Entrees and Fast Foods</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('ff-icon.png') %>  " alt="hamburger">
-				</article>
-				<article>
-					<div>
-						<h5>Pizzas and Calzones</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('pc-icon.png') %>" alt="pizza">
-				</article>
-				<article>
-					<div>
-						<h5>Drinks and Beverages</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('db-icon.png') %>" alt="drinks">
-				</article>
-			</article>
-			<article id="dishes-right">
-				<article>
-					<div>
-						<h5>Steak and Chicken</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('sc-icon.png') %>" alt="steak">
-				</article>
-				<article>
-					<div>
-						<h5>Sandwiches and Subs</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('sa-icon.png') %>" alt="sandwiches">
-				</article>
-				<article>
-					<div>
-						<h5>Desserts and Sweets</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-					</div>
-					<img src="<%= image_path('ds-icon.png') %>" alt="desserts">
-				</article>
-			</article>
-			<img src="<%= image_path('deli-badge.png') %>" alt="deli-badge">
-		</section>
-		<!--/OUR DISHES-->
+<section id="our-dishes">
+  <img src="<%= image_path('title-detail.png')%>" alt="title-detail">
+  <h2>Our Dishes</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <hr>
+  <article id="dishes-left">
+    <% for index_types_dishes_left in 0 ... (@type.size/2) %>
+      <article>
+        <div>
+          <!-- <h5>Entrees and Fast Foods</h5> -->
+          <h5>
+            <%= @type[index_types_dishes_left].name %>
+          </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+        </div>
+        <img src="<%= image_path('ff-icon.png') %>  " alt="hamburger">
+      </article>
+      <!-- <article>
+        <div>
+          <h5>Drinks and Beverages</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+        </div>
+        <img src="<%= image_path('db-icon.png') %>" alt="drinks">
+      </article> -->
+      <% end %>
+  </article>
+  <article id="dishes-right">
+    <% for index_types_dishes_left in @type.size/2 ... @type.size %>
+      <article>
+        <div>
+          <h5>
+            <%= @type[index_types_dishes_left].name %>
+          </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+        </div>
+        <img src="<%= image_path('ff-icon.png') %>  " alt="hamburger">
+      </article>
+      <!-- <article>
+        <div>
+          <h5>Drinks and Beverages</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+        </div>
+        <img src="<%= image_path('db-icon.png') %>" alt="drinks">
+      </article> -->
+      <% end %>
+        <!-- <article>
+      <div>
+        <h5>Steak and Chicken</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+      </div>
+      <img src="<%= image_path('sc-icon.png') %>" alt="steak">
+    </article>
+    <article>
+      <div>
+        <h5>Desserts and Sweets</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
+      </div>
+      <img src="<%= image_path('ds-icon.png') %>" alt="desserts">
+    </article>
+  </article> -->
+
+</section>
+<!--/OUR DISHES-->
