@@ -1,12 +1,12 @@
 <main>
     <section id="popular-dishes">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
-        <h2>Nos restaurants</h2>
+        <h2>Nos Plats</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <hr>
-        <ul class="dishes resto">
-            <% @restaurants.each do |resto|%>
-                <%= render 'restaurant', item: resto%>
+        <ul class="dishes">
+            <% @dishes.each do |dish|%>
+                <%= render 'dish', item: dish%>
                     <%end%>
         </ul>
     </section>
