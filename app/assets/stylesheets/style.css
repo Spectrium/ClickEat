@@ -931,7 +931,7 @@ ul.dishes>li>div>img[alt='menu-dish'] {
 }
 
 ul.dishes img[alt='plus-icon'] {
-    margin-top: 65px;
+    margin-top: 110px;
     margin-left: -200px;
     opacity: 0;
 }
@@ -950,7 +950,7 @@ ul.dishes img[alt='plus-icon']+p {
 
 ul.dishes img[alt~='item'] {
     position: absolute;
-    top: 155px;
+    top: 230px;
     left: 50%;
     margin-left: -35px;
 }
