@@ -13,4 +13,3 @@ import "../admin/vendor/metisMenu/metisMenu.min"
 // import "../admin/vendor/morrisjs/morris.min"
 // import "../admin/data/morris-data"
 import "../admin/dist/js/sb-admin-2"
-//= require Chart.min
