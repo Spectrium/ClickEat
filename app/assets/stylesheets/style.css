@@ -647,19 +647,46 @@ header ul.main-slider li a.square-button {
 }
 
 header ul.main-slider li.first {
-    background: url('dots-texture.png') repeat, url('slider01.jpg') center;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background1.jpg') center;
+    background-color: #00000000;
+    background-position-x: 0%, center;
+    background-position-y: 0%, center;
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background1.jpg') center;
+    background-size: auto, auto;
+    background-origin: padding-box, padding-box;
+    background-clip: border-box, border-box;
     background-size: 2px 2px, cover;
     -webkit-background-size: 2px 2px, cover;
 }
 
 header ul.main-slider li.second {
-    background: url('dots-texture.png') repeat, url('slider02.jpg') center;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background2.jpg') center;
+    background-color: #00000000;
+    background-position-x: 0%, center;
+    background-position-y: 0%, center;
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background2.jpg') center;
+    background-size: auto, auto;
+    background-origin: padding-box, padding-box;
+    background-clip: border-box, border-box;
     background-size: 2px 2px, cover;
     -webkit-background-size: 2px 2px, cover;
 }
 
 header ul.main-slider li.third {
-    background: url('dots-texture.png') repeat, url('slider03.jpg') center;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background3.jpg') center;
+    background-color: #00000000;
+    background-position-x: 0%, center;
+    background-position-y: 0%, center;
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background: url('/assets/dots-texture.png') repeat, url('/assets/background3.jpg') center;
+    background-size: auto, auto;
+    background-origin: padding-box, padding-box;
+    background-clip: border-box, border-box;
     background-size: 2px 2px, cover;
     -webkit-background-size: 2px 2px, cover;
 }
