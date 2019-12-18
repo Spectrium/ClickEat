@@ -12,10 +12,27 @@
                         <h6 class="name-profil2">
                             <%= @restaurant.name%>
                         </h6>
-
+                    <div>
+                        <p>
+                            Location: <%= @restaurant.location%>
+                        </p>
+                        <p>
+                            Téléphone: <%= @restaurant.phone_number%>
+                        </p>
+                        <p>
+                            Email: <%= @restaurant.email%>
+                        </p>
+                    </div>
                 </div>
             </section>
-
+                <h6 class="name-profil2">
+                    Ici se trouve nos plats.
+                </h6>
+                <ul class="dishes">
+                    <% @dishes.each do |dish|%>
+                    <%= render 'restodish', item: dish%>
+                        <%end%>
+                </ul>
         </section>
 
 </main>
