@@ -1,7 +1,7 @@
 <li>
     <div>
         <%= image_tag item.logo, alt:"menu-dish" %>
-            <a href="/assets/menu/full_size.png">
+            <a href="<%=restaurant_path(item.id)%>">
                 <div>
                     <img src="/assets/plus-icon.png" alt="plus-icon">
                     <p>Click pour en savoir plus</p>
