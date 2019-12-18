@@ -81,7 +81,12 @@
         -webkit-background-size: 2px 2px, cover;
     }
     
-    .profil-image {
+    .image-cover {
+        width: 100%;
+    }
+    
+    .image-profil {
+        width: 30%;
         margin-top: -10%;
         margin-left: 2%;
     }
@@ -90,6 +95,16 @@
         position: absolute;
         margin-top: -5%;
         margin-left: 25%;
+    }
+    
+    .name-profil2 {
+        color: #ffa800;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    
+    .position-profil {
+        text-align: center;
     }
     /*** image profil */
     /****logo arrangement*/

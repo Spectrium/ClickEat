@@ -1,18 +1,21 @@
 <main>
-<%= render 'layouts/navbar'%>
-    <section id="blog">
-        
-        <article>
-             <%= image_tag @restaurant.picture, class:"image_cover"%>
-        </article>
-
+    <%= render 'layouts/navbar'%>
         <section>
-        <div>
-            <h6 class="name-profil">Home / Blog Left</h6>
-            <%= image_tag @restaurant.logo, class:"image_profil"%>
-        </div>
-        </section>
 
-    </section>
+            <article>
+                <%= image_tag @restaurant.picture, class:"image-cover"%>
+            </article>
+
+            <section>
+                <div class="position-profil">
+                    <%= image_tag @restaurant.logo, class:"image-profil"%>
+                        <h6 class="name-profil2">
+                            <%= @restaurant.name%>
+                        </h6>
+
+                </div>
+            </section>
+
+        </section>
 
 </main>
