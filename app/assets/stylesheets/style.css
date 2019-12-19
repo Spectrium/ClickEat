@@ -768,13 +768,13 @@ header ul.main-slider h2 {
 #dishes-left {
     width: 300px;
     float: left;
-    margin-left: 8%;
+    margin-left: 20%;
 }
 
 #dishes-right {
     width: 300px;
     float: right;
-    margin-right: 8%;
+    margin-right: 20%;
 }
 
 #dishes-left>article,
@@ -896,19 +896,21 @@ ul.dishes {
 
 ul.dishes>li {
     float: left;
-    width: 270px;
-    padding-bottom: 20px;
+    width: 360px;
+    padding-bottom: 10px;
     margin: 0 30px 30px 0;
     border: 1px solid #dfdfdf;
     text-align: center;
     position: relative;
+    left: 15px;
+    
 }
 
 
     
 
 ul.dishes>li:nth-child(4n+4) {
-    margin-right: 0;
+    margin-top: auto;
 }
 
 ul.dishes>li>div {
