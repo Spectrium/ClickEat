@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row col-12">
             <div class="col-md-8">
-                <%= image_tag("")%>
+                <%= image_tag(item.picture)%>
             </div>
             <div class="col-md-4">
-                <%= content_tag(:h1, "Nom du plat",:class => "title-dish") %>
-                    <%= content_tag(:h2, "Nom du Resto associer")%>
-                        <%= content_tag(:h3, "Description:",:class => "title-dish")%>
-                            <%= content_tag(:p, "lorem bla bla bbablablablablabalablabalalal")%>
+                <%= content_tag(:h1, item.name,:class => "title-dish") %>
+                    <%= content_tag(:h2, item.restaurant.name)%>
+                        <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
+                            <%= content_tag(:p, item.description)%>
             </div>
         </div>
         <div class="row col-12">
             <div class="col-md-8">
                 <%= content_tag(:h3 ,"Price :",:class => "title-dish-price")%>
-
+                <%= content_tag(:p, item.price)%>
             </div>
         </div>
     </div>
