@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_135926) do
 
   create_table "types", force: :cascade do |t|
     t.string "name"
+    t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

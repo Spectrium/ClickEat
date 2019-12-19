@@ -66,9 +66,9 @@ end
 
 #Types des plats
 type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chaudes"]
-
+icon = ["db-icon.png","ds-icon.png","ff-icon.png","sc-icon.png"]
 for index in 0..3 do
-    Type.create(name: type[index])
+    Type.create(name: type[index], icon: icon[index])
 end
 #Categories des plats
 boissons = ["Alcoolisés",
