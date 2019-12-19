@@ -1,0 +1,15 @@
+<li>
+    <div>
+        <%= image_tag item.picture, alt:"menu-dish" %>
+        <a href="<%=dish_path(item.id)%>">
+            <div>
+                <img src="/assets/plus-icon.png" alt="plus-icon">
+                <p>Click to enlarge</p>
+            </div>
+                </a>
+    </div>
+    <img src="/assets/menu-cat4.png" alt="burger item">
+    <h5><%= item.name %></h5>
+    <p><%= item.description %></p>
+    <p><%= item.price %> MGA</p>
+</li>

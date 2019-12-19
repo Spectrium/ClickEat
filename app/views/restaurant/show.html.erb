@@ -1,0 +1,38 @@
+<main>
+    <%= render 'layouts/navbar'%>
+        <section id="blog">
+
+            <article>
+                <%= image_tag @restaurant.picture, class:"image-cover"%>
+            </article>
+
+            <section>
+                <div class="position-profil">
+                    <%= image_tag @restaurant.logo, class:"image-profil"%>
+                        <h6 class="name-profil2">
+                            <%= @restaurant.name%>
+                        </h6>
+                    <div>
+                        <p>
+                            Location: <%= @restaurant.location%>
+                        </p>
+                        <p>
+                            Téléphone: <%= @restaurant.phone_number%>
+                        </p>
+                        <p>
+                            Email: <%= @restaurant.email%>
+                        </p>
+                    </div>
+                </div>
+            </section>
+                <h6 class="name-profil2">
+                    Ici se trouve nos plats.
+                </h6>
+                <ul class="dishes">
+                    <% @dishes.each do |dish|%>
+                    <%= render 'restodish', item: dish%>
+                        <%end%>
+                </ul>
+        </section>
+
+</main>
