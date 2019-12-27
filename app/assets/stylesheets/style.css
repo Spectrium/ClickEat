@@ -126,12 +126,17 @@
     /***************************************/
     /*Color header dish*/
     
+    .size-picture {
+        width: 100%
+    }
+    
     .title-dish {
         color: #ffa800;
     }
     
     .title-dish-price {
         color: rgba(46, 45, 45, 0.7);
+        font-size: 40px;
     }
     /*Color header dish*/
     /* 1. RESET */
