@@ -1,4 +1,5 @@
 <main>
+<<<<<<< HEAD
 
   <%= render 'layouts/navbar' %>
     <%= render 'layouts/dishes' %>
@@ -7,6 +8,16 @@
           <%= render 'layouts/reviews' %>
             <%= render 'layouts/contact' %>
               <%= render 'layouts/footer' %>
+=======
+    <!-- <%= render 'layouts/loader'%> -->
+    <!-- <%= loading_screen gif: 'loader.gif', background: 'white' %> -->
+    <%= render 'layouts/navbar' %>
+        <%= render 'layouts/main-slider'%>
+            <%= render 'layouts/dishes' %>
+                <%= render 'layouts/popular-restaurants' %>
+                    <%= render 'layouts/populardishes' %>
+                        <%= render 'layouts/footer' %>
+>>>>>>> Merge_front_data
 
 
 </main>
@@ -23,7 +34,11 @@
 <!-- Main -->
 <script type="text/javascript" src="/assets/main.js"></script>
 <!-- Validate -->
+<<<<<<< HEAD
 <!-- <script type="text/javascript" src="/assets/main-validate.js"></script> -->
+=======
+<script type="text/javascript" src="/assets/main-validate.js"></script>
+>>>>>>> Merge_front_data
 <!-- Contact -->
 <script type="text/javascript" src="/assets/contact.js"></script>
 <!-- Google Maps API -->
@@ -33,6 +48,7 @@
 <script type="text/javascript" src="/assets/gmaps.js"></script>
 <script type="text/javascript" src="/assets/pager.js"></script>
 <script>
+<<<<<<< HEAD
   $(function() {
     /*-----------------
     	MAIN SLIDER
@@ -79,4 +95,51 @@
       closeMarkup: '<span class="mfp-close"></span>'
     });
   });
+=======
+    $(function() {
+        /*-----------------
+            MAIN SLIDER
+        -----------------*/
+        $('.main-slider').bxSlider({
+            pagerCustom: '.pager-container',
+            controls: false,
+            easing: 'ease-in',
+            speed: 800,
+            auto: true,
+            pause: 6000
+        });
+        /*-------------
+                    	VIDEO
+                    -------------*/
+        $('#video .radial-progress').on('click', function() {
+            $('#video > iframe').show();
+        });
+
+        /*----------------
+        	TOOLTIP
+        ----------------*/
+        $('.tooltip').tooltipster({
+            animation: 'grow',
+            position: 'bottom'
+        });
+
+        /*-----------------
+        	RESIZE IMAGE
+        -----------------*/
+        $("figure.imgLiquidFill").imgLiquid();
+
+        /*----------------
+        	IMAGE POPUP
+        ----------------*/
+        $('ul.dishes > li > div > a').magnificPopup({
+            type: 'image',
+            removalDelay: 300,
+            mainClass: 'mfp-fade',
+            image: {
+                tError: 'The image could not be loaded.'
+            },
+            closeMarkup: '<span class="mfp-close"></span>'
+        });
+    });
+>>>>>>> Merge_front_data
 </script>

@@ -1,0 +1,14 @@
+<main>
+    <section id="popular-dishes">
+        <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
+        <h2>Nos <%=@type.name%></h2>
+        <hr>
+        <ul class="dishes">
+            <% @category.each do |category|%>
+                <% category.dishes.each do |dish|%>
+                    <%= render 'dish', item: dish%>
+                <%end%>
+            <%end%>
+        </ul>
+    </section>
+</main>

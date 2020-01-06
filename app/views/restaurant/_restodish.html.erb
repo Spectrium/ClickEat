@@ -1,0 +1,19 @@
+
+<tr>
+  <td data-th="Product">
+    <!-- <div class="row"> -->
+      <%= image_tag item.picture, alt:"menu-dish",class: "img" %>
+    <!-- </div> -->
+  </td>
+  
+  <td data-th="title">
+    <p><%= item.name %></p>
+  </td>
+
+  <td class="hidden-xs"><%= item.description %></td>
+
+  <td data-th="Price"><%= item.price %> MGA</td>
+ 
+ <td><span class="box">Commander</span></td>
+        
+</tr>

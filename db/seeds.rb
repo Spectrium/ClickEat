@@ -120,9 +120,9 @@ end
 
 #Types des plats
 type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chaudes"]
-
+icon = ["db-icon.png","ds-icon.png","ff-icon.png","sc-icon.png"]
 for index in 0..3 do
-    Type.create(name: type[index])
+    Type.create(name: type[index], icon: icon[index])
 end
 #Categories des plats
 boissons = ["Alcoolisés",
@@ -281,41 +281,41 @@ end
 
 for index in 0..4 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 1 ,category_dish_id: rand(1..24))
 end
 for index in 5..9 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 2 ,category_dish_id: rand(1..24))
 end
 for index in 10..14 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 3 ,category_dish_id: rand(1..24))
 end
 for index in 15..19 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 4 ,category_dish_id: rand(1..24))
 end
 for index in 20..24 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 5 ,category_dish_id: rand(1..24))
 end
 for index in 25..29 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 6 ,category_dish_id: rand(1..24))
 end
 for index in 30..34 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 7 ,category_dish_id: rand(1..24))
 end
 for index in 35..39 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..40)}.jpg" ,
+        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 8 ,category_dish_id: rand(1..24))
 end

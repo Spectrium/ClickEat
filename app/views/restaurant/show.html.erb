@@ -1,0 +1,62 @@
+<main>
+    <%= render 'layouts/navbar'%>
+        <section id="blog">
+
+            <article>
+                <%= image_tag @restaurant.picture, class:"image-cover"%>
+            </article>
+
+            <section>
+                <div class="position-profil">
+                    <%= image_tag @restaurant.logo, class:"image-profil"%>
+                        <h6 class="name-profil2">
+                            <%= @restaurant.name%>
+                        </h6>
+                        <div>
+                            <p>
+                                Location:
+                                <%= @restaurant.location%>
+                            </p>
+                            <p>
+                                Téléphone:
+                                <%= @restaurant.phone_number%>
+                            </p>
+                            <p>
+                                Email:
+                                <%= @restaurant.email%>
+                            </p>
+                        </div>
+                </div>
+            </section>
+            <h6 class="name-profil2">
+                Ici se trouve nos plats.
+            </h6>
+            <div class="container">
+                <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                        <tr class="header-table">
+                            <th style="width:10%">Plats</th>
+                            <th style="width:18%">Nom</th>
+                            <th style="width:25%">Description</th>
+                            <th style="width:12%">Prix</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @dishes.each do |dish|%>
+                            <%= render 'restodish', item: dish%>
+                                <%end%>
+                    </tbody>
+
+                </table>
+            </div>
+        </section>
+
+</main>
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="table.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">

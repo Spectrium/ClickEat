@@ -8,11 +8,16 @@
 
       <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+                  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+                <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+                    <link rel="stylesheet" href="style.css">
+
+                    <link rel="stylesheet" href="tooltipster.css">
+                    <link rel="stylesheet" href="magnific-popup.css">
 </head>
 
 <body>
   <%= yield %>
 </body>
-
 </html>
