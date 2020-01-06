@@ -6,6 +6,60 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# user
+emails =  ["danielrazafindrakoto@gmail.com",
+            "joellerakoto@gmail.com",
+            "razafi@gmail.com",
+            "rabe@gmail.com",
+            "randria@gmail.com",
+            "tefisoa@gmail.com",
+            "njakaarijao@gmail.com",
+            "livajaona@yahoo.com",
+            "ndrianakely@hotmail.com",
+            "landryrajao@livemail.fr"]
+
+first_names = ["Daniel",
+               "Joelle",
+               "Ra",
+               "Ra",
+                "Ran",
+                "Tefy",
+                "Njaka",
+                "Liva",
+                "Ndriana",
+                "Landry"]
+last_names = ["Razafindrakoto",
+              "Rakoto",
+              "Rabe",
+              "Randria",
+              "Soa",
+              "Ary",
+              "Jaona",
+              "Kely",
+              "Rajao"]
+# usernames
+usernames = ["Daniel",
+    "Joelle",
+    "Ra",
+    "Ra",
+     "Ran",
+     "Tefy",
+     "Njaka",
+     "Liva",
+     "Ndriana",
+     "Landry"]
+
+for index_user in 0 ... last_names.size do
+    User.create(email:emails[index_user],first_name:first_names[index_user],last_name:last_names[index_user],username:usernames[index_user],password:"sayna2019")
+end
+# cart_id
+ for index_cart in 0 ... 10 do
+    Cart.create(user:User.find_by(id: index_cart))
+ end
+
+
+
 # Categories des Specialités de restaurant
 categories = ["Malagasy",
     "Asiatique",
