@@ -39,6 +39,9 @@ module AdminSite
 
         if @user_to_edit.save && current_admin.valid_password?(params[:password])
           flash[:success] = 'L\'utilisateur a été mis à jour avec succès'
+          if params[:avatar]
+            @user_to_edit.avatar.attach(params[:avatar])
+          end
           redirect_to admin_site_users_path
         else
           if !current_admin.valid_password?(params[:password])

@@ -1,7 +1,8 @@
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Editer un utilisateur</h1>
+      <h1 class="page-header">Editer un utilisateur
+      </h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -15,7 +16,10 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Formulaire de modification d'un utilisateur
+          <span style="font-size: 23px;font-weight: bold;">
+            Formulaire de modification d'un utilisateur</span> |
+          <a href="<%= admin_site_users_path %>"><i class="fa fa-plus fa-fw"></i>Listes des utilisateurs</a> &nbsp; |
+          <a href="<%= new_admin_site_user_path %>"><i class="fa fa-edit fa-fw"></i>Créer un nouvel utilisateur utilisateur</a>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
@@ -35,95 +39,99 @@
                         Avatar<span style="color:red;">*</span>:
                         <% end %>
                           &nbsp;&nbsp;&nbsp;&nbsp;
-                          <img id="avatar_image" class="img-thumbnail img-circle" src="/assets/profil_defaut.png" alt="avatar" style="max-width: 15%">
-                          <%= file_field_tag 'avatar'%>
-                            <br>
-                            <br>
-                            <% unless @user_to_edit && @user_to_edit.errors.messages[:email].any? %>
-                              <%= label_tag 'Email' do %>
-                                Email<span style="color:red;">*</span>:
+                          <% if @user_to_edit.avatar.attached? %>
+                            <%= image_tag( @user_to_edit.avatar, id:"avatar_image", class:"img-thumbnail img-circle", alt:"avatar", style:"max-width: 15%") %>
+                              <% else %>
+                                <img id="avatar_image" class="img-thumbnail img-circle" src="/assets/profil_defaut.png" alt="avatar" style="max-width: 15%">
                                 <% end %>
-                                  <%= text_field_tag 'email',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.email : nil }" %>
-                                    <% else %>
-                                      <%= label_tag 'email', 'Email:', style:'color: #a94442;' %>
-                                        <%= text_field_tag 'email',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.email %>
-                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                  <%= file_field_tag 'avatar'%>
+                                    <br>
+                                    <br>
+                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:email].any? %>
+                                      <%= label_tag 'Email' do %>
+                                        Email<span style="color:red;">*</span>:
+                                        <% end %>
+                                          <%= text_field_tag 'email',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.email : nil }" %>
+                                            <% else %>
+                                              <%= label_tag 'email', 'Email:', style:'color: #a94442;' %>
+                                                <%= text_field_tag 'email',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.email %>
+                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                             <%= @user_to_edit.errors.messages[:email].uniq.join(", ") %>
                                           </span>
-                                          <% end %>
+                                                  <% end %>
 
-                                            <br>
-                                            <% unless @user_to_edit && @user_to_edit.errors.messages[:username].any? %>
-                                              <%= label_tag 'username' do %>
-                                                Nom d'utilisateur<span style="color:red;">*</span>:
-                                                <% end %>
-                                                  <%= text_field_tag 'username',nil, class:'form-control',value:"#{ @user_to_edit ? @user_to_edit.username : nil }" %>
-                                                    <% else %>
-                                                      <%= label_tag 'username', 'Nom d\'utilisateur:', style:'color: #a94442;' %>
-                                                        <%= text_field_tag 'username',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.username %>
-                                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                    <br>
+                                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:username].any? %>
+                                                      <%= label_tag 'username' do %>
+                                                        Nom d'utilisateur<span style="color:red;">*</span>:
+                                                        <% end %>
+                                                          <%= text_field_tag 'username',nil, class:'form-control',value:"#{ @user_to_edit ? @user_to_edit.username : nil }" %>
+                                                            <% else %>
+                                                              <%= label_tag 'username', 'Nom d\'utilisateur:', style:'color: #a94442;' %>
+                                                                <%= text_field_tag 'username',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.username %>
+                                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                                             <%= @user_to_edit.errors.messages[:username].uniq.join(", ") %>
                                                           </span>
-                                                          <% end %>
-                                                            <br>
+                                                                  <% end %>
+                                                                    <br>
 
-                                                            <% unless @user_to_edit && @user_to_edit.errors.messages[:first_name].any? %>
-                                                              <%= label_tag 'first_name' do %>
-                                                                Prenom(s)<span style="color:red;">*</span>:
-                                                                <% end %>
-                                                                  <%= text_field_tag 'first_name',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.first_name : nil }"  %>
-                                                                    <% else %>
-                                                                      <%= label_tag 'first_name', 'Prenom(s):', style:'color: #a94442' %>
-                                                                        <%= text_field_tag 'first_name',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.first_name %>
-                                                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:first_name].any? %>
+                                                                      <%= label_tag 'first_name' do %>
+                                                                        Prenom(s)<span style="color:red;">*</span>:
+                                                                        <% end %>
+                                                                          <%= text_field_tag 'first_name',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.first_name : nil }"  %>
+                                                                            <% else %>
+                                                                              <%= label_tag 'first_name', 'Prenom(s):', style:'color: #a94442' %>
+                                                                                <%= text_field_tag 'first_name',nil, class:'form-control', style:'border-color: #a94442;',value:@user_to_edit.first_name %>
+                                                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                                                             <%= @user_to_edit.errors.messages[:first_name].uniq.join(", ") %>
                                                                           </span>
-                                                                          <% end %>
-                                                                            <br>
+                                                                                  <% end %>
+                                                                                    <br>
 
-                                                                            <% unless @user_to_edit && @user_to_edit.errors.messages[:last_name].any? %>
-                                                                              <%= label_tag 'last_name' do %>
-                                                                                Nom(s)<span style="color:red;">*</span>:
-                                                                                <% end %>
-                                                                                  <%= text_field_tag 'last_name',nil, class:'form-control',value:"#{ @user_to_edit ? @user_to_edit.last_name : nil }"  %>
-                                                                                    <% else %>
-                                                                                      <%= label_tag 'last_name', 'Nom(s):', style:'color: #a94442' %>
-                                                                                        <%= text_field_tag 'last_name',nil, class:'form-control' ,style:'border-color: #a94442;',value:@user_to_edit.last_name %>
-                                                                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:last_name].any? %>
+                                                                                      <%= label_tag 'last_name' do %>
+                                                                                        Nom(s)<span style="color:red;">*</span>:
+                                                                                        <% end %>
+                                                                                          <%= text_field_tag 'last_name',nil, class:'form-control',value:"#{ @user_to_edit ? @user_to_edit.last_name : nil }"  %>
+                                                                                            <% else %>
+                                                                                              <%= label_tag 'last_name', 'Nom(s):', style:'color: #a94442' %>
+                                                                                                <%= text_field_tag 'last_name',nil, class:'form-control' ,style:'border-color: #a94442;',value:@user_to_edit.last_name %>
+                                                                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                                                                             <%= @user_to_edit.errors.messages[:last_name].uniq.join(", ") %>
                                                                                           </span>
-                                                                                          <% end %>
-                                                                                            <br>
+                                                                                                  <% end %>
+                                                                                                    <br>
 
-                                                                                            <% unless @user_to_edit && @user_to_edit.errors.messages[:password].any? %>
-                                                                                              <%= label_tag 'password' do %>
-                                                                                                Mot de passe<span style="color:red;">*</span>:
-                                                                                                <% end %>
-                                                                                                  <%= password_field_tag 'password',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.password : nil }"  %>
-                                                                                                    <% else %>
-                                                                                                      <%= label_tag 'password', 'Password:', style:'color: #a94442' %>
-                                                                                                        <%= password_field_tag 'password',nil, class:'form-control',style:'border-color: #a94442;',value:@user_to_edit.password  %>
-                                                                                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:password].any? %>
+                                                                                                      <%= label_tag 'password' do %>
+                                                                                                        Mot de passe<span style="color:red;">*</span>:
+                                                                                                        <% end %>
+                                                                                                          <%= password_field_tag 'password',nil, class:'form-control', value:"#{ @user_to_edit ? @user_to_edit.password : nil }"  %>
+                                                                                                            <% else %>
+                                                                                                              <%= label_tag 'password', 'Password:', style:'color: #a94442' %>
+                                                                                                                <%= password_field_tag 'password',nil, class:'form-control',style:'border-color: #a94442;',value:@user_to_edit.password  %>
+                                                                                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                                                                                             <%= @user_to_edit.errors.messages[:password].uniq.join(", ") %>
                                                                                                           </span>
-                                                                                                          <% end %>
-                                                                                                            <br>
+                                                                                                                  <% end %>
+                                                                                                                    <br>
 
-                                                                                                            <% unless @user_to_edit && @user_to_edit.errors.messages[:phone_number].any? %>
-                                                                                                              <%= label_tag 'phone_number' do %>
-                                                                                                                Telephone: (+261)<span style="color:red;">*</span>:
-                                                                                                                <% end %>
-                                                                                                                  <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061", value:"#{ @user_to_edit && @user_to_edit.phone_number ? @user_to_edit.get_phone_number : nil }" %>
-                                                                                                                    <% else %>
-                                                                                                                      <%= label_tag 'phone_number', 'Telephone:* (+261)', style:'color: #a94442' %>
-                                                                                                                        <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061",style:'border-color: #a94442;',value:@user_to_edit.phone_number  %>
-                                                                                                                          <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                                                                    <% unless @user_to_edit && @user_to_edit.errors.messages[:phone_number].any? %>
+                                                                                                                      <%= label_tag 'phone_number' do %>
+                                                                                                                        Telephone: (+261)<span style="color:red;">*</span>:
+                                                                                                                        <% end %>
+                                                                                                                          <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061", value:"#{ @user_to_edit && @user_to_edit.phone_number ? @user_to_edit.get_phone_number : nil }" %>
+                                                                                                                            <% else %>
+                                                                                                                              <%= label_tag 'phone_number', 'Telephone:* (+261)', style:'color: #a94442' %>
+                                                                                                                                <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061",style:'border-color: #a94442;',value:@user_to_edit.phone_number  %>
+                                                                                                                                  <span style="color: #a94442; font-size:12px; font-style:italic">
                                                                                                                             <%= @user_to_edit.errors.messages[:password].uniq.join(", ") %>
                                                                                                                           </span>
-                                                                                                                          <% end %>
-                                                                                                                            <br>
-                                                                                                                            <%= submit_tag "Mettre à jour", class:"btn btn-primary" %>
-                                                                                                                              <% end %>
+                                                                                                                                  <% end %>
+                                                                                                                                    <br>
+                                                                                                                                    <%= submit_tag "Mettre à jour", class:"btn btn-primary" %>
+                                                                                                                                      <% end %>
                   </div>
         </div>
         <!-- /.panel-body -->
