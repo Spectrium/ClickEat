@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :test
   resources :restaurant
   resources :dish
-  resources :type only: [:show]
+  resources :type ,only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
