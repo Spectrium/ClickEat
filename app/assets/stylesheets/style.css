@@ -84,6 +84,7 @@
     .image-cover {
         width: 100%;
         margin-top: -60px;
+        
     }
     
     .image-profil {
@@ -3158,5 +3159,584 @@
         }
         #comments>ul>li.response {
             margin-left: 30px;
+        }
+    }
+    /*------------------designer footer edit
+    ----*/
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .footer {
+        background: #0c0c0c !important;
+        padding: 40px 0px;
+        overflow: hidden;
+        border-top: 10px solid #0c0c0c;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        font-stretch: normal;
+        font-size: 12px;
+        line-height: 18px;
+        font-family: Raleway, Arial, Helvetica, sans-serif;
+        color: rgb(182, 189, 195);
+        float: inline-end;
+        margin-top: 0%;
+
+margin-right: 4%;
+
+width: 92%;
+    }
+    
+    .wrapper {
+        width: 1100px;
+        margin: 0px auto;
+    }
+    
+    .footnav {
+        border-bottom: 1px solid rgb(21, 76, 123);
+        margin: 0px 5% 25px;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+    
+    .footnav li {
+        list-style: none;
+        padding: 0px 0px 0px 10px;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        font-stretch: normal;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: Raleway, Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+    }
+    
+    .fa {
+        display: inline-block;
+    }
+    
+    .greedot {
+        background: url("http://www.marketresearchnreports.com/image/catalog/img/sprite.png") -64px top no-repeat;
+        height: 7px;
+        padding: 0px 13px 0px 0px;
+        width: 7px;
+    }
+    
+    a {
+        transition: all 0.3s ease-out 0s;
+    }
+    
+    .footer a {
+        font-size: 12px;
+        text-decoration: none;
+        color: rgb(182, 189, 195);
+        padding-right: 10px;
+    }
+    
+    .footer a:hover {
+        color: rgb(141, 202, 44);
+    }
+    
+    .splitleft {
+        float: left;
+        width: 30%;
+        padding-right: 2%;
+        border-right: 1px solid rgb(21, 76, 123);
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    .copyright {
+        padding: 20px 0px 10px;
+        text-transform: uppercase;
+    }
+    
+    .social {
+        padding: 20px 0px 0px;
+    }
+    
+    .social a,
+    .widgetbox .row a {
+        background: url("http://www.marketresearchnreports.com/image/catalog/img/sprite.png") no-repeat;
+        width: 34px;
+        height: 34px;
+        display: inline-block;
+    }
+    
+    .social a:hover,
+    .widgetbox .row a:hover {
+        opacity: 0.8;
+    }
+    
+    .social a.fb,
+    .widgetbox .row a.fb {
+        background-position: 0px -318px;
+    }
+    
+    .social a.twitter,
+    .widgetbox .row a.twitter {
+        background-position: -44px -318px;
+    }
+    
+    .social a.rss,
+    .widgetbox .row a.rss {
+        background-position: -88px -318px;
+    }
+    
+    .social a.gplus,
+    .widgetbox .row a.gplus {
+        background-position: -132px -318px;
+    }
+    
+    .splitmid {
+        float: left;
+        width: 35%;
+        padding: 0px 2%;
+        border-right: 1px solid rgb(21, 76, 123);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 13px;
+    }
+    
+    .footer h3 {
+        color: rgb(141, 202, 44);
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        font-stretch: normal;
+        font-size: 19px;
+        line-height: 25px;
+        font-family: Raleway, Arial, Helvetica, sans-serif;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+    }
+    
+    .newsletterBox {
+        overflow: hidden;
+        margin: 20px 0px;
+    }
+    
+    .txtfld {
+        background: rgb(255, 255, 255);
+        border: 0px;
+        width: 70%;
+        height: 30px;
+        float: left;
+        padding: 5px 5%;
+    }
+    
+    .btn {
+        background: rgb(138, 173, 85);
+        cursor: pointer;
+        border: 0px;
+        width: 20%;
+        height: 40px;
+        float: left;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        font-stretch: normal;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: Raleway, Arial, Helvetica, sans-serif;
+    }
+    
+    .splitmid img {
+        margin: 0px 5px;
+    }
+    
+    .splitright {
+        float: right;
+        width: 27%;
+        padding-left: 1.5%;
+        font-size: 13px;
+    }
+    
+    .row {
+        padding: 10px 0px;
+    }
+    
+    .loc {
+        background: url("http://www.marketresearchnreports.com/image/catalog/img/sprite.png") left -357px no-repeat;
+        margin-right: 5px;
+        width: 15px;
+        height: 19px;
+    }
+    
+    .row strong {
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        font-stretch: normal;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: Raleway, Arial, Helvetica;
+    }
+    
+    .phone {
+        background: url("http://www.marketresearchnreports.com/image/catalog/img/sprite.png") -19px -357px no-repeat;
+        margin-right: 5px;
+        width: 13px;
+        height: 18px;
+    }
+    
+    .mail {
+        background: url("http://www.marketresearchnreports.com/image/catalog/img/sprite.png") -38px -357px no-repeat;
+        margin-right: 5px;
+        width: 18px;
+        height: 13px;
+    }
+    
+    @media only screen and (max-width: 1024px) and (min-width: 769px) {
+        .wrapper,
+        .container,
+        .navwrap {
+            width: 98%;
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .wrapper,
+        .container {
+            width: 98%;
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .wrapper,
+        .container {
+            width: 98%;
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 480px) {
+        .wrapper,
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .wrapper,
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav {
+            margin: 0px 0px 25px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav {
+            margin: 0px 0px 25px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li:first-child i {
+            display: inline-block !important;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .footnav li {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .footnav li {
+            display: block;
+            padding: 0px 0px 11px;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .greedot {
+            padding: 0px 5px 0px 0px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .splitleft,
+        .splitmid,
+        .splitright {
+            float: none;
+            width: 100%;
+            border-right: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: left;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .splitleft img {
+            width: 100%;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .splitleft img {
+            width: 100%;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .splitleft img {
+            width: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .splitleft img {
+            width: 100%;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .splitleft,
+        .splitmid,
+        .splitright {
+            float: none;
+            width: 100%;
+            border-right: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: left;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .txtfld {
+            width: 45%;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .txtfld {
+            width: 70%;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) and (min-width: 641px) {
+        .splitmid img {
+            margin: 10px 0px 5px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px) {
+        .splitmid img {
+            width: 43%;
+            padding-right: 2%;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .splitleft,
+        .splitmid,
+        .splitright {
+            float: none;
+            width: 100%;
+            border-right: 0px;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: left;
         }
     }
