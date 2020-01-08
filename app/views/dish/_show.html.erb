@@ -1,0 +1,18 @@
+<section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 size-picture">
+                <%= image_tag(item.picture)%>
+            </div>
+            <div class="col-md-4">
+                <%= content_tag(:h1, item.name,:class => "title-dish") %>
+                    <%= content_tag(:h2, item.restaurant.name)%>
+                        <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
+                            <%= content_tag(:p, item.description)%>
+                                <span class="title-dish-price">Price:<%= item.price%></span>
+                                <!-- <%= content_tag(:h3 ,"Price :",:class => "")%> -->
+                                <!-- <%= content_tag(:p, )%> -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,14 +1,14 @@
 <li>
     <div>
         <%= image_tag item.picture, alt:"menu-dish" %>
-            <a href="menu/full_size.png">
+            <a href="<%=dish_path(item.id)%>">
                 <div>
                     <img src="<%= image_path('plus-icon.png') %>" alt="plus-icon">
                     <p>Click to enlarge</p>
                 </div>
             </a>
     </div>
-    <img src="<%= image_path('menu-cat1.png') %>" alt="burger item">
+    <img src="<%= image_path(item.category_dish.type.icon) %>" >
     <h5>
         <%=item.name%>
     </h5>

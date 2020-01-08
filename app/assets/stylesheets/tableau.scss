@@ -1,16 +1,10 @@
-
-body {
-  background: #FFFFF0
+.header-table {
+    background: linear-gradient(to right, gold, darkorange);
+    color: white;
 }
 
-.header-table{
-        background: linear-gradient(to right, gold, darkorange);
-       color: white;
-    
-    }
-
 .row {
-    height: 100px;
+    // height: 100px;
 }
 
 .img {
@@ -27,32 +21,45 @@ body {
     cursor: pointer;
 }
 
-
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open>.dropdown-toggle.btn-danger {
     color: #fff;
-    background-color:#c9302c;
-    border-color:#ac2925;
+    background-color: #c9302c;
+    border-color: #ac2925;
 }
 
-.table>tbody>tr>td, .table>tfoot>tr>td{
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
     vertical-align: middle;
 }
 
 @media screen and (max-width: 600px) {
-    table#cart tbody td .form-control{
-        width:20%;
+    table#cart tbody td .form-control {
+        width: 20%;
         display: inline !important;
     }
-    
-    table#cart thead { display: none; }
-    table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
-    table#cart tbody tr td:first-child { background: #333; color: #fff; }
+    table#cart thead {
+        display: none;
+    }
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
     table#cart tbody td:before {
-        content: attr(data-th); font-weight: bold;
-        display: inline-block; width: 8rem;
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
     }
 }
-
 
 .box {
     background: linear-gradient(to right, gold, darkorange);
@@ -95,4 +102,3 @@ body {
 .box:hover::before {
     left: 100%;
 }
-    
