@@ -8,7 +8,7 @@
                 </div>
             </a>
     </div>
-    <img src="<%= image_path('menu-cat1.png') %>" alt="burger item">
+    <img src="<%= image_path(@type.icon) %>" alt="burger item">
     <h5>
         <%=item.name%>
     </h5>
@@ -18,4 +18,14 @@
     <p>
         <%=item.price%> MGA
     </p>
+    <div>
+            <%= link_to like_dish_path(item), method: :put do %>
+                <i class= "fa fa-thumbs-up fa-2x" ></i>
+            <% end %>
+            <%= link_to dislike_dish_path(item), method: :put do %>
+                <i class= "fa fa-thumbs-down fa-2x" ></i>
+            <% end %>
+            <br>
+            <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
+    </div>
 </li>

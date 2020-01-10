@@ -17,5 +17,15 @@
     </p>
     <p>
         <%=item.price%> MGA
+        <div>
+            <%= link_to like_dish_path(item), method: :put do %>
+                <i class= "fa fa-thumbs-up fa-2x" ></i>
+            <% end %>
+            <%= link_to dislike_dish_path(item), method: :put do %>
+                <i class= "fa fa-thumbs-down fa-2x" ></i>
+            <% end %>
+            <br>
+            <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
+        </div>
     </p>
 </li>

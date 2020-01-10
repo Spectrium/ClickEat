@@ -4,4 +4,5 @@ class Dish < ApplicationRecord
     belongs_to :category_dish
     has_many :details_orders
     has_many :orders, through: :details_orders
+    acts_as_votable
 end

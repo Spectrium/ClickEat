@@ -62,6 +62,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
+    acts_as_votable (0.12.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.7.3)
@@ -100,15 +101,15 @@ GEM
     faker (2.8.1)
       i18n (>= 1.6, < 1.8)
     ffi (1.11.3)
-    font_awesome_rails (0.0.4)
-      activesupport (>= 3.1.0)
-      sass (>= 3.2.0)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jquery (0.0.1)
     jquery-rails (4.3.5)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -182,11 +183,6 @@ GEM
       railties (>= 5.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.1)
@@ -247,6 +243,7 @@ PLATFORMS
 
 DEPENDENCIES
   activestorage
+  acts_as_votable
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3.1)
   byebug
@@ -254,9 +251,10 @@ DEPENDENCIES
   chart-js-rails
   devise
   faker
-  font_awesome_rails
+  font-awesome-rails
   gravatar_image_tag!
   jbuilder (~> 2.7)
+  jquery
   listen (>= 3.0.5, < 3.2)
   loading_screen (~> 0.2.3)
   pg (>= 0.18, < 2.0)

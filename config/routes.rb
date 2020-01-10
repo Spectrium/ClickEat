@@ -4,8 +4,18 @@ Rails.application.routes.draw do
   get 'home/index'
   
   resources :test
-  resources :restaurant
-  resources :dish
+  resources :restaurant do 
+    member do 
+      put 'like', to: "restaurant#upvote"
+      put 'dislike', to: "restaurant#downvote"
+    end
+  end
+  resources :dish do
+    member do 
+      put 'like', to: "dish#upvote"
+      put 'dislike', to: "dish#downvote"
+    end
+  end
   resources :type ,only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'connection/index'
