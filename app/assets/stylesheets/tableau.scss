@@ -64,7 +64,7 @@
 .box {
     background: linear-gradient(to right, gold, darkorange);
     color: white;
-    --width: 150px;
+    --width: 110px;
     --height: calc(var(--width) / 3);
     width: var(--width);
     height: var(--height);

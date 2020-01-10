@@ -1,3 +1,52 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*** image profil */
+
+.style-image-restuarant {
+    background: url('/assets/dots-texture.png') repeat;
+    background-color: #00000000;
+    background-position-x: 0%, center;
+    background-position-y: 0%, center;
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background: url('/assets/dots-texture.png') repeat;
+    background-size: auto, auto;
+    background-origin: padding-box, padding-box;
+    background-clip: border-box, border-box;
+    background-size: 2px 2px, cover;
+    -webkit-background-size: 2px 2px, cover;
+}
+
+.image-cover {
+    width: 100%;
+    height: 500px;
+    margin-top: -60px;
+}
+
+.image-profil {
+    width: 30%;
+    margin-top: -10%;
+    margin-left: 2%;
+}
+
+.name-profil {
+    color: #ffa800;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.name-profil2 {
+    color: #ffa800;
+    margin-top: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.position-profil {
+    text-align: center;
+}
+
+
+/*** image profil */
