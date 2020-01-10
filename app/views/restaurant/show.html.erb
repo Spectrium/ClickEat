@@ -26,6 +26,16 @@
                                 <%= @restaurant.email%>
                             </p>
                         </div>
+                        <div>
+                            <%= link_to like_restaurant_path(@restaurant), method: :put do %>
+                                <i class= "fa fa-thumbs-up fa-2x" ></i>
+                            <% end %>
+                            <%= link_to dislike_restaurant_path(@restaurant), method: :put do %>
+                                <i class= "fa fa-thumbs-down fa-2x" ></i>
+                            <% end %>
+                            <br>
+                            <%= @restaurant.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= @restaurant.get_downvotes.size %>
+                        </div>
                 </div>
             </section>
             <h6 class="name-profil2">
@@ -53,7 +63,7 @@
               
             </div>
         </section>
-
+    <%= render 'footerdish'%>
 </main>
 
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -62,5 +72,3 @@
 <link rel="stylesheet" href="table.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="style.css">
-
-<%= render 'footerdish'%>

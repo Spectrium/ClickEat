@@ -5,7 +5,8 @@ ruby '2.6.5'
 gem 'devise'
 gem 'table_print'
 gem 'faker'
-
+gem 'acts_as_votable'
+gem 'jquery'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
@@ -21,7 +22,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
-gem 'font_awesome_rails'
+gem 'font-awesome-rails'
 gem 'table_print'
 
 # chart

@@ -10,11 +10,15 @@
         <div>
           <!-- <h5>Entrees and Fast Foods</h5> --> 
           <h5>
+          <a href="<%=type_path(@type[index_types_dishes_left].id)%>">
             <%= @type[index_types_dishes_left].name %>
+          </a>
           </h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
         </div>
+          <a href="<%=type_path(@type[index_types_dishes_left].id)%>">
         <img src="<%= image_path(@type[index_types_dishes_left].icon) %>  " alt="hamburger"> <!-- <h5>Entrees and Fast Foods</h5> -->
+          </a>      
       </article>
       <!-- <article>
         <div>
@@ -30,11 +34,15 @@
       <article>
         <div>
           <h5>
+          <a href="<%=type_path(@type[index_types_dishes_left].id)%>">
             <%= @type[index_types_dishes_left].name %>
+            </a>
           </h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
         </div>
+        <a href="<%=type_path(@type[index_types_dishes_left].id)%>">
         <img src="<%= image_path( @type[index_types_dishes_left].icon ) %>  " alt="hamburger">
+        </a>
       </article>
       <!-- <article>
         <div>

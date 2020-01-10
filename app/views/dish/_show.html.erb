@@ -10,8 +10,16 @@
                         <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
                             <%= content_tag(:p, item.description)%>
                                 <span class="title-dish-price">Price:<%= item.price%></span>
-                                <!-- <%= content_tag(:h3 ,"Price :",:class => "")%> -->
-                                <!-- <%= content_tag(:p, )%> -->
+                                <div>
+                                    <%= link_to like_dish_path(item), method: :put do %>
+                                        <i class= "fa fa-thumbs-up fa-2x" ></i>
+                                    <% end %>
+                                    <%= link_to dislike_dish_path(item), method: :put do %>
+                                        <i class= "fa fa-thumbs-down fa-2x" ></i>
+                                    <% end %>
+                                    <br>
+                                    <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
+                                </div>
             </div>
         </div>
     </div>
