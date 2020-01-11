@@ -28,10 +28,10 @@
                         </div>
                         <div>
                             <%= link_to like_restaurant_path(@restaurant), method: :put do %>
-                                <i class= "fa fa-thumbs-up fa-2x" ></i>
+                                <i class= "fa fa-thumbs-up fa-2x" style= "color: #ff6a00"></i>
                             <% end %>
                             <%= link_to dislike_restaurant_path(@restaurant), method: :put do %>
-                                <i class= "fa fa-thumbs-down fa-2x" ></i>
+                                <i class= "fa fa-thumbs-down fa-2x" style= "color: #ff6a00"></i>
                             <% end %>
                             <br>
                             <%= @restaurant.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= @restaurant.get_downvotes.size %>

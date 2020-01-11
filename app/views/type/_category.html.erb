@@ -1,0 +1,6 @@
+<h5 style= "color: black"><%=item.name%></h5>
+    <ul class="dishes">
+        <% item.dishes.order(:cached_votes_down).each do |dish|%>
+            <%= render 'dish', item: dish%>
+        <%end%>
+    </ul>

@@ -5,7 +5,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <hr>
         <ul class="dishes resto">
-            <% @restaurants.each do |resto|%>
+            <% @restaurants.order(:cached_votes_down).each do |resto|%>
                 <%= render 'restaurant', item: resto%>
                     <%end%>
         </ul>

@@ -10,7 +10,7 @@ class AddCachedLikesToDishes < ActiveRecord::Migration[6.0]
     add_index  :dishes, :cached_votes_down
 
     
-    Dish.find_each(&:update_cached_votes)
+    #Dish.find_each(&:update_cached_votes)
   end
 
   def self.down
