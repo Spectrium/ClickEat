@@ -10,7 +10,7 @@ class AddCachedLikesToRestaurants < ActiveRecord::Migration[6.0]
     add_index  :restaurants, :cached_votes_down
 
     
-    Restaurant.find_each(&:update_cached_votes)
+    #Restaurant.find_each(&:update_cached_votes)
   end
 
   def self.down
