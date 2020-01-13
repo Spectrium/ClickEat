@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 size-picture">
-                <%= image_tag(item.picture)%>
+                <%= image_tag(item.picture, :style => "width:100%; height:600px")%>
             </div>
             <div class="col-md-4">
                 <%= content_tag(:h1, item.name,:class => "title-dish") %>
@@ -12,15 +12,24 @@
                                 <span class="title-dish-price">Price:<%= item.price%></span>
                                 <div>
                                     <%= link_to like_dish_path(item), method: :put do %>
-                                        <i class= "fa fa-thumbs-up fa-2x" style= "color: #ff6a00"></i>
-                                    <% end %>
-                                    <%= link_to dislike_dish_path(item), method: :put do %>
-                                        <i class= "fa fa-thumbs-down fa-2x" style= "color: #ff6a00"></i>
-                                    <% end %>
-                                    <br>
-                                    <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
+                                        <i class="fa fa-thumbs-up fa-2x"></i>
+                                        <% end %>
+                                            <%= link_to dislike_dish_path(item), method: :put do %>
+                                                <i class="fa fa-thumbs-down fa-2x"></i>
+                                                <% end %>
+                                                    <br>
+                                                    <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                                                        <%= item.get_downvotes.size %>
                                 </div>
+                                <!-- <%= content_tag(:p, )%> -->
+                                <br><br>
+                                <span class="box box-center">Commander</span>
+                                <br><br>
+                                <%= link_to "Retour",dish_index_path, :class => "return-btn fourth"%>
+                                    <!-- <%= link_to "Retour",dish_index_path, :class => "btn btn-warning btn-see-style btn-lg"%> -->
+                                    <!-- <a href=""><button type="button" class="">Retour</button></href> -->
             </div>
         </div>
     </div>
+
 </section>

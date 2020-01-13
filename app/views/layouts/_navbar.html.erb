@@ -1,91 +1,43 @@
-<aside>
-
-  <!--SOCIAL LINKS-->
-
-  <a href="#">
-    <svg x="0px" y="0px" width="150px" height="40px">
-					<polygon fill="#2d4c8b" points="150,40 7.001,40 0,33 0,7 6.918,0 150,0 "/>
-					<image xlink:href="<%= image_path('facebook.png') %>" x="23" y="10" width="9px" height="18px"/>
-					
-					<text x="55" y="24">Like Us!</text>
-				</svg>
-    </a>
-    <a href="#">
-        <svg x="0px" y="0px" width="150px" height="40px">
-					<polygon fill="#34dfe6" points="150,40 7.001,40 0,33 0,7 6.918,0 150,0 "/>
-					<image xlink:href="<%= image_path('twitter.png') %>" x="17" y="12" width="23px" height="16px"/>
-					<text x="55" y="24">Follow Us!</text>
-				</svg>
-    </a>
-    <a href="#">
-        <svg x="0px" y="0px" width="150px" height="40px">
-					<polygon fill="#e842ab" points="150,40 7.001,40 0,33 0,7 6.918,0 150,0 "/>
-					<image xlink:href="<%= image_path('flickr.png') %>" x="17" y="16" width="18px" height="7px"/>
-					<text x="55" y="24">Flickr</text>
-				</svg>
-    </a>
-    <a href="#">
-        <svg x="0px" y="0px" width="150px" height="40px">
-					<polygon fill="#ff9000" points="150,40 7.001,40 0,33 0,7 6.918,0 150,0 "/>
-					<image xlink:href="<%= image_path('rss.png') %>" x="18" y="12" width="16px" height="16px"/>
-					<text x="55" y="24">Rss Feed</text>
-				</svg>
-    </a>
-    <a href="#">
-        <svg x="0px" y="0px" width="150px" height="40px">
-					<polygon fill="#33517f" points="150,40 7.001,40 0,33 0,7 6.918,0 150,0 "/>
-					<image xlink:href="<%= image_path('vimeo.png') %>" x="18" y="13" width="17px" height="15px"/>
-					<text x="55" y="24">Vimeo</text>
-				</svg>
-  </a>
-</aside>
-<!--/SOCIAL LINKS-->
-
 <!--HEADER-->
-<header>
-  <nav id="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <!-- <li><a href="index.html#contact">Contact</a></li> -->
-      <!-- if connected -->
-      <% unless current_user %>
-        (((
-        <li class="sub-items"><a href="#">Connexion</a>
-          <ul>
-            <li><a href="/connection/index">Se connecter</a></li>
-            <li><a href="/connection/index">S'inscrire</a></li>
-          </ul>
-        </li>))))
-        <% else %>
-          <!-- if not connected -->
-          (((
-          <li class="sub-items"><a href="#">Avatar</a>
+<%= render 'layouts/sociallink' %>
+    <header>
+        <nav id="main-nav">
             <ul>
-              <li><a href="menuv2.html">Profils</a></li>
-              <li><a href="menuv3.html">Se deconnecter</a></li>
+                <li>
+                    <%=link_to "Home", home_index_path%>
+                </li>
+                <li>
+                    <%=link_to "Plats",dish_index_path%>
+                </li>
+
+                <li>
+                    <%=link_to "Restaurant",restaurant_index_path %>
+                </li>
+                <!-- <a href="menu.html">Restaurant</a> -->
+                <!-- <li><a href="index.html#contact">Contact</a></li> -->
+                <!-- if connected -->
+
+                <% unless current_user %>
+
+                    <li class="sub-items"><a href="#">Connexion</a>
+                        <ul class="responsive-nav" style="width: auto">
+                            <li><a href="/connection/index">Se connecter</a></li>
+                            <li id="signUpInNavbar"><a href="/connection/index">S'inscrire</a></li>
+                        </ul>
+                    </li>
+                    <% else %>
+                        <!-- if not connected -->
+
+                        <li class="sub-items"><a href="#">Avatar</a>
+                            <ul class="responsive-nav">
+                                <li><a href="menuv2.html">Profils</a></li>
+                                <li><a href="menuv3.html">Se deconnecter</a></li>
+                            </ul>
+                        </li>
+                        <% end %>
             </ul>
-          </li>))))
-          <% end %>
-    </ul>
-    <ul class="responsive-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <!-- <li><a href="index.html#contact">Contact</a></li> -->
-      <li class="sub-items"><a href="#">Connexion</a>
-        <ul>
-          <li><a href="menuv2.html">Menu v2</a></li>
-          <li><a href="menuv3.html">Menu v3</a></li>
-          <li><a href="gallery-3c.html">Gallery 3 Columns</a></li>
-          <li><a href="gallery-4c.html">Gallery 4 Columns</a></li>
-          <li><a href="blog.html">Blog Left View</a></li>
-          <li><a href="blogr.html">Blog Right View</a></li>
-        </ul>
-      </li>
-    </ul>
-    <a href="#" id="pull"></a>
-  </nav>
-  <figure>
-    <img src="<%= image_path('clickeat.png') %>" alt="Clickeat-logo" t class="logo-clickeat">
-    <figcaption>ClickEat</figcaption>
-  </figure>
+        </nav>
+        <!-- <figure>
+            <img src="<%= image_path('clickeat-min.png') %>" alt="Clickeat-logo" class="logo-clickeat">
+            <figcaption>ClickEat</figcaption>
+        </figure> -->

@@ -64,51 +64,6 @@
 25. Magnific Popup Lightbox Animation
 26. Media Queries
 -------------------------------------------------------------------*/
-    /*** image profil */
-    
-    .style-image-restuarant {
-        background: url('/assets/dots-texture.png') repeat;
-        background-color: #00000000;
-        background-position-x: 0%, center;
-        background-position-y: 0%, center;
-        background-repeat: repeat, repeat;
-        background-attachment: scroll, scroll;
-        background: url('/assets/dots-texture.png') repeat;
-        background-size: auto, auto;
-        background-origin: padding-box, padding-box;
-        background-clip: border-box, border-box;
-        background-size: 2px 2px, cover;
-        -webkit-background-size: 2px 2px, cover;
-    }
-    
-    .image-cover {
-        width: 100%;
-        margin-top: -60px;
-        
-    }
-    
-    .image-profil {
-        width: 30%;
-        margin-top: -10%;
-        margin-left: 2%;
-    }
-    
-    .name-profil {
-        position: absolute;
-        margin-top: -5%;
-        margin-left: 25%;
-    }
-    
-    .name-profil2 {
-        color: #ffa800;
-        margin-top: 15px;
-        font-size: 20px;
-    }
-    
-    .position-profil {
-        text-align: center;
-    }
-    /*** image profil */
     /****logo arrangement*/
     
     .logo-clickeat {
@@ -136,8 +91,8 @@
     }
     
     .title-dish-price {
-        color: rgba(46, 45, 45, 0.7);
-        font-size: 40px;
+        color: #ffa800;
+        font-size: 30px;
     }
     /*Color header dish*/
     /* 1. RESET */
@@ -193,7 +148,7 @@
     }
     
     p {
-        font-size: 0.75em;
+        font-size: 15px;
         /* 12px / 16px */
         font-family: 'Lato', sans-serif;
         font-weight: 400;
@@ -221,7 +176,7 @@
     }
     
     h2 {
-        font-size: 3.75em;
+        font-size: 4em;
         /* 60px / 16px */
         font-family: 'Oswald', sans-serif;
         font-weight: 400;
@@ -269,7 +224,7 @@
     }
     
     h5 {
-        font-size: 1.25em;
+        font-size: 2em;
         /* 20px / 16px */
         font-family: 'Oswald', sans-serif;
         font-weight: 400;
@@ -283,7 +238,7 @@
     }
     
     h6 {
-        font-size: 0.75em;
+        font-size: 1.25em;
         /* 12px / 16px */
         font-family: 'Lato', sans-serif;
         font-weight: 900;
@@ -559,6 +514,9 @@
         height: 70px;
         width: 200px;
     }
+    /* #main-nav>ul>li>a {
+        font-size: 1.5em !important;
+    } */
     
     #main-nav>ul.responsive-nav {
         display: none;
@@ -574,7 +532,7 @@
         text-align: center;
         line-height: 70px;
         color: #e6e1c1;
-        font-size: 0.875em;
+        font-size: 0.85em !important;
         /* 14px / 16px */
         font-weight: 400;
         font-family: 'Oswald', sans-serif;
@@ -588,7 +546,7 @@
         content: url('nav-arrow.png');
         position: absolute;
         bottom: 3px;
-        right: 60px;
+        right: 50px;
     }
     
     #main-nav>ul>li>a:hover {
@@ -623,7 +581,7 @@
         line-height: 40px;
         display: block;
         padding: 0 15px;
-        font-size: 12px;
+        font-size: 10px;
         font-family: 'Oswald', sans-serif;
         color: #e6e1c1;
         text-transform: uppercase;
@@ -939,7 +897,7 @@
     }
     
     ul.dishes img[alt='plus-icon']+p {
-        font-size: 0.625em;
+        font-size: 0.5em;
         /* 10px / 16px */
         color: #fff;
         text-transform: uppercase;
@@ -977,7 +935,7 @@
     }
     
     ul.dishes>li>p:last-child {
-        font-size: 1.125em;
+        font-size: 1.5em;
         /* 18px / 16px */
         color: #ffa800;
         font-weight: 900;
@@ -3160,9 +3118,11 @@
         #comments>ul>li.response {
             margin-left: 30px;
         }
+        <<<<<<< HEAD=======
     }
     /*------------------designer footer edit
     ----*/
+    
     * {
         margin: 0px;
         padding: 0px;
@@ -3183,10 +3143,8 @@
         color: rgb(182, 189, 195);
         float: inline-end;
         margin-top: 0%;
-
-margin-right: 4%;
-
-width: 92%;
+        margin-right: 4%;
+        width: 92%;
     }
     
     .wrapper {
@@ -3739,4 +3697,5 @@ width: 92%;
             padding-right: 0px;
             text-align: left;
         }
+        >>>>>>>1dc66075dbc50d0238c433cecc5b53622182e2ee
     }
