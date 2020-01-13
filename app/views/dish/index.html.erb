@@ -2,13 +2,14 @@
     <section id="popular-dishes">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos Plats</h2>
-        <p>les palts qui sont disponibles pour vous chez nous. </p>
+        <p>les plats qui sont disponibles pour vous chez nous. </p>
         <hr>
         <ul class="dishes">
             <% @dishes.order(:cached_votes_down).each do |dish|%>
                 <%= render 'dish', item: dish%>
                     <%end%>
         </ul>
+        <%= paginate @dishes %>
     </section>
 </main>
 

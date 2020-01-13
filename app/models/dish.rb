@@ -1,4 +1,5 @@
 class Dish < ApplicationRecord
+    paginates_per 8
     #relation
     belongs_to :restaurant
     belongs_to :category_dish

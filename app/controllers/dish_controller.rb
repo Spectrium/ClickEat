@@ -1,6 +1,6 @@
 class DishController < ApplicationController
     def index
-        @dishes = Dish.all    
+        @dishes = Dish.order(:name).page(params[:page])   
     end
 
     def show

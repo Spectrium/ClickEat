@@ -4,22 +4,23 @@
             <a href="<%=restaurant_path(item.id)%>">
                 <div>
                     <img src="/assets/plus-icon.png" alt="plus-icon">
-                    <p>Click pour en savoir plus</p>
+                    <p>Cliquer pour en savoir plus</p>
                 </div>
             </a>
     </div>
     <h5>
         <%= item.name %>
-        <div>
-            <%= link_to like_restaurant_path(item), method: :put do %>
-                <i class= "fa fa-thumbs-up fa-2x" style= "color: #ff6a00"></i>
-            <% end %>
-            <%= link_to dislike_restaurant_path(item), method: :put do %>
-                <i class= "fa fa-thumbs-down fa-2x" style= "color: #ff6a00"></i>
-            <% end %>
-            <br>
-            <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
-        </div>
+            <div>
+                <%= link_to like_restaurant_path(item), method: :put do %>
+                    <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+                    <% end %>
+                        <%= link_to dislike_restaurant_path(item), method: :put do %>
+                            <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
+                            <% end %>
+                                <br>
+                                <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                                    <%= item.get_downvotes.size %>
+            </div>
     </h5>
-    
+
 </li>
