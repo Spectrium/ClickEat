@@ -1,7 +1,7 @@
 <li>
     <div>
         <%= image_tag item.picture, alt:"menu-dish" %>
-            <a href="menu/full_size.png">
+            <a href="<%=dish_path(item.id)%>">
                 <div>
                     <img src="<%= image_path('plus-icon.png') %>" alt="plus-icon">
                     <p>Click to enlarge</p>
@@ -18,14 +18,15 @@
     <p>
         <%=item.price%> MGA
     </p>
-    <div>
-            <%= link_to like_dish_path(item), method: :put do %>
-                <i class= "fa fa-thumbs-up fa-2x" ></i>
+    <div class="like-jaime">
+        <%= link_to like_dish_path(item), method: :put do %>
+            <i class="fa fa-thumbs-up fa-2x"></i>
             <% end %>
-            <%= link_to dislike_dish_path(item), method: :put do %>
-                <i class= "fa fa-thumbs-down fa-2x" ></i>
-            <% end %>
-            <br>
-            <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp<%= item.get_downvotes.size %>
+                <%= link_to dislike_dish_path(item), method: :put do %>
+                    <i class="fa fa-thumbs-down fa-2x"></i>
+                    <% end %>
+                        <br>
+                        <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                            <%= item.get_downvotes.size %>
     </div>
 </li>

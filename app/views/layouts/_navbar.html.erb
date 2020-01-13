@@ -19,7 +19,7 @@
 
                 <% unless current_user %>
 
-                    <li class="sub-items"><a href="#">Connexion</a>
+                    <li class="sub-items"><a href="">Connexion</a>
                         <ul class="responsive-nav" style="width: auto">
                             <li><a href="/connection/index">Se connecter</a></li>
                             <li id="signUpInNavbar"><a href="/connection/index">S'inscrire</a></li>
@@ -30,12 +30,17 @@
 
                         <li class="sub-items"><a href="#">Avatar</a>
                             <ul class="responsive-nav">
-                                <li><a href="menuv2.html">Profils</a></li>
-                                <li><a href="menuv3.html">Se deconnecter</a></li>
+                                <li>
+                                    <%=link_to "Profils", editprofil_info_path %>
+                                </li>
+                                <li>
+                                    <%=link_to "Se deconnecter", destroy_user_session_path, :method => :delete %>
+                                </li>
                             </ul>
                         </li>
                         <% end %>
             </ul>
+            <a href="#" id="pull"></a>
         </nav>
         <!-- <figure>
             <img src="<%= image_path('clickeat-min.png') %>" alt="Clickeat-logo" class="logo-clickeat">
