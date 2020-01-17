@@ -1,28 +1,48 @@
-<div class="form-container sign-up-container">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {multipart: :true, class:"container-form"}) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-      <h1 class="header-h1">Create Account</h1>
-      <div class="social-container">
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <span class="message-connection">or use your email for registration</span>
-      <!-- <input type="text" placeholder="Name" class="form-input" /> -->
-      <!-- <input type="email" placeholder="Email" class="form-input" /> -->
+<body class="background-sign-in">
+    <!-- <div class="flash--message flash--message__error">
+        <%= render "devise/shared/error_messages", resource: resource %>
+    </div> -->
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {multipart: :true, class:"container-form needs-validation"}) do |f| %>
+                <h2 class="header-h1">Créer un compte</h2>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                    <div class="social-container">
+                        <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-google-plus-g fa-2x text-danger"></i></a>
+                    </div>
+                    <span class="message-connection">ou utilisez votre e-mail pour vous inscrire</span>
+                    <!-- <input type="text" placeholder="Name" class="form-input" /> -->
+                    <!-- <input type="email" placeholder="Email" class="form-input" /> -->
 
+                    <%= f.text_field :username, autofocus: true, autocomplete: "username",placeholder:"Non d'utilisateur", class:"form-input" %>
+                        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",placeholder:"Nom", class:"form-input" %>
+                            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:"Prénom", class:"form-input" %>
+                                <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder:"Numéro de télèphone", class:"form-input" %>
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
 
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
+                                        <!-- <input type="password" placeholder="Password" class="form-input" /> -->
+                                        <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password", class:"form-input" %>
+                                            <% if @minimum_password_length %>
+                                                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                                <% end %><br />
 
-        <!-- <input type="password" placeholder="Password" class="form-input" /> -->
-        <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password", class:"form-input" %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
+                                                    <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirmation Password", class:"form-input" %>
 
-              <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirmation Password", class:"form-input" %>
+                                                        <!-- <button class="connection-btn all-btn">Sign Up</button> -->
+                                                        <%= f.submit "S'inscrire", class:"connection-btn all-btn" %>
+                                                            <% end %>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1 class="header-h1">Nous saluons le retour!</h1>
+                    <p class="para-container">Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles</p>
+                    <!-- <%= link_to "Se connecter",new_user_registration_path, :class =>"ghost all-btn", :id =>"signIn"%> -->
+                    <a href="/users/sign_in"><button class="ghost all-btn" id="signIn">Se connecter</button></a>
 
-                <!-- <button class="connection-btn all-btn">Sign Up</button> -->
-                <%= f.submit "Sign up", class:"connection-btn all-btn" %>
-                  <% end %>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

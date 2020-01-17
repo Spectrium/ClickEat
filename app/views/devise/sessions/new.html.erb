@@ -2,38 +2,36 @@
     <div class="container" id="container">
         <div class="form-container sign-in-container">
             <!-- <form action="#" class="container-form"> -->
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"container-form") do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-                    <h1 class="header-h1">Sign in</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span class="message-connection">or use your account</span>
-                    <!-- <input type="email" placeholder="Email" class="form-input" /> -->
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-input" %>
-                        <!-- <input type="password" placeholder="Password" class="form-input" /> -->
-                        <%= f.password_field :password, autocomplete: "current-password", class:"form-input" %>
-                            <!-- <a href="#" class="social">Forgot your password?</a> -->
-                            <%= f.check_box :remember_me %>
-                                <%= f.label :remember_me %>
-                                    <!-- <button class="connection-btn all-btn">Sign In</button> -->
-                                    <%= f.submit "Log in",class:"connection-btn all-btn" %>
-                                        <% end %>
-                                            <!-- </form> -->
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class:"container-form"}) do |f| %>
+
+                <div class="flash--message flash--message__error">
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                </div>
+                <h2 class="header-h1">Se connecter</h2>
+                <div class="social-container">
+                    <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
+                    <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
+                </div>
+                <span class="message-connection">Utiliser votre compte</span>
+                <!-- <input type="email" placeholder="Email" class="form-input" /> -->
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
+                    <!-- <input type="password" placeholder="Password" class="form-input" /> -->
+                    <%= f.password_field :password, autocomplete: "current-password",placeholder:"Mot de passe", class:"form-input" %>
+                        <!-- <a href="#" class="social">Forgot your password?</a> -->
+                        <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                                <!-- <button class="connection-btn all-btn">Sign In</button> -->
+                                <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
+                                    <% end %>
+                                        <!-- </form> -->
+
         </div>
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1 class="header-h1">Welcome Back!</h1>
-                    <p class="para-container">To keep connected with us please login with your personal info</p>
-                    <button class="ghost all-btn" id="signIn">Sign In</button>
-                </div>
                 <div class="overlay-panel overlay-right">
-                    <h1 class="header-h1">Hello, Friend!</h1>
-                    <p class="para-container">Enter your personal details and start journey with us</p>
-                    <button class="ghost all-btn" id="signUp">Sign Up</button>
+                    <h1 class="header-h1">Salut l'ami!</h1>
+                    <p class="para-container">Entrez vos informations personnelles et commencez votre voyage avec nous</p>
+                    <a href="/users/sign_up"><button class="ghost all-btn" id="signUp">S'inscrire</button></a>
                 </div>
             </div>
         </div>
