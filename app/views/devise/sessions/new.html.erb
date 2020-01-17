@@ -4,26 +4,24 @@
             <!-- <form action="#" class="container-form"> -->
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class:"container-form"}) do |f| %>
 
-                <div class="flash--message flash--message__error">
-                    <%= render "devise/shared/error_messages", resource: resource %>
-                </div>
-                <h2 class="header-h1">Se connecter</h2>
-                <div class="social-container">
-                    <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
-                </div>
-                <span class="message-connection">Utiliser votre compte</span>
-                <!-- <input type="email" placeholder="Email" class="form-input" /> -->
-                <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
-                    <!-- <input type="password" placeholder="Password" class="form-input" /> -->
-                    <%= f.password_field :password, autocomplete: "current-password",placeholder:"Mot de passe", class:"form-input" %>
-                        <!-- <a href="#" class="social">Forgot your password?</a> -->
-                        <%= f.check_box :remember_me %>
-                            <%= f.label :remember_me %>
-                                <!-- <button class="connection-btn all-btn">Sign In</button> -->
-                                <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
-                                    <% end %>
-                                        <!-- </form> -->
+                <%= render "devise/shared/error_messages", resource: resource %>
+                    <h2 class="header-h1">Se connecter</h2>
+                    <div class="social-container">
+                        <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
+                    </div>
+                    <span class="message-connection">Utiliser votre compte</span>
+                    <!-- <input type="email" placeholder="Email" class="form-input" /> -->
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-input" %>
+                        <!-- <input type="password" placeholder="Password" class="form-input" /> -->
+                        <%= f.password_field :password, autocomplete: "current-password",placeholder:"Mot de passe", class:"form-input" %>
+                            <!-- <a href="#" class="social">Forgot your password?</a> -->
+                            <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me %>
+                                    <!-- <button class="connection-btn all-btn">Sign In</button> -->
+                                    <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
+                                        <% end %>
+                                            <!-- </form> -->
 
         </div>
         <div class="overlay-container">
