@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation flash--message flash--message__error">
         <h6 class="error-size">
             <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,

@@ -18,11 +18,11 @@
                             <!-- <a href="#" class="social">Forgot your password?</a> -->
                             <%= f.check_box :remember_me %>
                                 <%= f.label :remember_me %>
-                                    <!-- <button class="connection-btn all-btn">Sign In</button> -->
-                                    <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
-                                        <% end %>
-                                            <!-- </form> -->
-
+                                    <%= link_to "Mot de passe oublier", new_user_password_path %>
+                                        <!-- <button class="connection-btn all-btn">Sign In</button> -->
+                                        <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
+                                            <% end %>
+                                                <!-- </form> -->
         </div>
         <div class="overlay-container">
             <div class="overlay">
