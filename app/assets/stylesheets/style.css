@@ -3738,3 +3738,29 @@
                 .pagination {
                     margin-left: 373px;
                 }
+                /* taille de l'image avec aos animation*/
+                
+                .aos-animation-image-size-restaurant {
+                    background: url("/assets/aboutGpg.jpg");
+                    width: 100%;
+                    height: 500px;
+                    margin-left: 50px;
+                }
+                
+                .aos-animation-image-size-dish {
+                    background: url("/assets/burger_meat_chicken_cheese_bun_93265_1024x768.jpg");
+                    width: 100%;
+                    height: 500px;
+                    margin-left: 150px;
+                }
+                /*text place dans l'animation aos */
+                
+                .text1-aos-animation {
+                    margin-top: 250px;
+                    margin-left: 30px;
+                }
+                
+                .text2-aos-animation {
+                    margin-top: 250px;
+                    margin-left: 30px;
+                }
