@@ -1,12 +1,16 @@
 <main>
-    <section id="popular-dishes">
-    <div>
-        <%= render 'speedsearchtype', item: @types%>
+    <section id="popular-dishes" class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <%= render 'speedsearchtype', item: @types%>
+        </div>
     </div>
-    <div>
+    <div class="col-sm-12">
+        <div class="row">
         <%= render 'speedsearch', item: @categories%>
+        </div>
     </div>
-    <div>
+    <div class="col-sm-12">
         <h3 class="title-dish center-title-categirie">
             <%=@category.type.name%> : <%=@category.name%>
         </h3>

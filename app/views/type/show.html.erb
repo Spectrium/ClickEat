@@ -1,10 +1,12 @@
 <main>
-    <section id="popular-dishes">
-    <div>
+    <section id="popular-dishes" class="row">
+    <div class="col-sm-12">
+    <div class="row">   
         <%= render 'speedsearch', item: @types%>
     </div>
+    </div>
 
-    <div>
+    <div class="col-sm-12">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos <%=@type.name%></h2>
         <ul class="dishes resto">
