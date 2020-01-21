@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_140141) do
 
   create_table "category_dishes", force: :cascade do |t|
     t.string "name"
+    t.string "picture"
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

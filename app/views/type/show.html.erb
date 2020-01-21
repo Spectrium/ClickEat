@@ -1,9 +1,17 @@
 <main>
     <section id="popular-dishes">
+    <div>
+        <%= render 'speedsearch', item: @types%>
+    </div>
+
+    <div>
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos <%=@type.name%></h2>
+        <ul class="dishes resto">
             <% @category.each do |category|%>
                 <%= render 'category', item: category%>
             <%end%>
+        </ul>
+    </div>
     </section>
 </main>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   resources :type ,only: [:show]
+  resources :category_dish ,only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'connection/index'
   get 'editprofil/info'

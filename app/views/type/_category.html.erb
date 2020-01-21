@@ -1,8 +1,15 @@
-<h3 class="title-dish center-title-categirie">
-    <%=item.name%>
-</h3>
-<ul class="dishes">
-    <% item.dishes.order(:cached_votes_down).each do |dish|%>
-        <%= render 'dish', item: dish%>
-            <%end%>
-</ul>
+<li>
+    <div>
+        <%= image_tag item.picture, alt:"menu-dish" %>
+            <a href="<%=category_dish_path(item.id)%>">
+                <div>
+                    <img src="/assets/plus-icon.png" alt="plus-icon">
+                    <p>Cliquer pour en savoir plus</p>
+                </div>
+            </a>
+    </div>
+    <h5>
+        <%= item.name %>
+    </h5>
+
+</li>

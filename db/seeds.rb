@@ -127,7 +127,11 @@ end
 #Categories des plats
 boissons = ["Alcoolisés",
     "Non-Alcoolisés",
-    "Autres"
+    "Thé et Autres"
+]
+picB = ["alcohol.jpg",
+"nonalcool.jpg",
+"tea.jpg"
 ]
 dd = ["Glaces",
     "Gâteaux",
@@ -135,40 +139,57 @@ dd = ["Glaces",
     "Douceurs",
     "Autres"
 ]
+picDD = ["glace.jpg",
+"gateau.jpg",
+"pain.jpg",
+"douceur.jpg",
+"crepe.jpg"
+]
 ef =["Salade",
     "Burger",
     "Sandwich",
     "Kebab",
     "Poulet et nuggets",
-    "Frites",
     "Pizza",
-    "Snack",
     "Autres"
 ]
-hot = ["Soupe",
-    "Pâte",
+picEF = ["salad.jpg",
+"burger.jpg",
+"sandwich.jpg",
+"kebab.jpg",
+"poulet.jpg",
+"pizza.jpg",
+"sushi.jpg"
+]
+hot = ["Pasta",
     "Halal",
     "Seafood",
-    "Viandes",
+    "Grillades",
     "Végétariens",
     "Autres"
 ]
-
+picHot = ["pasta.jpg",
+"Halal.jpg",
+"seafood.jpg",
+"grillade.jpg",
+"vegan.jpg",
+"food.jpg"
+]
 
 for index in 0..2 do
-    CategoryDish.create(name: boissons[index], type_id: 1)
+    CategoryDish.create(name: boissons[index], picture: picB[index], type_id: 1)
 end
 
 for index in 0..4 do
-    CategoryDish.create(name: dd[index], type_id: 2)
-end
-
-for index in 0..8 do
-    CategoryDish.create(name: ef[index], type_id: 3)
+    CategoryDish.create(name: dd[index], picture: picDD[index], type_id: 2)
 end
 
 for index in 0..6 do
-    CategoryDish.create(name: hot[index], type_id: 4)
+    CategoryDish.create(name: ef[index], picture: picEF[index], type_id: 3)
+end
+
+for index in 0..5 do
+    CategoryDish.create(name: hot[index], picture: picHot[index], type_id: 4)
 end
 
 #Generer Restaurant
@@ -282,40 +303,40 @@ end
 for index in 0..4 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 1 ,category_dish_id: rand(1..24))
+        restaurant_id: 1 ,category_dish_id: rand(1..21))
 end
 for index in 5..9 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 2 ,category_dish_id: rand(1..24))
+        restaurant_id: 2 ,category_dish_id: rand(1..21))
 end
 for index in 10..14 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 3 ,category_dish_id: rand(1..24))
+        restaurant_id: 3 ,category_dish_id: rand(1..21))
 end
 for index in 15..19 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 4 ,category_dish_id: rand(1..24))
+        restaurant_id: 4 ,category_dish_id: rand(1..21))
 end
 for index in 20..24 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 5 ,category_dish_id: rand(1..24))
+        restaurant_id: 5 ,category_dish_id: rand(1..21))
 end
 for index in 25..29 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 6 ,category_dish_id: rand(1..24))
+        restaurant_id: 6 ,category_dish_id: rand(1..21))
 end
 for index in 30..34 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 7 ,category_dish_id: rand(1..24))
+        restaurant_id: 7 ,category_dish_id: rand(1..21))
 end
 for index in 35..39 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 8 ,category_dish_id: rand(1..24))
+        restaurant_id: 8 ,category_dish_id: rand(1..21))
 end

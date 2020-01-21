@@ -1,0 +1,2 @@
+module CategoryDishHelper
+end

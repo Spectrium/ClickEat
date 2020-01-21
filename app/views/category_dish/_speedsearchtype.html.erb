@@ -1,0 +1,3 @@
+  <% item.each do |items|%> 
+    <a href="<%= type_path(items.id)%>" class="btn btn-success btn-lg active" role="button" aria-pressed="true"> <%= items.name%> </a>
+  <%end%>

@@ -1,0 +1,20 @@
+<main>
+    <section id="popular-dishes">
+    <div>
+        <%= render 'speedsearchtype', item: @types%>
+    </div>
+    <div>
+        <%= render 'speedsearch', item: @categories%>
+    </div>
+    <div>
+        <h3 class="title-dish center-title-categirie">
+            <%=@category.type.name%> : <%=@category.name%>
+        </h3>
+        <ul class="dishes">
+            <% @category.dishes.order(:cached_votes_down).each do |dish|%>
+                <%= render 'dish', item: dish%>
+                    <%end%>
+        </ul>
+    </div>
+    </section>
+</main>

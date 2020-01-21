@@ -1,0 +1,4 @@
+  <% item.each do |items|%> 
+    <a href="<%= category_dish_path(items.id)%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> <%= items.name%> </a>
+  <%end%>
+  
