@@ -8,6 +8,8 @@ gem 'faker'
 gem 'acts_as_votable'
 gem 'jquery'
 gem 'kaminari'
+gem 'dotenv-rails'
+gem 'mailcatcher'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
