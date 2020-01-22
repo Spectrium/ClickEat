@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :profile_picture
       t.string :location
       t.references :cart , index: true
+      t.references :subscription, index: true
 
       t.timestamps null: false
     end

@@ -6,6 +6,69 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Abonnement et type d'abonnement
+#type
+type = ["User",
+    "Restaurant"
+    ]
+type.each do |types|
+    SubscriptionType.create(name: types)
+    print "."
+end
+#abonnement
+nameA = ["Bronze",
+    "Silver",
+    "Gold",
+    "Cristal",
+    "Bronze",
+    "Silver",
+    "Gold",
+    "Cristal"
+]
+priceA = ["7000",
+    "12000",
+    "21000",
+    "40000",
+    "30000",
+    "50000",
+    "90000",
+    "150000"
+]
+
+privilegeA = ["Service normal, Commande et livraison",
+    " Priorité de livraison: avant Bronze",
+    " Priorité de livraison: avant Silver",
+    " Priorité de livraison:  Ultime",
+    "Service normal",
+    "Apparition: avant Bronze",
+    "Apparition: avant Silver",
+    "Premier à apparaitre dans la liste"
+]
+colorA = ["#af840d",
+    "#c2c0c6",
+    "#ffc71f",
+    "#ad50fc",
+    "#af840d",
+    "#c2c0c6",
+    "#ffc71f",
+    "#ad50fc"
+]
+referenceA = ["1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2"
+]
+
+for index in 0...nameA.length do
+    subs = Subscription.create(name: nameA[index],
+         price: priceA[index], privilege: privilegeA[index],
+          color: colorA[index], subscription_type_id: referenceA[index])
+    print "."
+    end
 
 # user
 emails =  ["danielrazafindrakoto@gmail.com",
@@ -51,11 +114,14 @@ usernames = ["Daniel",
      "Landry"]
 
 for index_user in 0 ... last_names.size do
-    User.create(email:emails[index_user],first_name:first_names[index_user],last_name:last_names[index_user],username:usernames[index_user],password:"sayna2019")
+    User.create(email:emails[index_user],first_name:first_names[index_user],last_name:last_names[index_user],
+        username:usernames[index_user],password:"sayna2019")
+        print "."
 end
 # cart_id
  for index_cart in 0 ... 10 do
     Cart.create(user:User.find_by(id: index_cart))
+    print "."
  end
 
 
@@ -72,6 +138,7 @@ categories = ["Malagasy",
 
 for index in 0..6 do
 Category.create(name: categories[index])
+print "."
 end
 
 #Specialités des restaurants
@@ -97,25 +164,32 @@ autres = ["Fruit de mer",
 ]
 
 Speciality.create(name: "Malagasy", category_id: 1)
+print "."
 
 for index in 0..5 do
     Speciality.create(name: asiatique[index], category_id: 2)
+    print "."
 end
 
 Speciality.create(name: "Indienne", category_id: 3)
+print "."
 
 for index in 0..3 do
     Speciality.create(name: europeen[index], category_id: 4)
+    print "."
 end
 
 for index in 0..2 do
     Speciality.create(name: americaine[index], category_id: 5)
+    print "."
 end
 
 Speciality.create(name: "Fast-food", category_id: 6)
+print "."
 
 for index in 0..2 do
     Speciality.create(name: autres[index], category_id: 7)
+    print "."
 end
 
 #Types des plats
@@ -123,6 +197,7 @@ type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chaudes
 icon = ["db-icon.png","ds-icon.png","ff-icon.png","sc-icon.png"]
 for index in 0..3 do
     Type.create(name: type[index], icon: icon[index])
+    print "."
 end
 #Categories des plats
 boissons = ["Alcoolisés",
@@ -178,18 +253,22 @@ picHot = ["pasta.jpg",
 
 for index in 0..2 do
     CategoryDish.create(name: boissons[index], picture: picB[index], type_id: 1)
+    print "."
 end
 
 for index in 0..4 do
     CategoryDish.create(name: dd[index], picture: picDD[index], type_id: 2)
+    print "."
 end
 
 for index in 0..6 do
     CategoryDish.create(name: ef[index], picture: picEF[index], type_id: 3)
+    print "."
 end
 
 for index in 0..5 do
     CategoryDish.create(name: hot[index], picture: picHot[index], type_id: 4)
+    print "."
 end
 
 #Generer Restaurant
@@ -259,7 +338,9 @@ email = ["jadeleresto@gmail.com",
 
 for index in 0...name.length do
     Restaurant.create(name: name[index], location: location[index], description: description[index],
-        logo: logo[index],picture: picture[index],phone_number: phone[index],email: email[index])
+        logo: logo[index],picture: picture[index],phone_number: phone[index],email: email[index],
+        subscription_id: rand(4..7))
+        print "."
 end
 
 #Associer resto et Specialité
@@ -274,27 +355,35 @@ banana = [18, 19]
 
 for index in 0...jade.length do
     RestoSpeciality.create(restaurant_id: 1 ,speciality_id: jade[index])
+    print "."
 end
 for index in 0...tendm.length do
     RestoSpeciality.create(restaurant_id: 2 ,speciality_id: tendm[index])
+    print "."
 end
 for index in 0...dyna.length do
     RestoSpeciality.create(restaurant_id: 3 ,speciality_id: dyna[index])
+    print "."
 end
 for index in 0...marmite.length do
     RestoSpeciality.create(restaurant_id: 4 ,speciality_id: marmite[index])
+    print "."
 end
 for index in 0...carni.length do
     RestoSpeciality.create(restaurant_id: 5 ,speciality_id: carni[index])
+    print "."
 end
 for index in 0...koots.length do
     RestoSpeciality.create(restaurant_id: 6 ,speciality_id: koots[index])
+    print "."
 end
 for index in 0...gpg.length do
     RestoSpeciality.create(restaurant_id: 7 ,speciality_id: gpg[index])
+    print "."
 end
 for index in 0...banana.length do
     RestoSpeciality.create(restaurant_id: 8 ,speciality_id: banana[index])
+    print "."
 end
 
 #Generer les plats
@@ -304,39 +393,47 @@ for index in 0..4 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 1 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 5..9 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 2 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 10..14 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 3 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 15..19 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 4 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 20..24 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 5 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 25..29 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 6 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 30..34 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 7 ,category_dish_id: rand(1..21))
+        print "."
 end
 for index in 35..39 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 8 ,category_dish_id: rand(1..21))
+        print "."
 end

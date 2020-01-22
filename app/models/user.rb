@@ -1,6 +1,7 @@
 class User < ApplicationRecord
  #relation
 has_one_attached :avatar
+belongs_to :subscription
 has_one :cart, dependent: :destroy
 acts_as_voter
 
