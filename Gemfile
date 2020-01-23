@@ -2,11 +2,16 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
+#connexion
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'table_print'
 gem 'faker'
 gem 'acts_as_votable'
 gem 'jquery'
+#pagination
 gem 'kaminari'
 gem 'dotenv-rails'
 gem 'mailcatcher'

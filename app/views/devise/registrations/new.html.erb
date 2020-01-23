@@ -6,8 +6,10 @@
                     <h2 class="header-h1">Créer un compte</h2>
                     <!-- <%= render "devise/shared/error_messages", resource: resource %> -->
                     <div class="social-container">
-                        <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
-                        <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
+                        <%= link_to user_facebook_omniauth_authorize_path do%>
+                            <i class="fa fa-facebook-f fa-2x"></i>
+                            <%end%>
+                                <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
                     </div>
                     <span class="message-connection">ou utilisez votre e-mail pour vous inscrire</span>
                     <!-- <input type="text" placeholder="Name" class="form-input" /> -->
