@@ -16,42 +16,42 @@ type.each do |types|
     print "."
 end
 #abonnement
-nameA = ["Bronze",
-    "Silver",
+nameA = ["Cristal",
     "Gold",
-    "Cristal",
+    "Silver",
     "Bronze",
-    "Silver",
+    "Cristal",
     "Gold",
-    "Cristal"
+    "Silver",
+    "Bronze"
 ]
-priceA = ["7000",
-    "12000",
+priceA = ["40000",
     "21000",
-    "40000",
-    "30000",
-    "50000",
+    "12000",
+    "7000",
+    "150000",
     "90000",
-    "150000"
+    "50000",
+    "30000"
 ]
 
-privilegeA = ["Service normal, Commande et livraison",
-    " Priorité de livraison: avant Bronze",
+privilegeA = [" Priorité de livraison:  Ultime",
     " Priorité de livraison: avant Silver",
-    " Priorité de livraison:  Ultime",
-    "Service normal",
-    "Apparition: avant Bronze",
+    " Priorité de livraison: avant Bronze",
+    "Service normal, Commande et livraison",
+    "Premier à apparaitre dans la liste",
     "Apparition: avant Silver",
-    "Premier à apparaitre dans la liste"
+    "Apparition: avant Bronze",
+    "Service normal"
 ]
-colorA = ["#af840d",
-    "#c2c0c6",
-    "#ffc71f",
-    "#ad50fc",
-    "#af840d",
-    "#c2c0c6",
-    "#ffc71f",
-    "#ad50fc"
+colorA = ["#f20dd5",
+    "#feff00",
+    "#c0c0c0",
+    "#f28023",
+    "#f20dd5",
+    "#feff00",
+    "#c0c0c0",
+    "#f28023"
 ]
 referenceA = ["1",
     "1",
@@ -339,7 +339,7 @@ email = ["jadeleresto@gmail.com",
 for index in 0...name.length do
     Restaurant.create(name: name[index], location: location[index], description: description[index],
         logo: logo[index],picture: picture[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(4..7))
+        subscription_id: rand(5..8))
         print "."
 end
 

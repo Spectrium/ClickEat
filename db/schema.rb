@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_113618) do
     t.string "username"
     t.string "location"
     t.bigint "cart_id"
-    t.bigint "subscription_id"
+    t.bigint "subscription_id", default: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"
