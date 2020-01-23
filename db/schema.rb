@@ -191,6 +191,10 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.string "username"
     t.string "location"
     t.bigint "cart_id"
+<<<<<<< HEAD
+=======
+    t.bigint "subscription_id", default: 4
+>>>>>>> ccfbd300551803c56cf6af3dbaa2ce13e27f543f
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"

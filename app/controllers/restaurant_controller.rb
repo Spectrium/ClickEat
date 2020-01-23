@@ -1,6 +1,7 @@
 class RestaurantController < ApplicationController
     def index
-         @restaurants = Restaurant.all
+         @type = SubscriptionType.all
+         @subscription = @type[1].subscriptions
     end
 
     def show

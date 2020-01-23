@@ -1,7 +1,7 @@
 <%= render 'layouts/sociallink' %>
     <main>
         <%= render 'layouts/navbar'%>
-            <section id="blog" style="border-right: 3px solid red; border-left: 3px solid red">
+            <section id="blog" style="border-right: 3px solid <%= @restaurant.subscription.color %>; border-left: 3px solid <%= @restaurant.subscription.color %>">
 
                 <article>
                     <%= image_tag @restaurant.picture, class:"image-cover"%>
