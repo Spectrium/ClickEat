@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_185532) do
+ActiveRecord::Schema.define(version: 2020_01_29_135433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.string "picture"
     t.string "phone_number"
     t.string "email"
+    t.bigint "subscription_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cached_votes_total", default: 0
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.index ["cached_votes_score"], name: "index_restaurants_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_restaurants_on_cached_votes_total"
     t.index ["cached_votes_up"], name: "index_restaurants_on_cached_votes_up"
+    t.index ["subscription_id"], name: "index_restaurants_on_subscription_id"
   end
 
   create_table "resto_specialities", force: :cascade do |t|
@@ -156,6 +158,14 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.index ["category_id"], name: "index_specialities_on_category_id"
   end
 
+  create_table "subscription_privileges", force: :cascade do |t|
+    t.text "privilege"
+    t.bigint "subscription_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subscription_id"], name: "index_subscription_privileges_on_subscription_id"
+  end
+
   create_table "subscription_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -165,7 +175,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
   create_table "subscriptions", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "privilege"
     t.string "color"
     t.bigint "subscription_type_id"
     t.datetime "created_at", precision: 6, null: false
@@ -191,10 +200,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.string "username"
     t.string "location"
     t.bigint "cart_id"
-<<<<<<< HEAD
-=======
     t.bigint "subscription_id", default: 4
->>>>>>> ccfbd300551803c56cf6af3dbaa2ce13e27f543f
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"
@@ -203,6 +209,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_185532) do
     t.index ["cart_id"], name: "index_users_on_cart_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["subscription_id"], name: "index_users_on_subscription_id"
   end
 
   create_table "votes", force: :cascade do |t|
