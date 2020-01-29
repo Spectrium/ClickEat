@@ -1,0 +1,2 @@
+module AdminSite::CategoryDishesHelper
+end

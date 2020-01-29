@@ -126,8 +126,8 @@
                                                                                                                               <%= label_tag 'phone_number', 'Telephone:* (+261)', style:'color: #a94442' %>
                                                                                                                                 <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061",style:'border-color: #a94442;',value:@user_to_edit.phone_number  %>
                                                                                                                                   <span style="color: #a94442; font-size:12px; font-style:italic">
-                                                                                                                            <%= @user_to_edit.errors.messages[:password].uniq.join(", ") %>
-                                                                                                                          </span>
+                                                                                                                                    <%= @user_to_edit.errors.messages[:password].uniq.join(", ") %>
+                                                                                                                                  </span>
                                                                                                                                   <% end %>
                                                                                                                                     <br>
                                                                                                                                     <%= submit_tag "Mettre à jour", class:"btn btn-primary" %>

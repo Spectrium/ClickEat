@@ -9,7 +9,7 @@ module AdminSite
     end
   
     def create
-      console
+      # console
       @user_to_create = User.new(email:params[:email],username:params[:username],first_name:params[:first_name],last_name:params[:last_name],password:params[:password],password_confirmation:params[:password_confirmation],phone_number:params[:phone_number].split("-").join)
       if params[:avatar]
         @user_to_create.avatar.attach(params[:avatar])

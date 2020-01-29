@@ -1,0 +1,182 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Création d'un nouveau restaurant</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <div class="row">
+    <div class="col-lg-12" style="margin-bottom:15px">
+      <span style="color:red;">*Obligatoire</span>
+    </div>
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span style="font-size: 23px;font-weight: bold;">Formulaire de création d'un nouveau restaurant</span> &nbsp;|<a href="<%= admin_site_restaurants_path %>"><i class="fa fa-plus fa-fw"></i>Listes des restaurants</a>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+            <% end %>
+              <div class="col-md-offset-2 col-md-8">
+                <%= form_tag admin_site_restaurants_path, multipart: true do %>
+                  <%= label_tag 'logo' do %>
+                    Logo<span style="color:red;">*</span>:
+                    <% end %>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <img id="logo_image" class="img-thumbnail" src="/assets/profil_defaut.png" alt="logo" style="max-width: 15%">
+                      <%= file_field_tag 'logo'%>
+                        <br>
+                        <%= label_tag 'photo_restaurant' do %>
+                          Photo du restaurant<span style="color:red;">*</span>:
+                          <% end %>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <img id="picture" class="img-thumbnail" src="/assets/profil_defaut.png" alt="photo" style="max-width: 20%">
+                            <%= file_field_tag 'picture_restaurant'%>
+                              <br>
+                              <br>
+                              <% unless @restaurant_to_create && @restaurant_to_create.errors.messages[:name].any? %>
+                                <%= label_tag 'name' do %>
+                                  Nom du restaurant<span style="color:red;">*</span>:
+                                  <% end %>
+                                    <%= text_field_tag 'name_of_restaurant',nil, class:'form-control', value:"#{ @restaurant_to_create ? @restaurant_to_create.email : nil }" %>
+                                      <% else %>
+                                        <%= label_tag 'name', 'Nom du restaurant:', style:'color: #a94442;' %>
+                                          <%= text_field_tag 'name',nil, class:'form-control', style:'border-color: #a94442;',value:@restaurant_to_create.email %>
+                                            <span style="color: #a94442; font-size:12px; font-style:italic">
+                                        <%= @restaurant_to_create.errors.messages[:name].uniq.join(", ") %>
+                                      </span>
+                                            <% end %>
+                                              <br>
+                                              <% unless @restaurant_to_create && @restaurant_to_create.errors.messages[:location].any? %>
+                                                <%= label_tag 'location' do %>
+                                                  Location<span style="color:red;">*</span>:
+                                                  <% end %>
+                                                    <%= text_field_tag 'location',nil, class:'form-control',value:"#{ @restaurant_to_create ? @restaurant_to_create.location : nil }" %>
+                                                      <% else %>
+                                                        <%= label_tag 'location', 'Location:', style:'color: #a94442;' %>
+                                                          <%= text_field_tag 'location',nil, class:'form-control', style:'border-color: #a94442;',value:@restaurant_to_create.location %>
+                                                            <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                        <%= @restaurant_to_create.errors.messages[:location].uniq.join(", ") %>
+                                                      </span>
+                                                            <% end %>
+                                                              <br>
+
+                                                              <% unless @restaurant_to_create && @restaurant_to_create.errors.messages[:description].any? %>
+                                                                <%= label_tag 'description' do %>
+                                                                  Description<span style="color:red;">*</span>:
+                                                                  <% end %>
+                                                                    <%= text_field_tag 'description',nil, class:'form-control', value:"#{ @restaurant_to_create ? @restaurant_to_create.description : nil }"  %>
+                                                                      <% else %>
+                                                                        <%= label_tag 'description', 'Description:', style:'color: #a94442' %>
+                                                                          <%= text_field_tag 'description',nil, class:'form-control', style:'border-color: #a94442;',value:@restaurant_to_create.description %>
+                                                                            <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                        <%= @restaurant_to_create.errors.messages[:description].uniq.join(", ") %>
+                                                                      </span>
+                                                                            <% end %>
+                                                                              <br>
+
+                                                                              <% unless @restaurant_to_create && @restaurant_to_create.errors.messages[:email].any? %>
+                                                                                <%= label_tag 'email' do %>
+                                                                                  Email<span style="color:red;">*</span>:
+                                                                                  <% end %>
+                                                                                    <%= text_field_tag 'email',nil, class:'form-control',value:"#{ @restaurant_to_create ? @restaurant_to_create.email : nil }"  %>
+                                                                                      <% else %>
+                                                                                        <%= label_tag 'email', 'Email:', style:'color: #a94442' %>
+                                                                                          <%= text_field_tag 'email',nil, class:'form-control' ,style:'border-color: #a94442;',value:@restaurant_to_create.email %>
+                                                                                            <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                                        <%= @restaurant_to_create.errors.messages[:email].uniq.join(", ") %>
+                                                                                      </span>
+                                                                                            <% end %>
+                                                                                              <br>
+
+
+                                                                                              <% unless @restaurant_to_create && @restaurant_to_create.errors.messages[:phone_number].any? %>
+                                                                                                <%= label_tag 'phone_number' do %>
+                                                                                                  Telephone: (+261)<span style="color:red;">*</span>:
+                                                                                                  <% end %>
+                                                                                                    <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061", value:"#{ @restaurant_to_create && @restaurant_to_create.phone_number ? @restaurant_to_create.get_phone_number : nil }" %>
+                                                                                                      <% else %>
+                                                                                                        <%= label_tag 'phone_number', 'Telephone:* (+261)', style:'color: #a94442' %>
+                                                                                                          <%= text_field_tag 'phone_number',nil, class:'form-control', id:"phone-number", placeholder:"325127061",style:'border-color: #a94442;',value:@restaurant_to_create.phone_number  %>
+                                                                                                            <span style="color: #a94442; font-size:12px; font-style:italic">
+                                                                                                                        <%= @restaurant_to_create.errors.messages[:phone_number].uniq.join(", ") %>
+                                                                                                                      </span>
+                                                                                                            <% end %>
+                                                                                                              <br>
+                                                                                                              <%= submit_tag "Create", class:"btn btn-primary" %>
+                                                                                                                <% end %>
+              </div>
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+  function readURL(input, id_string) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#" + id_string).attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#logo").change(function() {
+    readURL(this, "logo_image");
+  });
+  $("#picture_restaurant").change(function() {
+    readURL(this, "picture");
+  });
+  // var reg = new RegExp("/\+\d+3\s\d+2\s\d+2\s\d+2\s\d+3\s\d+2/");
+  // var reg = new RegExp("^\\+261-[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{2}$")
+  // var resultat = reg.test("+261-32-51-270-61");
+
+
+  var input = document.querySelector('#phone-number');
+
+  input.addEventListener('input', function() {
+    // var reg = new RegExp("^\\+261[0-9]{2}[0-9]{2}[0-9]{3}[0-9]{2}$")
+    var reg = new RegExp("^3[2|3|4][0-9]{2}[0-9]{3}[0-9]{2}$");
+    var resultat = reg.test(input.value);
+    // if (input.value.length === 13 && resultat) {
+    if (input.value.length === 9 && resultat) {
+      input.value = format_phone_number(input.value);
+    } else {
+      input.value = input.value.split("-").join("");
+      if (input.value.length >= 9) {
+        input.value = format_phone_number(input.value);
+      }
+    }
+  });
+
+  let format_phone_number = (num_char) => {
+    // let nationalite = num_char.substring(0, 4);
+    // let operator = num_char.substring(4, 6);
+    let operator = num_char.substring(0, 2);
+    // let primary = num_char.substring(6, 8);
+    let primary = num_char.substring(2, 4);
+    // let secondary = num_char.substring(8, 11);
+    let secondary = num_char.substring(4, 7);
+    // let third = num_char.substring(11, 13);
+    let third = num_char.substring(7, 9);
+    // return nationalite + "-" + operator + "-" + primary + "-" + secondary + "-" + third;
+    return operator + "-" + primary + "-" + secondary + "-" + third;
+  }
+</script>

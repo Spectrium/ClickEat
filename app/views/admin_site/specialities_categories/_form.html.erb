@@ -1,0 +1,30 @@
+<%= form_with(model: category, local: true, url:(category.persisted? ? admin_site_specialities_category_path(category) : admin_site_specialities_categories_path)) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(category.errors.count, "error") %> prohibited this request_remplacement from being saved:</h2>
+      <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <!-- <label for="name">Nom <span style="color:red;">*</span>:</label> -->
+      <%= form.label :name do %>
+        Nom de la nouvelle <span style="color:red;">*</span>:
+        <% end %>
+          <%= form.text_field :name, class:'form-control' %>
+            <br>
+            <br>
+            <%= form.label :password do %>
+              Mot de passe<span style="color:red;">*</span>:
+              <% end %>
+                <%= form.password_field :password, class:'form-control' %>
+                  <br>
+                  <br>
+                  <%= form.submit :valider, class:"btn btn-primary" %>
+
+                    <% end %>
