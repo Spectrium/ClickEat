@@ -29,11 +29,14 @@ Rails.application.routes.draw do
   devise_for :admins, paths: 'admins', controllers: { sessions: "admins/sessions", confirmations: "admins/confirmations", registrations: "admins/registrations"}
   devise_for :admins_restaurants, paths: 'admins_restaurants', controllers: { sessions: "admins_restaurants/sessions", confirmations: "admins_restaurants/confirmations", registrations: "admins_restaurants/registrations"}
   namespace :admin_site do
+    resources :types, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+    resources :specialities, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :users, only: [:index, :new, :create, :edit, :update, :destroy, :show]
-    resources :specialities_categories, only: [:index, :new, :create, :edit, :update, :destroy, :show]    
+    resources :specialities_categories, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :restaurants_specialities, only: [:index, :new, :create, :edit, :update, :destroy, :show]    
     resources :restaurants, only: [:index, :new, :create, :edit, :update, :update, :destroy, :show]
-    resources :dishes_types, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+    resources :category_dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+    resources :type_admins
   end
 end

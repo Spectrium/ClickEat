@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "type_admin_id"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["type_admin_id"], name: "index_admins_on_type_admin_id"
   end
 
   create_table "admins_restaurants", force: :cascade do |t|
@@ -95,7 +97,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
-    t.time "preparation_time"
     t.string "picture"
     t.bigint "restaurant_id"
     t.bigint "category_dish_id"
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
+    t.integer "preparation_time"
     t.index ["cached_votes_down"], name: "index_dishes_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_dishes_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_dishes_on_cached_votes_total"
@@ -123,8 +125,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.string "location"
     t.text "description"
-    t.string "logo"
-    t.string "picture"
     t.string "phone_number"
     t.string "email"
     t.bigint "subscription_id"
@@ -180,6 +180,12 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subscription_type_id"], name: "index_subscriptions_on_subscription_type_id"
+  end
+
+  create_table "type_admins", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "types", force: :cascade do |t|

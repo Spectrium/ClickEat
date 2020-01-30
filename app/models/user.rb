@@ -38,4 +38,12 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
       user.password = Devise.friendly_token[0,20]
     end
   end
+  def next
+    self.class.where("id > ?", id).first
+  end
+
+  def previous
+    self.class.where("id < ?", id).last
+  end
+
 end

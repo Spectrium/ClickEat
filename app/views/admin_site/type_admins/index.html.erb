@@ -1,0 +1,70 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        Nos types d'admins
+      </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- .row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <span style="font-size: 23px;font-weight: bold;">Tableau pour gérer les types d'admins</span> &nbsp;|<br>
+        <a href="<%= new_admin_site_type_admin_path %>"><i class="fa fa-plus fa-fw"></i>Créer un nouveau type d'admin</a>
+      </div>
+      <!-- ./panel-heading -->
+    </div>
+    <div class="panel-body">
+      <% if flash[:success] %>
+        <div class="alert alert-success">
+          <%= flash[:success] %>
+        </div>
+        <% end %>
+          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>suppression</th>
+                <th>edit</th>
+                <th>voir</th>
+              </tr>
+              <!-- /tr -->
+            </thead>
+            <!-- /thead -->
+            <tbody>
+              <% for index_type_admin in 0 ... @admin_site_type_admins.size %>
+                <tr>
+                  <td>
+                    <%= @admin_site_type_admins[index_type_admin].id %>
+                  </td>
+                  <td>
+                    <%= @admin_site_type_admins[index_type_admin].name %>
+                  </td>
+                  <td>
+                    <a href="<%= admin_site_type_admin_path( @admin_site_type_admins[index_type_admin]) %>" data-confirm="Are you sure?" rel="nofollow" data-method="delete">
+                      <i class="fa fa-trash" aria-hidden="true">
+                          </i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<%= edit_admin_site_type_admin_path( @admin_site_type_admins[index_type_admin]) %>">
+                      <i class="fa fa-edit" aria-hidden="true">
+                              </i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      <i class="fa fa-eye" aria-hidden="true">
+                              </i>
+                    </a>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+            <!-- /tbody -->
+
+    </div>
+  </div>

@@ -10,7 +10,7 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Gestion des utilisateurs
+          <span style="font-size: 23px;font-weight: bold;">Tableau pour gérer les utilisateurs</span> &nbsp;|<a href="<%= new_admin_site_user_path %>"><i class="fa fa-plus fa-fw"></i>Créer un nouvel utilisateur</a>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
@@ -56,58 +56,16 @@
                             <% end %>
                       </td>
                       <td class="center">
-                        <%= link_to admin_site_user_path(@all_users[index_user].id), class:"btn" do %>
+                        <%= link_to edit_admin_site_user_path(@all_users[index_user].id), class:"btn" do %>
                           <%= content_tag :i,'' , class:"fa fa-edit" %>
                             <% end %>
                       </td>
                       <td class="center">
-                        <button data-toggle="modal" data-target="#myModal<%= @all_users[index_user].id %>">
-                          <i class="fa fa-eye" aria-hidden="true"></i>
-                      </button>
+                        <%= link_to admin_site_user_path(@all_users[index_user].id), class:"btn" do %>
+                          <%= content_tag :i,'' , class:"fa fa-eye" %>
+                            <% end %>
                       </td>
                     </tr>
-                    <div class="modal fade" id="myModal<%= @all_users[index_user].id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 class="modal-title" id="myModalLabel">
-                              Utilisateur n°
-                              <%= @all_users[index_user].id %>
-                            </h4>
-                          </div>
-                          <div class="modal-body">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <% if @all_users[index_user].avatar.attached? %>
-                                  <%= image_tag( @all_users[index_user].avatar,height:200) %>
-                                    <% else %>
-                                      <%= image_tag gravatar_image_url( @all_users[index_user].email, width: 200, height:200) %>
-                                        <% end %>
-                              </div>
-                              <div class="col-md-6">
-                                <label>Nom d'utilisateur:</label>
-                                <%= @all_users[index_user].username %><br>
-                                  <label>Email:</label>
-                                  <%= @all_users[index_user].email %><br>
-                                    <label>Prénom (s):</label>
-                                    <%= @all_users[index_user].first_name %><br>
-                                      <label>Nom (s):</label>
-                                      <%= @all_users[index_user].last_name %><br>
-                                        <label>Numero de panier:</label>
-                                        <%= @all_users[index_user].cart_id %><br>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div>
-                        <!-- /.modal-content -->
-                      </div>
-                      <!-- /.modal-dialog -->
-                    </div>
                     <% end %>
                 </tbody>
               </table>

@@ -1,0 +1,2 @@
+module AdminSite::SpecialitiesHelper
+end

@@ -9,7 +9,7 @@ module AdminSite
     end
   
     def create
-      console
+      # console
       @user_to_create = User.new(email:params[:email],username:params[:username],first_name:params[:first_name],last_name:params[:last_name],password:params[:password],password_confirmation:params[:password_confirmation],phone_number:params[:phone_number].split("-").join)
       if params[:avatar]
         @user_to_create.avatar.attach(params[:avatar])
@@ -39,6 +39,9 @@ module AdminSite
 
         if @user_to_edit.save && current_admin.valid_password?(params[:password])
           flash[:success] = 'L\'utilisateur a été mis à jour avec succès'
+          if params[:avatar]
+            @user_to_edit.avatar.attach(params[:avatar])
+          end
           redirect_to admin_site_users_path
         else
           if !current_admin.valid_password?(params[:password])

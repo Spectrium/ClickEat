@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# admin type
+TypeAdmin.create(name:"super admin")
+# Admin
+Admin.create(email:"tsiory@gmail.com",password:"azerty",type_admin_id:1)
+
 # Abonnement et type d'abonnement
 #type
 type = ["User",
@@ -309,14 +314,14 @@ picture = ["aboutJade.jpg",
     "aboutGpg.jpg",
     "aboutBanana.jpg"
 ]
-phone = ["033 42 027 48",
-    "032 27 391 94",
-    "+33 5 81 41 95 92",
-    "034 42 729 44",
-    "020 22 241 98",
-    "033 17 716 71",
-    "032 79 163 04",
-    "020 23 368 93"
+phone = ["334202748",
+    "322739194",
+    "335814195",
+    "344272944",
+    "202224198",
+    "331771671",
+    "327916304",
+    "202336893"
 ]
 email = ["jadeleresto@gmail.com",
     "tendm@gmail.com",
@@ -329,8 +334,7 @@ email = ["jadeleresto@gmail.com",
 ]
 
 for index in 0...name.length do
-    Restaurant.create(name: name[index], location: location[index], description: description[index],
-        logo: logo[index],picture: picture[index],phone_number: phone[index],email: email[index],
+    Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
         subscription_id: rand(5..8))
         print "."
 end
@@ -385,6 +389,7 @@ for index in 0..4 do
     Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
         preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
         restaurant_id: 1 ,category_dish_id: rand(1..21))
+    
         print "."
 end
 for index in 5..9 do

@@ -1,2 +1,56 @@
-<h1>SpecialitiesCategories#edit</h1>
-<p>Find me in app/views/specialities_categories/edit.html.erb</p>
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Mettre à jour une catégorie des spécialités de nos restaurants</h1>
+      <!-- /page-header -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- ./row -->
+  <div class="row">
+    <div class="col-lg-12" style="margin-bottom: 15px">
+      <span>*Obligatoire</span>
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span style="font-size: 23px;font-weight: bold;">
+              Formulaire de modification d'une catégorie de spécialités d'un restaurant
+            </span><br>
+          <a href="<%= admin_site_restaurants_path %>"><i class="fa fa-plus fa-fw"></i>Liste des catégories des spécialités</a> &nbsp; |
+          <a href="<%= new_admin_site_restaurant_path %>"><i class="fa fa-edit fa-fw"></i>Créer une nouvelle catégorie de spécialité</a>
+          <!-- /span -->
+        </div>
+        <!-- /panel-heading -->
+        <div class="panel-body">
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+            <!-- /alert alert-success -->
+            <% end %>
+              <% if flash[:error] %>
+                <div class="alert alert-danger">
+                  <%= flash[:error] %>
+                </div>
+                <% end %>
+                  <div class="col-md-offset-2 col-md-8">
+                    <!-- Formulaire -->
+                    <%= render "form", category: @specialities_category %>
+                      <!-- /Formulaire -->
+                  </div>
+                  <!-- /col-md-offset-2 col-md-8 -->
+        </div>
+        <!-- /panel-body -->
+      </div>
+      <!-- /panel panel-default -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /page-wrapper -->
