@@ -6,6 +6,7 @@ ruby '2.6.5'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'table_print'
 gem 'faker'

@@ -14,7 +14,7 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook] #, :confirmable
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2] #, :confirmable
    
 
   def get_phone_number
@@ -32,10 +32,10 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
      UserMailer.welcome_email(self).deliver_now
    end
    #omniauth Facebook
-   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-    end
-  end
+  #  def self.from_omniauth(auth)
+  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  #     user.email = auth.info.email
+  #     user.password = Devise.friendly_token[0,20]
+  #   end
+  # end
 end
