@@ -1,0 +1,55 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Création d'une nouvelle catégorie de plat</h1>
+      <!-- /page-header -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- ./row -->
+  <div class="row">
+    <div class="col-lg-12" style="margin-bottom: 15px">
+      <span>*Obligatoire</span>
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span style="font-size: 23px;font-weight: bold;">
+              Formulaire de création d'une nouvelle catégorie de plat
+                      </span><br>
+          <a href="<%= admin_site_category_dishes_path %>"><i class="fa fa-plus fa-fw"></i>Listes des spécialités de nos restaurants</a>
+          <!-- /span -->
+        </div>
+        <!-- /panel-heading -->
+        <div class="panel-body">
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+            <!-- /alert alert-success -->
+            <% end %>
+              <% if flash[:error] %>
+                <div class="alert alert-danger">
+                  <%= flash[:error] %>
+                </div>
+                <% end %>
+                  <div class="col-md-offset-2 col-md-8">
+                    <!-- Formulaire -->
+                    <%= render "form", category_dish: @category_dish %>
+                      <!-- /Formulaire -->
+                  </div>
+                  <!-- /col-md-offset-2 col-md-8 -->
+        </div>
+        <!-- /panel-body -->
+      </div>
+      <!-- /panel panel-default -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /page-wrapper -->

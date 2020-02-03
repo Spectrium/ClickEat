@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'font-awesome-rails'
 gem 'table_print'
+gem 'rails_refactor'
 
 # chart
 gem 'chart-js-rails'

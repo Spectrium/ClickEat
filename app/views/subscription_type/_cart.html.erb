@@ -1,0 +1,14 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header">
+    <h4 class="my-0 font-weight-normal"><%= item.name%></h4>
+    </div>
+    <div class="card-body">
+        <h1 class="card-title pricing-card-title">MGA <%= item.price%> <small class="text-muted">/ month</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <% item.subscription_privilege.each do |priv| %>
+                    <li><%= priv.privilege%></li>
+                <%end%>
+            </ul>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for <%= item.name%></button>
+    </div>
+</div>

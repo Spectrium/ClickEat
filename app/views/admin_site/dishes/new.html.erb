@@ -1,2 +1,55 @@
-<h1>Dishes#new</h1>
-<p>Find me in app/views/dishes/new.html.erb</p>
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Création d'un nouveau plat</h1>
+      <!-- /page-header -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- ./row -->
+  <div class="row">
+    <div class="col-lg-12" style="margin-bottom: 15px">
+      <span>*Obligatoire</span>
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span style="font-size: 23px;font-weight: bold;">
+            Formulaire de création d'un nouveau plat
+          </span><br>
+          <a href="<%= admin_site_dishes_path %>"><i class="fa fa-plus fa-fw"></i>Listes des plats</a>
+          <!-- /span -->
+        </div>
+        <!-- /panel-heading -->
+        <div class="panel-body">
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+            <!-- /alert alert-success -->
+            <% end %>
+              <% if flash[:error] %>
+                <div class="alert alert-danger">
+                  <%= flash[:error] %>
+                </div>
+                <% end %>
+                  <div class="col-md-offset-2 col-md-8">
+                    <!-- Formulaire -->
+                    <%= render "form", dish: @dish %>
+                      <!-- /Formulaire -->
+                  </div>
+                  <!-- /col-md-offset-2 col-md-8 -->
+        </div>
+        <!-- /panel-body -->
+      </div>
+      <!-- /panel panel-default -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /page-wrapper -->

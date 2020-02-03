@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_01_27_065125) do
+=======
+ActiveRecord::Schema.define(version: 2020_01_29_135433) do
+>>>>>>> e96d96d769594c57c74143b6f1fbc3d1b1bad7d4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +48,10 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "type_admin_id"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["type_admin_id"], name: "index_admins_on_type_admin_id"
   end
 
   create_table "admins_restaurants", force: :cascade do |t|
@@ -95,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
-    t.time "preparation_time"
     t.string "picture"
     t.bigint "restaurant_id"
     t.bigint "category_dish_id"
@@ -105,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
+    t.integer "preparation_time"
     t.index ["cached_votes_down"], name: "index_dishes_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_dishes_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_dishes_on_cached_votes_total"
@@ -123,8 +129,6 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
     t.string "name"
     t.string "location"
     t.text "description"
-    t.string "logo"
-    t.string "picture"
     t.string "phone_number"
     t.string "email"
     t.bigint "subscription_id"
@@ -158,6 +162,14 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
     t.index ["category_id"], name: "index_specialities_on_category_id"
   end
 
+  create_table "subscription_privileges", force: :cascade do |t|
+    t.text "privilege"
+    t.bigint "subscription_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subscription_id"], name: "index_subscription_privileges_on_subscription_id"
+  end
+
   create_table "subscription_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -167,12 +179,17 @@ ActiveRecord::Schema.define(version: 2020_01_27_065125) do
   create_table "subscriptions", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "privilege"
     t.string "color"
     t.bigint "subscription_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subscription_type_id"], name: "index_subscriptions_on_subscription_type_id"
+  end
+
+  create_table "type_admins", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "types", force: :cascade do |t|

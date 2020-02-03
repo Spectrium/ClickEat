@@ -228,6 +228,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails_refactor (1.4.5)
     railties (6.0.1)
       actionpack (= 6.0.1)
       activesupport (= 6.0.1)
@@ -344,6 +345,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.1)
+  rails_refactor
   sass-rails (>= 6)
   selenium-webdriver
   spring

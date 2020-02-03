@@ -1,0 +1,29 @@
+<%= form_with(model: admin_site_type_admin, local: true) do |form| %>
+  <% if admin_site_type_admin.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(admin_site_type_admin.errors.count, "error") %> prohibited this admin_site_type_admin from being saved:</h2>
+
+      <ul>
+        <% admin_site_type_admin.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <%= form.label :name do %>
+        Nom du type d'admin <span style="color:red;">*</span>:
+        <% end %>
+          <%= form.text_field :name, class:'form-control' %>
+            <br>
+            <br>
+            <%= form.label :password do %>
+              Mot de passe <span style="color:red;">*</span>:
+              <% end %>
+                <%= form.password_field :password, class:'form-control' %>
+                  <br>
+                  <br>
+                  <%= form.submit :valider, class:"btn btn-primary" %>
+                    <% end %>

@@ -3,7 +3,6 @@ class CreateSubscriptions < ActiveRecord::Migration[6.0]
     create_table :subscriptions do |t|
       t.string :name
       t.decimal :price
-      t.string :privilege
       t.string :color
       t.references :subscription_type, index: true
 

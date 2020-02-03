@@ -1,0 +1,58 @@
+<%= form_with(model: dish, local: true, url:(dish.persisted? ? admin_site_dish_path(dish) : admin_site_dishes_path )) do |form| %>
+  <% if dish.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+      <ul>
+        <% dish.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <%= form.label :name do %>
+        Nom du nouveau plat <span style="color:red;">*</span>:
+        <% end %>
+          <%= form.text_field :name, class:'form-control' %>
+            <br>
+            <br>
+            <%= form.label :description do %>
+              Description <span style="color:red;">*</span>:
+              <% end %>
+                <%= form.text_area :description, class:'form-control' %> <br>
+                  <br>
+                  <%= form.label :price do %>
+                    Prix <span style="color:red;">*</span>:
+                    <% end %>
+                      <%= form.text_field :price, class:'form-control' %>
+                        <br>
+                        <br>
+                        <%= form.label :preparation_time do %>
+                          Temps de preparation <span style="color:red;">*</span>:
+                          <% end %>
+                            <%= form.text_field :preparation_time, class:'form-control' %>
+                              <br>
+                              <br>
+                              <%= form.label :restaurant_id do %>
+                                Restaurant <span style="color:red;">*</span>:
+                                <% end %>
+                                  <%= form.select :restaurant_id, all_restaurants.collect { |restaurant| [restaurant.name, restaurant.id]}, class:'form-control' %>
+                                    <br>
+                                    <br>
+                                    <%= form.label :category_dish_id do %>
+                                      Categorie de plat <span style="color:red;">*</span>:
+                                      <% end %>
+                                        <%= form.select :category_dish_id,  all_category_dishes.collect { |category_dish| [category_dish.name, category_dish.id]}, class:'form-control' %>
+                                          <br>
+                                          <br>
+                                          <%= form.label :password do %>
+                                            Mot de passe<span style="color:red;">*</span>:
+                                            <% end %>
+                                              <%= form.password_field :password, class:'form-control' %>
+                                                <br>
+                                                <br>
+                                                <%= form.submit :valider, class:"btn btn-primary" %>
+
+                                                  <% end %>
