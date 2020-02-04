@@ -26,7 +26,7 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
   end
 
    #mailer
-   after_create :welcome_send
+  #  after_create :welcome_send
 
    def welcome_send
      UserMailer.welcome_email(self).deliver_now
