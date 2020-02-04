@@ -24,36 +24,28 @@ end
 nameA = ["Cristal",
     "Gold",
     "Silver",
-    "Free",
     "Cristal",
     "Gold",
-    "Silver",
-    "Free"
+    "Silver"
 ]
 priceA = ["40000",
     "21000",
     "12000",
-    "0",
     "150000",
     "90000",
-    "50000",
-    "0"
+    "50000"
 ]
 
 colorA = ["#f20dd5",
     "#feff00",
     "#c0c0c0",
-    "#f28023",
     "#f20dd5",
     "#feff00",
-    "#c0c0c0",
-    "#f28023"
+    "#c0c0c0"
 ]
 referenceA = ["1",
     "1",
     "1",
-    "1",
-    "2",
     "2",
     "2",
     "2"
@@ -335,7 +327,7 @@ email = ["jadeleresto@gmail.com",
 
 for index in 0...name.length do
     Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(5..8))
+        subscription_id: rand(4..6))
         print "."
 end
 
@@ -435,6 +427,7 @@ for index in 35..39 do
         print "."
 end
 
+#Todo
 for index in 1..8 do
     5.times do
         SubscriptionPrivilege.create(privilege: Faker::Lorem.sentence(word_count: 4), subscription_id: index)
