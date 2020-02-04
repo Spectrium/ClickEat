@@ -329,8 +329,8 @@ email = ["jadeleresto@gmail.com",
 for index in 0...name.length do
     resto = Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
         subscription_id: rand(4..6))
-        resto.logo.attach(io: File.open('/assets/images'), filename: logo[index])
-        resto.picture.attach(io: File.open('/assets/images'), filename: picture[index])
+        resto.logo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', logo[index])),filename:logo[index])
+        resto.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', picture[index])),filename:picture[index])
         print "."
 end
 
@@ -381,59 +381,68 @@ end
 
 
 for index in 0..4 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+   d =  Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 1 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
+    
         print "."
 end
 for index in 5..9 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d =Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 2 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 10..14 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 3 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 15..19 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 4 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 20..24 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 5 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 25..29 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 6 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 30..34 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 7 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 for index in 35..39 do
-    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59), 
+    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59),
         restaurant_id: 8 ,category_dish_id: rand(1..21))
-        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
+        ind = "#{rand(1..16)}.jpg"
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', ind)),filename: ind)
         print "."
 end
 
