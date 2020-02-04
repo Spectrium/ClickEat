@@ -1,10 +1,9 @@
 <body class="background-sign-in">
-    <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <!-- <form action="#" class="container-form"> -->
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class:"container-form"}) do |f| %>
-
-                <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <!-- <form action="#" class="container-form"> -->
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class:"container-form"}) do |f| %>
                     <h2 class="header-h1">Se connecter</h2>
                     <div class="social-container">
                         <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
@@ -23,15 +22,15 @@
                                         <%= f.submit "Se connecter",class:"connection-btn all-btn" %>
                                             <% end %>
                                                 <!-- </form> -->
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1 class="header-h1">Salut l'ami!</h1>
-                    <p class="para-container">Entrez vos informations personnelles et commencez votre voyage avec nous</p>
-                    <a href="/users/sign_up"><button class="ghost all-btn" id="signUp">S'inscrire</button></a>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1 class="header-h1">Salut l'ami!</h1>
+                        <p class="para-container">Entrez vos informations personnelles et commencez votre voyage avec nous</p>
+                        <a href="/users/sign_up"><button class="ghost all-btn" id="signUp">S'inscrire</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>

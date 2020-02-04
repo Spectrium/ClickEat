@@ -1,25 +1,26 @@
 <body class="background-sign-in">
-    <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class:"container-form" }) do |f| %>
-                <span>
+    <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class:"container-form" }) do |f| %>
+                    <span>
                     <h2 class="header-h1">Forgot your Password ?</h2>
-                        <%= render "devise/shared/error_messages", resource: resource %>
+                       
                     <span class="message-connection">Enter your email address and an email with instructions will be sent to you.</span>
-                </span>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-input", placeholder:"email" %>
+                    </span>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-input", placeholder:"email" %>
 
-                    <%= f.submit "Send me reset password", class:"connection-btn all-btn" %>
-                        <% end %>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1 class="header-h1">Welcome Back!</h1>
-                    <p class="para-container">To keep connected with us please login with your personal info</p>
-                    <%=link_to "Se connecter", new_user_session_path, :class=>"ghost all-btn", :id=>"signIn"%>
+                        <%= f.submit "Send me reset password", class:"connection-btn all-btn" %>
+                            <% end %>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1 class="header-h1">Welcome Back!</h1>
+                        <p class="para-container">To keep connected with us please login with your personal info</p>
+                        <%=link_to "Se connecter", new_user_session_path, :class=>"ghost all-btn", :id=>"signIn"%>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
