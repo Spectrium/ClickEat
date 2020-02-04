@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
-    t.string "picture"
+    t.string "picture", default: "about-img.jpg"
     t.bigint "restaurant_id"
     t.bigint "category_dish_id"
     t.datetime "created_at", precision: 6, null: false

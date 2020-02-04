@@ -4,8 +4,8 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :location
       t.text :description
-      t.string :logo
-      t.string :picture
+      t.string :logo , default: "about-img.jpg"
+      t.string :picture , default: "full-logo.png"
       t.string :phone_number
       t.string :email
       t.references :subscription, index: true

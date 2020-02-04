@@ -279,15 +279,6 @@ location = ["Mahamasina",
     "Mahamasina",
     "Andraharo"
 ]
-description = ["Green for Hope",
-    "Food is BAE, NoRegime",
-    "it's time to EAT",
-    "The Chief is on board",
-    "Meal Meal Meal",
-    "Authentic food quality",
-    "President's favorite food",
-    "Douceurs tous les jours"
-]
 logo = ["logoJADE.png",
     "logoTendM.jpg",
     "logoDynastie.png",
@@ -306,6 +297,16 @@ picture = ["aboutJade.jpg",
     "aboutGpg.jpg",
     "aboutBanana.jpg"
 ]
+description = ["Green for Hope",
+    "Food is BAE, NoRegime",
+    "it's time to EAT",
+    "The Chief is on board",
+    "Meal Meal Meal",
+    "Authentic food quality",
+    "President's favorite food",
+    "Douceurs tous les jours"
+]
+
 phone = ["334202748",
     "322739194",
     "335814195",
@@ -326,8 +327,10 @@ email = ["jadeleresto@gmail.com",
 ]
 
 for index in 0...name.length do
-    Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
+    resto = Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
         subscription_id: rand(4..6))
+        resto.logo.attach(io: File.open('/assets/images'), filename: logo[index])
+        resto.picture.attach(io: File.open('/assets/images'), filename: picture[index])
         print "."
 end
 
@@ -378,52 +381,59 @@ end
 
 
 for index in 0..4 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 1 ,category_dish_id: rand(1..21))
-    
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 5..9 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 2 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 10..14 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 3 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 15..19 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 4 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 20..24 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 5 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 25..29 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 6 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 30..34 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 7 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 for index in 35..39 do
-    Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
+    dish = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
+        preparation_time: rand(20..59), 
         restaurant_id: 8 ,category_dish_id: rand(1..21))
+        dish.picture.attach(io: File.open('/assets/images'), filename: "#{rand(1..16)}")
         print "."
 end
 
