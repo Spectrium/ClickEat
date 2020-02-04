@@ -1,7 +1,7 @@
 class Dish < ApplicationRecord
     paginates_per 8
     #relation
-    has_one_attached :picture
+    has_one_attached :image
     belongs_to :restaurant
     belongs_to :category_dish
     has_many :details_orders
