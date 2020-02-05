@@ -5,7 +5,7 @@ class CreateDishes < ActiveRecord::Migration[6.0]
       t.text :description
       t.decimal :price, precision: 10, scale: 2
       t.time :preparation_time
-      t.string :picture
+      t.string :picture , default: "about-img.jpg"
       t.references :restaurant, index: true
       t.references :category_dish, index: true
       t.timestamps

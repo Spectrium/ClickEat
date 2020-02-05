@@ -2,31 +2,23 @@
 <section id="our-dishes">
     <img src="<%= image_path('title-detail.png')%>" alt="title-detail">
     <h2>Nos plats</h2>
-    <p>Les types de plats que nous proposont pour vous.</p>
+    <p>Cliquez sur le type de plat selon votre envi</p>
     <hr>
     <article id="dishes-left">
         <% for index_types_dishes_left in 0 ... (@type.size/2) %>
             <article>
                 <div>
-                    <!-- <h5>Entrees and Fast Foods</h5> -->
+                    
                     <h5>
                         <a href="<%=type_path(@type[index_types_dishes_left].id)%>" class="link-type-dish">
                             <%= @type[index_types_dishes_left].name %>
                         </a>
                     </h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-                </div>
+                    </div>
                 <a href="<%=type_path(@type[index_types_dishes_left].id)%>" class="link-type-dish">
-        <img src="<%= image_path(@type[index_types_dishes_left].icon) %>  " alt="hamburger"> <!-- <h5>Entrees and Fast Foods</h5> -->
+        <img src="<%= image_path(@type[index_types_dishes_left].icon) %>  " alt="hamburger"> 
           </a>
             </article>
-            <!-- <article>
-        <div>
-          <h5>Drinks and Beverages</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-        </div>
-        <img src="<%= image_path('db-icon.png') %>" alt="drinks"> Boisson
-      </article> -->
             <% end %>
     </article>
     <article id="dishes-right">
@@ -38,35 +30,10 @@
                             <%= @type[index_types_dishes_left].name %>
                         </a>
                     </h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
                 </div>
                 <a href="<%=type_path(@type[index_types_dishes_left].id)%>" class="link-type-dish">
         <img src="<%= image_path( @type[index_types_dishes_left].icon ) %>  " alt="hamburger">
         </a>
             </article>
-            <!-- <article>
-        <div>
-          <h5>Drinks and Beverages</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-        </div>
-        <img src="<%= image_path('db-icon.png') %>" alt="drinks">
-      </article> -->
             <% end %>
-                <!-- <article>
-      <div>
-        <h5>Steak and Chicken</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-      </div>
-      <img src="<%= image_path('sc-icon.png') %>" alt="steak"> Plat chaud
-    </article>
-    <article>
-      <div>
-        <h5>Desserts and Sweets</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do re eiusmod diren tempor incididunt ut labore et dolore magna porem</p>
-      </div>
-      <img src="<%= image_path('ds-icon.png') %>" alt="desserts"> dessert
-    </article>
-  </article> -->
-
 </section>
-<!--/OUR DISHES-->

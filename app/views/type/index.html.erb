@@ -1,0 +1,13 @@
+<main>
+    <section id="popular-dishes">
+        <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
+        <h2>Nos plats</h2>
+        <p>Cliquez sur le type de plat selon votre envi</p>
+        <hr>
+        <ul class="dishes resto">
+                <% @type.each do |type|%>
+                    <%= render 'type', item: type%>
+                <%end%>
+        </ul>
+    </section>
+</main>

@@ -1,0 +1,14 @@
+<li>
+    <div>
+        <%= image_tag item.logo, alt:"menu-dish", class:"m-0" %>
+            <a href="<%=category_path(item.id)%>">
+                <div>
+                    <img src="/assets/plus-icon.png" alt="plus-icon">
+                    <p>Cliquer pour en savoir plus</p>
+                </div>
+            </a>
+    </div>
+    <h5>
+        <%= item.name %>
+    </h5>
+</li>

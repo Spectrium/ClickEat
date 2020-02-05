@@ -1,12 +1,14 @@
 <main>
     <section id="popular-dishes" class="row">
         <div class="col-sm-12">
-            <div class="row">
+            <div class="row ml-2">    
+                <h6 style= "color: orange" class = "mt-4">Raccourcis Type:</h6>
                 <%= render 'speedsearchtype', item: @types%>
             </div>
         </div>
         <div class="col-sm-12">
-            <div class="row">
+            <div class="row ml-2">    
+                <h6 style= "color: orange" class = "mt-4">Raccourcis Categories:</h6>
                 <%= render 'speedsearch', item: @categories%>
             </div>
         </div>

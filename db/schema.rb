@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
-    t.string "picture"
+    t.string "picture", default: "about-img.jpg"
     t.bigint "restaurant_id"
     t.bigint "category_dish_id"
     t.datetime "created_at", precision: 6, null: false
@@ -152,6 +153,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
 
   create_table "specialities", force: :cascade do |t|
     t.string "name"
+    t.string "logo"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -176,6 +178,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.decimal "price"
     t.string "color"
+    t.string "picture"
     t.bigint "subscription_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -191,6 +194,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+    t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
