@@ -1,53 +1,38 @@
-<!-- <div class="card mb-4 box-shadow">
-    <div class="card-header">
-        <h4 class="my-0 font-weight-normal"></h4>
-    </div>
-    <div class="card-body">
-        <h1 class="card-title pricing-card-title">MGA
-            <%= item.price%> <small class="text-muted">/ month</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-            <% item.subscription_privilege.each do |priv| %>
-                <li>
-                    <%= priv.privilege%>
-                </li>
-                <%end%>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for <%= item.name%></button>
-    </div>
-</div> -->
-<div class="card">
-    <div class="row">
-        <div class="el-wrapper" style="background-color: <%=item.color%>;">
-            <div class="box-up">
-                <!-- <img class="img" src="index.png" alt=""> -->
-                <div class="img-info">
-                    <div class="info-inner">
-                        <span class="p-name"><%= item.name%></span>
-                    </div>
-                    <div class="a-size">
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <% item.subscription_privilege.each do |priv| %>
-                                <li>
-                                    <%= priv.privilege%>
-                                </li>
-                                <%end%>
-                        </ul>
-                    </div>
+<!-- bouclage de card -->
+<div class="col-md-4">
+    <div class="el-wrapper" style=" border-color: <%=item.color%> ">
+        <div class="box-up">
+            <!-- <img class="img" src="<%=item.picture%>" alt=""> -->
+            <div class="img-box">
+                <%=image_tag item.picture, class:"subscription-size-picture" %>
+            </div>
+            <div class="img-info">
+                <div class="info-inner">
+                    <span class="p-name"><%= item.name%></span>
+                </div>
+                <div class="a-size">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <% item.subscription_privilege.each do |priv| %>
+                            <li>
+                                <%= priv.privilege%>
+                            </li>
+                            <%end%>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="box-down">
-                <div class="h-bg">
-                    <div class="h-bg-inner"></div>
-                </div>
-
-                <a class="cart" href="#">
-                    <span class="price">MGA <%= item.price%> /mois</span>
-                    <span class="add-to-cart">
-              <span class="txt"> Sign up for <%= item.name%> </span>
-                    </span>
-                </a>
+        <div class="box-down">
+            <div class="h-bg">
+                <div class="h-bg-inner"></div>
             </div>
+
+            <a class="cart" href="/users/sign_up">
+                <span class="price">MGA <%= item.price%> /mois</span>
+                <span class="add-to-cart">
+                          <span class="txt"> S'inscrire comme <%= item.name%> </span>
+                </span>
+            </a>
         </div>
     </div>
 </div>
