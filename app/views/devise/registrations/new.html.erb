@@ -15,7 +15,7 @@
                     <span class="message-connection">ou utilisez votre e-mail pour vous inscrire</span>
                     <!-- <input type="text" placeholder="Name" class="form-input" /> -->
                     <!-- <input type="email" placeholder="Email" class="form-input" /> -->
-
+                    <%= f.hidden_field :subscription_id, :value => @subscription_id %>
                     <%= f.text_field :username, autofocus: true, autocomplete: "username",placeholder:"Non d'utilisateur", class:"form-input" %>
                         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",placeholder:"Nom", class:"form-input" %>
                             <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:"Prénom", class:"form-input" %>
