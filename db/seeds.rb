@@ -63,6 +63,7 @@ for index in 0...nameA.length do
     subs = Subscription.create(name: nameA[index],
         price: priceA[index],
         color: colorA[index],
+        picture: picA[index],
         subscription_type_id: referenceA[index])
     print "."
     end
