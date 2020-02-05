@@ -1,48 +1,54 @@
-<!--HEADER-->
-<%= render 'layouts/sociallink' %>
-    <header>
-        <nav id="main-nav">
-            <ul>
-                <li>
-                    <%=link_to "Home", "/"%>
-                </li>
-                <li>
-                    <%=link_to "Plats",dish_index_path%>
-                </li>
+<header>
+  <nav id="main-nav">
+    <ul>
+      <li>
+        <%=link_to "Home", "/"%>
+      </li>
+      <li>
+        <%=link_to "Plats",dish_index_path%>
+      </li>
+      <li>
+        <%=link_to "Restaurant",restaurant_index_path %>
+      </li>
+      <!-- <a href="menu.html">Restaurant</a> -->
+      <!-- <li><a href="index.html#contact">Contact</a></li> -->
+      <!-- if connected -->
 
-                <li>
-                    <%=link_to "Restaurant",restaurant_index_path %>
-                </li>
-                <!-- <a href="menu.html">Restaurant</a> -->
-                <!-- <li><a href="index.html#contact">Contact</a></li> -->
-                <!-- if connected -->
+      <% unless current_user %>
 
-                <% unless current_user %>
+        <li class="sub-items"><a href="">Connexion</a>
+          <ul class="responsive-nav" style="width: auto">
+            <li><a href="/users/sign_in">Se connecter</a></li>
+            <li id="signUpInNavbar"><a href="/users/sign_up">S'inscrire</a></li>
+          </ul>
+        </li>
+        <% else %>
+          <!-- if not connected -->
 
-                    <li class="sub-items"><a href="">Connexion</a>
-                        <ul class="responsive-nav" style="width: auto">
-                            <li><a href="/users/sign_in">Se connecter</a></li>
-                            <li id="signUpInNavbar"><a href="/users/sign_up">S'inscrire</a></li>
-                        </ul>
-                    </li>
-                    <% else %>
-                        <!-- if not connected -->
-
-                        <li class="sub-items"><a href="#">Avatar</a>
-                            <ul class="responsive-nav">
-                                <li>
-                                    <%=link_to "Profils", editprofil_info_path %>
-                                </li>
-                                <li>
-                                    <%=link_to "Se deconnecter", destroy_user_session_path, :method => :delete %>
-                                </li>
-                            </ul>
-                        </li>
-                        <% end %>
+          <li class="sub-items"><a href="#">Avatar</a>
+            <ul class="responsive-nav">
+              <li>
+                <%= link_to "Profils", editprofil_info_path %>
+              </li>
+              <li>
+                <a href="#" id="in_cart">
+                  Panier
+                  <span class="badge badge-light">
+                  
+                  </span>
+                </a>
+              </li>
+              <li>
+                <%=link_to "Se deconnecter", destroy_user_session_path, :method => :delete %>
+              </li>
             </ul>
-            <a href="#" id="pull"></a>
-        </nav>
-        <!-- <figure>
+          </li>
+          <% end %>
+    </ul>
+    <a href="#" id="pull"></a>
+  </nav>
+  <!-- <figure>
             <img src="<%= image_path('clickeat-min.png') %>" alt="Clickeat-logo" class="logo-clickeat">
             <figcaption>ClickEat</figcaption>
         </figure> -->
+</header>

@@ -1,3 +1,5 @@
+
+alert("aze");
 $(function() {
 	"use strict";
 	/*** MAIN MENU SLIDE ANIMATION ***/

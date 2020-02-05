@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_135433) do
+ActiveRecord::Schema.define(version: 2020_02_05_061134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,10 +115,31 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "name"
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.bigint "dish_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["dish_id"], name: "index_line_items_on_dish_id"
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "line_item_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["line_item_id"], name: "index_order_details_on_line_item_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.boolean "confirmed", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -235,4 +256,9 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "dishes"
+  add_foreign_key "order_details", "line_items"
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "orders", "users"
 end

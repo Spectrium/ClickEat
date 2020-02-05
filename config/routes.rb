@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
+  resources :order_details
+  resources :orders
+  # resources :line_items
+
+
+  post 'line_items/:id/add' => "line_items#add_quantity", as: "line_item_add"
+  post 'items/:dish_id/line_items' => "line_items#create", as: "line_item_create"
+  post 'line_items/:id/reduce' => "line_items#reduce_quantity", as: "line_item_reduce"
+  # post 'line_items' => "line_items#create"
+  # get 'line_items/:id' => "line_items#show", as: "line_item"
+  delete 'line_items/:id' => "line_items#destroy", as: "line_item_destroy"
+  
   root'home#index'
   get 'admin_site/index'
   
+  get 'carts', to:"carts#show", as: "cart"
+  delete 'carts/:id' => "carts#destroy"
+
   resources :test
   resources :restaurant do 
     member do 
@@ -10,11 +25,13 @@ Rails.application.routes.draw do
     end
   end
   resources :dish do
+    resources :line_items
     member do 
       put 'like', to: "dish#upvote"
       put 'dislike', to: "dish#downvote"
     end
   end
+  # get '/added_to_cart/:id', to: 'dish#added_to_cart', as:'dish_added_to_cart'
   resources :type ,only: [:show]
   resources :category_dish ,only: [:show]
   resources :subscription_type ,only: [:show]

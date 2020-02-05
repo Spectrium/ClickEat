@@ -1,8 +1,10 @@
 class User < ApplicationRecord
  #relation
+after_create :set_chart
 has_one_attached :avatar
 belongs_to :subscription
 has_one :cart, dependent: :destroy
+has_many :orders, dependent: :destroy
 acts_as_voter
 
 validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -26,13 +28,13 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
   end
 
    #mailer
-   after_create :welcome_send
+  #  after_create :welcome_send
 
    def welcome_send
      UserMailer.welcome_email(self).deliver_now
    end
    #omniauth Facebook
-   def self.from_omniauth(auth)
+  def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
@@ -44,6 +46,11 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
 
   def previous
     self.class.where("id < ?", id).last
+  end
+
+  def set_chart
+    new_cart = Cart.create!(user: self)
+    self.cart = new_cart
   end
 
 end

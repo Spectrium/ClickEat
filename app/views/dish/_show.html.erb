@@ -1,32 +1,32 @@
 <section id="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 size-picture">
-                <%= image_tag(item.picture, :style => "width:100%; height:600px")%>
-            </div>
-            <div class="col-md-4">
-                <%= content_tag(:h1, item.name,:class => "title-dish") %>
-                    <%= content_tag(:h2, item.restaurant.name)%>
-                        <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
-                            <%= content_tag(:p, item.description)%>
-                                <span class="title-dish-price">Price:<%= item.price%></span>
-                                <div>
-                                    <%= link_to like_dish_path(item), method: :put do %>
-                                        <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
-                                        <% end %>
-                                            <%= link_to dislike_dish_path(item), method: :put do %>
-                                                <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
-                                                <% end %>
-                                                    <br>
-                                                    <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
-                                                        <%= item.get_downvotes.size %>
-                                </div>
-                                <!-- <%= content_tag(:p, )%> -->
-                                <br><br>
-                                <span class="box box-center">Commander</span>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 size-picture">
+        <%= image_tag(item.picture, :style => "width:100%; height:600px")%>
+      </div>
+      <div class="col-md-4">
+        <%= content_tag(:h1, item.name,:class => "title-dish") %>
+          <%= content_tag(:h2, item.restaurant.name)%>
+            <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
+              <%= content_tag(:p, item.description)%>
+                <span class="title-dish-price">Price:<%= item.price%></span>
+                <div>
+                  <%= link_to like_dish_path(item), method: :put do %>
+                    <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+                    <% end %>
+                      <%= link_to dislike_dish_path(item), method: :put do %>
+                        <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
+                        <% end %>
+                          <br>
+                          <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                            <%= item.get_downvotes.size %>
+                </div>
+                <!-- <%= content_tag(:p, )%> -->
+                <br><br>
+                <span class="box box-center">Commander</span>
 
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
 </section>

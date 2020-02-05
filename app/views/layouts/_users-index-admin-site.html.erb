@@ -48,7 +48,7 @@
                         <%= @all_users[index_user].email %>
                       </td>
                       <td class="center">
-                        <%= @all_users[index_user].cart_id %>
+                        <%= @all_users[index_user].cart.id %>
                       </td>
                       <td class="center">
                         <%= link_to admin_site_user_path(@all_users[index_user].id), method: :delete,:data => {confirm: 'Are you sure?'}, class:"btn" do %>

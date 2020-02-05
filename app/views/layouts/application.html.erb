@@ -2,27 +2,29 @@
 <html>
 
 <head>
-    <title>Clickeat</title>
-    <%= csrf_meta_tags %>
-        <%= csp_meta_tag %>
+  <title>Clickeat</title>
+  <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-            <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-                <!-- <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> -->
-                <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-                    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-                        <!-- <link rel="stylesheet" href="style.css">
+      <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <!-- <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> -->
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+            <!-- <link rel="stylesheet" href="style.css">
                             <link rel="stylesheet" href="tooltipster.css">
                             <link rel="stylesheet" href="magnific-popup.css"> -->
 </head>
 
 <body>
-    <!-- <p class="notice alert-dismissible alert-success">
+  <!-- <p class="notice alert-dismissible alert-success">
         <%= notice %>
     </p>
     <p class="alert alert-dismissible alert-danger">
         <%= alert %>
     </p> -->
+  <main>
     <%= yield %>
+  </main>
 </body>
 
 </html

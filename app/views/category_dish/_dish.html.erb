@@ -1,35 +1,35 @@
 <li>
-    <div>
-        <%= image_tag item.picture, alt:"menu-dish" %>
-            <a href="<%=dish_path(item.id)%>">
-                <div>
-                    <img src="<%= image_path('plus-icon.png') %>" alt="plus-icon">
-                    <p>Cliquer pour en savoir plus</p>
-                </div>
-            </a>
-    </div>
-    <img src="<%= image_path(item.category_dish.type.icon) %>" alt="burger item">
-    <h5>
-        <%=item.name%>
-    </h5>
-    <p>
-        <%=item.restaurant.name%>
-    </p>
-    <p>
-        <%=item.price%> MGA
-    </p>
-    <p>
-        <a href="#" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
-    </p>
-    <div class="like-jaime">
-        <%= link_to like_dish_path(item), method: :put do %>
-            <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
-            <% end %>
-                <%= link_to dislike_dish_path(item), method: :put do %>
-                    <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
-                    <% end %>
-                        <br>
-                        <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
-                            <%= item.get_downvotes.size %>
-    </div>
+  <div>
+    <%= image_tag item.picture, alt:"menu-dish" %>
+      <a href="<%=dish_path(item.id)%>">
+        <div>
+          <img src="<%= image_path('plus-icon.png') %>" alt="plus-icon">
+          <p>Cliquer pour en savoir plus</p>
+        </div>
+      </a>
+  </div>
+  <img src="<%= image_path(item.category_dish.type.icon) %>" alt="burger item">
+  <h5>
+    <%=item.name%>
+  </h5>
+  <p>
+    <%=item.restaurant.name%>
+  </p>
+  <p>
+    <%=item.price%> MGA
+  </p>
+  <p>
+    <a href="<%= line_item_create_path(item.id) %>" data-method="post" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
+  </p>
+  <div class="like-jaime">
+    <%= link_to like_dish_path(item), method: :put do %>
+      <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+      <% end %>
+        <%= link_to dislike_dish_path(item), method: :put do %>
+          <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
+          <% end %>
+            <br>
+            <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+              <%= item.get_downvotes.size %>
+  </div>
 </li>

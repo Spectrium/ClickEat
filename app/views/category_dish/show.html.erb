@@ -1,25 +1,25 @@
-<main>
-    <section id="popular-dishes" class="row">
-        <div class="col-sm-12">
-            <div class="row">
-                <%= render 'speedsearchtype', item: @types%>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="row">
-                <%= render 'speedsearch', item: @categories%>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <h2 class=" center-title-categirie">
-                <%=@category.type.name%> :
-                    <%=@category.name%>
-            </h2>
-            <ul class="dishes">
-                <% @category.dishes.order(:cached_votes_down).each do |dish|%>
-                    <%= render 'dish', item: dish%>
-                        <%end%>
-            </ul>
-        </div>
-    </section>
-</main>
+<section id="popular-dishes">
+
+  <div class="col-sm-12">
+    <div class="row">
+      <%= render 'speedsearchtype', item: @types%>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="row">
+      <%= render 'speedsearch', item: @categories%>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <h2 class=" center-title-categirie">
+      <%=@category.type.name%> :
+        <%=@category.name%>
+    </h2>
+    <ul class="dishes">
+      <% @category.dishes.order(:cached_votes_down).each do |dish|%>
+        <%= render 'dish', item: dish%>
+          <%end%>
+    </ul>
+  </div>
+
+</section>
