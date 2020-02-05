@@ -24,18 +24,6 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    # @line_item = LineItem.new(line_item_params)
-
-    # respond_to do |format|
-    #   if @line_item.save
-    #     format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-    #     format.json { render :show, status: :created, location: @line_item }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @line_item.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    # Find associated product and current cart
     chosen_product = Dish.find(params[:dish_id])
     current_cart = @current_cart
 

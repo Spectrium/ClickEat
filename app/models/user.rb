@@ -16,7 +16,7 @@ validates :password, presence: true, length: {minimum: 6}, on: :create
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook] #, :confirmable
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2] #, :confirmable
    
 
   def get_phone_number

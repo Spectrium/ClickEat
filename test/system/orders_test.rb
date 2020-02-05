@@ -15,7 +15,7 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "New Order"
 
     check "Confirmed" if @order.confirmed
-    fill_in "User", with: @order.user_id
+    check "Payed" if @order.payed
     click_on "Create Order"
 
     assert_text "Order was successfully created"
@@ -27,7 +27,7 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Confirmed" if @order.confirmed
-    fill_in "User", with: @order.user_id
+    check "Payed" if @order.payed
     click_on "Update Order"
 
     assert_text "Order was successfully updated"

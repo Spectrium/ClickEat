@@ -2,8 +2,8 @@
 
 one:
   confirmed: false
-  user: one
+  payed: false
 
 two:
   confirmed: false
-  user: two
+  payed: false

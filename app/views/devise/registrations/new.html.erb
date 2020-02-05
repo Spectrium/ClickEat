@@ -9,7 +9,8 @@
                         <%= link_to user_facebook_omniauth_authorize_path do%>
                             <i class="fa fa-facebook-f fa-2x"></i>
                             <%end%>
-                                <a href="#"><i class="fa fa-google-plus-g fa-2x"></i></a>
+
+                                <a href="<%= user_google_oauth2_omniauth_authorize_path %>"><i class="fa fa-google-plus-g fa-2x"></i></a>
                     </div>
                     <span class="message-connection">ou utilisez votre e-mail pour vous inscrire</span>
                     <!-- <input type="text" placeholder="Name" class="form-input" /> -->
