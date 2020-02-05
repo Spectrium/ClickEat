@@ -37,7 +37,13 @@ priceA = ["40000",
     "90000",
     "50000"
 ]
-
+picA = ["cristal2.jpg",
+    "gold2.jpg",
+    "silver2.jpg",
+    "cristal2.jpg",
+    "gold2.jpg",
+    "silver2.jpg"
+]
 colorA = ["#f20dd5",
     "#feff00",
     "#c0c0c0",

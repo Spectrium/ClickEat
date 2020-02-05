@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "name"
     t.decimal "price"
     t.string "color"
+    t.string "picture"
     t.bigint "subscription_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
