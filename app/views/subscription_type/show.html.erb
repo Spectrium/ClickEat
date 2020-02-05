@@ -2,12 +2,14 @@
     <section id="popular-dishes">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos Abonnements</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Ici, c'est l'inscription, choisissez et vous aurez droit à 2 semaines d'essai gratuits</p>
         <hr>
         <div class="card-group">
-            <% @subs.each do |subscription|%>
-                <%= render 'cart', item: subscription%>
-                    <%end%>
+            <div class="row">
+                <% @subs.each do |subscription|%>
+                    <%= render 'cart', item: subscription%>
+                        <%end%>
+            </div>
         </div>
     </section>
 </main>
