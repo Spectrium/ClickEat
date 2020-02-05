@@ -130,9 +130,12 @@ categories = ["Malagasy",
     "Fast-food",
     "Autres"
 ]
-
+logoC = ["Madagascar.jpg",
+"asiatique.jpg", "indou.jpg","europe.jpg","usa.jpg","logofast.jpg",
+"other.jpg"
+]
 for index in 0..6 do
-Category.create(name: categories[index])
+Category.create(name: categories[index], logo:logoC[index])
 print "."
 end
 
@@ -146,46 +149,57 @@ asiatique = ["Chinoise",
     "Vietnamienne",
     "Asiatique"
 ]
+logoA = ["chinoise.jpg","japanese.jpg",
+"coree.jpg","thai.jpg","viet.jpg","asia.jpg"
+]
 europeen = ["Française",
     "Italienne",
     "Turque",
     "Européenne"
 ]
+logoE = ["french.jpeg","italia.jpeg",
+"turc.png","euro.jpeg"
+]
 americaine = ["Grillade",
     "Mexicaine",
     "Americaine"
+]
+logoAM = ["grill.jpg","mexique.jpg",
+"americ.jpg"
 ]
 autres = ["Fruit de mer",
     "Boulangerie",
     "Coffee Shop"
 ]
-
-Speciality.create(name: "Malagasy", category_id: 1)
+logoAU = ["fdemer.jpeg","boul.jpeg",
+"cof.jpeg"
+]
+Speciality.create(name: "Malagasy",logo: "malagasy.jpg", category_id: 1)
 print "."
 
 for index in 0..5 do
-    Speciality.create(name: asiatique[index], category_id: 2)
+    Speciality.create(name: asiatique[index],logo: logoA[index],  category_id: 2)
     print "."
 end
 
-Speciality.create(name: "Indienne", category_id: 3)
+Speciality.create(name: "Indienne",logo: "inde.jpg" ,category_id: 3)
 print "."
 
 for index in 0..3 do
-    Speciality.create(name: europeen[index], category_id: 4)
+    Speciality.create(name: europeen[index],logo: logoE[index], category_id: 4)
     print "."
 end
 
 for index in 0..2 do
-    Speciality.create(name: americaine[index], category_id: 5)
+    Speciality.create(name: americaine[index],logo: logoAM[index], category_id: 5)
     print "."
 end
 
-Speciality.create(name: "Fast-food", category_id: 6)
+Speciality.create(name: "Fast-food",logo: "ffood.jpeg", category_id: 6)
 print "."
 
 for index in 0..2 do
-    Speciality.create(name: autres[index], category_id: 7)
+    Speciality.create(name: autres[index],logo: logoAU[index], category_id: 7)
     print "."
 end
 
@@ -194,8 +208,9 @@ puts "specialities created"
 #Types des plats
 type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chauds"]
 icon = ["db-icon.png","ds-icon.png","ff-icon.png","sc-icon.png"]
+logoT = ["drinks.jpg","Dessert.jpeg","fastfoods.jpg","hotplat.jpeg"]
 for index in 0..3 do
-    Type.create(name: type[index], icon: icon[index])
+    Type.create(name: type[index], icon: icon[index],logo: logoT[index])
     print "."
 end
 puts "Dish type created"

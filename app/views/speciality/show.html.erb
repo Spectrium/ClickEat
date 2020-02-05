@@ -1,0 +1,27 @@
+<main>
+    <section id="popular-dishes" class="row">
+        <div class="col-sm-12">
+            <div class="row ml-2">    
+                <h6 style= "color: orange" class = "mt-4">Raccourcis Type:</h6>
+                <%= render 'speedsearchrestau', item: @categories%>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="row ml-2">    
+                <h6 style= "color: orange" class = "mt-4">Raccourcis Categories:</h6>
+                <%= render 'speedsearch', item: @specialities%>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h2 class=" center-title-categirie">
+                <%=@speciality.category.name%> :
+                    <%=@speciality.name%>
+            </h2>
+            <ul class="dishes">
+                <% @speciality.restaurants.order(:cached_votes_down).each do |resto|%>
+                    <%= render 'resto', item: resto%>
+                        <%end%>
+            </ul>
+        </div>
+    </section>
+</main>

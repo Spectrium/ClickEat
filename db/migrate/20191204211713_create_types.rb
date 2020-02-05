@@ -3,6 +3,7 @@ class CreateTypes < ActiveRecord::Migration[6.0]
     create_table :types do |t|
       t.string :name
       t.string :icon
+      t.string :logo
       t.timestamps
     end
   end

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
       put 'dislike', to: "dish#downvote"
     end
   end
-  resources :type ,only: [:show]
+  resources :category ,only: [:show , :index]
+  resources :speciality ,only: [:show]
+  resources :type ,only: [:show , :index]
   resources :category_dish ,only: [:show]
   resources :subscription_type ,only: [:show]
   

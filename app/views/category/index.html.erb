@@ -1,0 +1,13 @@
+<main>
+    <section id="popular-dishes">
+        <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
+        <h2>Nos categories de resto</h2>
+        <p>Cliquez sur la catégorie qui vous intéresse</p>
+        <hr>
+        <ul class="dishes resto">
+                <% @category.each do |type|%>
+                    <%= render 'categories', item: type%>
+                <%end%>
+        </ul>
+    </section>
+</main>
