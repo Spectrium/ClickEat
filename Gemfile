@@ -15,7 +15,7 @@ gem 'jquery'
 #pagination
 gem 'kaminari'
 gem 'dotenv-rails'
-gem 'mailcatcher'
+# gem 'mailcatcher'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
