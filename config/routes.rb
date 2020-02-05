@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   get 'carts', to:"carts#show", as: "cart"
   delete 'carts/:id' => "carts#destroy"
+  post 'to_order', to:"carts#add_to_order", as: "to_order"
 
   resources :test
   resources :restaurant do 

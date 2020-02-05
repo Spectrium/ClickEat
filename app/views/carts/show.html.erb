@@ -2,7 +2,7 @@
   <div class=" col-sm-12 ">
     <h2>Cart show</h2>
     <ul style="color: black">
-      <% @cart.line_items.each do |line_item| %>
+      <% @cart.list_item_not_to_order.each do |line_item| %>
         <li>Item:
           <%= line_item.dish.name %>/ Price:
             <%= number_to_currency(line_item.dish.price) %>/ Quantity:
@@ -24,6 +24,6 @@
     <h3 style="color:black">Sub total:
       <%= number_to_currency(@cart.sub_total) %>
     </h3>
-    <a href="#">Passer la commande</a> # See Order section below for explanation of new_order_path
+    <a href="<%= to_order_path %>" data-method="post">Passer la commande</a> # See Order section below for explanation of new_order_path
   </div>
 </div>

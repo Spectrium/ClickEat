@@ -5,7 +5,7 @@ class CreateLineItems < ActiveRecord::Migration[6.0]
       #Ex:- :default =>''
       t.references :dish, null: false, foreign_key: true
       t.references :cart, null: false, foreign_key: true
-
+      t.boolean :done, default: false
       t.timestamps
     end
   end

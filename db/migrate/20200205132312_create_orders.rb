@@ -1,8 +1,8 @@
 class CreateOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :orders do |t|
-      t.boolean :confirmed
-      t.boolean :payed
+      t.boolean :confirmed, :default => false
+      t.boolean :payed, :default => false
 
       t.timestamps
     end

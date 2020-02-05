@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_061134) do
+ActiveRecord::Schema.define(version: 2020_02_05_132424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,15 +84,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_061134) do
     t.index ["type_id"], name: "index_category_dishes_on_type_id"
   end
 
-  create_table "details_orders", force: :cascade do |t|
-    t.bigint "dish_id"
-    t.bigint "order_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dish_id"], name: "index_details_orders_on_dish_id"
-    t.index ["order_id"], name: "index_details_orders_on_order_id"
-  end
-
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -119,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_061134) do
     t.integer "quantity", default: 1
     t.bigint "dish_id", null: false
     t.bigint "cart_id", null: false
+    t.boolean "done", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
@@ -136,10 +128,9 @@ ActiveRecord::Schema.define(version: 2020_02_05_061134) do
 
   create_table "orders", force: :cascade do |t|
     t.boolean "confirmed", default: false
-    t.bigint "user_id", null: false
+    t.boolean "payed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -267,5 +258,4 @@ ActiveRecord::Schema.define(version: 2020_02_05_061134) do
   add_foreign_key "line_items", "dishes"
   add_foreign_key "order_details", "line_items"
   add_foreign_key "order_details", "orders"
-  add_foreign_key "orders", "users"
 end
