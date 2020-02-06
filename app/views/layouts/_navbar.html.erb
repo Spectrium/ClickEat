@@ -5,10 +5,10 @@
         <%=link_to "Home", "/"%>
       </li>
       <li>
-        <%=link_to "Plats",dish_index_path%>
+        <%=link_to "Nos plats",dish_index_path%>
       </li>
       <li>
-        <%=link_to "Restaurant",restaurant_index_path %>
+        <%=link_to "Nos restaurants",restaurant_index_path %>
       </li>
       <!-- <a href="menu.html">Restaurant</a> -->
       <!-- <li><a href="index.html#contact">Contact</a></li> -->
@@ -24,7 +24,7 @@
         </li>
         <% else %>
           <!-- if not connected -->
-          <li class="sub-items"><a href="#">Avatar</a>
+          <li class="sub-items"><a href=""><%=current_user.username%></a>
             <ul class="responsive-nav">
               <li>
                 <%= link_to "Profils", editprofil_info_path %>

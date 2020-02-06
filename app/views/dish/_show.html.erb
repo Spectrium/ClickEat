@@ -1,10 +1,10 @@
 <section id="blog">
-  <div class="container">
+  <div class="container" style= "width: 1000px">
     <div class="row">
       <div class="col-md-8 size-picture">
         <%= image_tag(item.picture, :style => "width:100%; height:600px")%>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" style= "right: 1%">
         <%= content_tag(:h1, item.name,:class => "title-dish") %>
           <%= content_tag(:h2, item.restaurant.name)%>
             <%= content_tag(:h3, "Description: ",:class => "title-dish")%>

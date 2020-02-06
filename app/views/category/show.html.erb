@@ -1,19 +1,21 @@
 
-    <section id="popular-dishes" class="row">
+    <section id="popular-dishes" >
+    <div class="row">
     <div class="col-sm-12">
         <div class="row ml-2">    
-            <h6 style= "color: orange" class = "mt-4">Raccourcis Type:</h6>
+            <h6 style= "color: orange" class = "raccourci mt-4">Categories des restaurants:</h6>
             <%= render 'speedsearch', item: @categories%>
         </div>
     </div>
 
     <div class="col-sm-12">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
-        <h2>Nos <%=@category.name%></h2>
+        <h2><%=@category.name%></h2>
         <ul class="dishes resto">
             <% @speciality.each do |spe|%>
                 <%= render 'category', item: spe%>
             <%end%>
         </ul>
+    </div>
     </div>
     </section>

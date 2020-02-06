@@ -3735,7 +3735,7 @@
                     }
                     
                     .pagination {
-                        margin-left: 373px;
+                        margin-left: 37%;
                     }
                     /* taille de l'image avec aos animation*/
                     
@@ -3755,13 +3755,15 @@
                     /*text place dans l'animation aos */
                     
                     .text1-aos-animation {
-                        margin-top: 250px;
+                        font-size: larger;
                         margin-left: 30px;
+                        text-align: justify;
                     }
                     
                     .text2-aos-animation {
-                        margin-top: 250px;
+                        font-size: larger;
                         margin-left: 30px;
+                        text-align: justify;
                     }
                     
                     .btn {
@@ -3792,4 +3794,11 @@
                     .card-subscribe-footer {
                         border-color: #dfdfdf !important;
                         font-size: 2em;
+                    }
+
+                    ul.pagination li a{
+                        min-width: 34px;
+                        display: inline-block;
+                        text-align: center;
+                        font-size: larger;
                     }

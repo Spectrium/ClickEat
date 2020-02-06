@@ -301,7 +301,7 @@ puts "CategoriesDish created"
 name = ["Au coeur de JADE",
     "Tend'M",
     "La Dynastie",
-    "La Marmite du Chef",
+    "Marmite du Chef",
     "Le Carnivore BAR",
     "Koots Food",
     "GasyProGrill",
@@ -356,7 +356,7 @@ phone = ["334202748",
 email = ["jadeleresto@gmail.com",
     "tendm@gmail.com",
     "dynastie@gmail.com",
-    "lamarmiteduchef@gmail.com",
+    "marmiteduchef@gmail.com",
     "lecarnivoremada@gmail.com",
     "kootsfood@gmail.com",
     "gasyprogrill@gmail.com",
@@ -378,7 +378,7 @@ puts "Restaurant created"
 #Associer resto et Specialité
 jade = [1, 2, 7, 15,8,11]
 tendm = [2, 12, 15, 10, 4,9]
-dyna = [ 2, 5,6,7, ]
+dyna = [ 2, 5,6,7 ]
 marmite = [ 1,10,13,17, ]
 carni = [12, 14,13,15,16]
 koots = [1, 2, 19,14]
@@ -425,12 +425,12 @@ puts "Restospeciality created"
 
 plat = [
 "Biryani","Café",
-"Gâteau au chocolat","Coca-cola",
-"Crepe Tend'M","Burger Valentin's Day",
-"Emincé de Dinde", "Falafel Vegan", "Plateau délice des mers",
+"Choco-Cake","Coca-cola",
+"Crepe Tend'M","Valentin's Burger",
+"Emincé de Dinde", "Falafel Vegan", "Délice des mers",
 "Glace en pots","Kinder Bueno", "Buffet Carnivore", "Obama's nuggets",
-"Pizza du Roi","Pain au raisin","Salade mixte","Kebab Cordon Bleu",
-"Fidel Castro's Sandwich","Soupe chinoise","Tacos del diablo","Three Horse Beer"
+"Pizza du Roi","Pain au raisin","Salade mixte","Cordon Bleu",
+"Castro's Sandwich","Dynastie's Sup","Tacos DelDiablo","Three Horse Beer"
 ]
 photoplat = [
 "birhyani.jpg","cafe.jpg","choco.jpg","coca.jpg",

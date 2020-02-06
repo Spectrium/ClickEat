@@ -1,8 +1,12 @@
-<main>
+
     <section id="popular-dishes">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos restaurants</h2>
-        <p>Choisissez en un clique votre restaurant préféré </p>
+        <p>
+        Dans lequel commanderiez-vous?? </br>
+        Cliquez et vous allez voir leurs mets succulents.</br>
+        N’oubliez pas de “Liker” vos restaurants préférés.
+        </p>
         <hr>
         <ul class="dishes resto">
             <% @subscription.each do |subs|%>
@@ -12,4 +16,4 @@
             <%end%>
         </ul>
     </section>
-</main>
+
