@@ -1,9 +1,15 @@
 class AdminSite::SpecialitiesController < ApplicationController
   before_action :set_speciality, only: [:edit, :update, :show, :destroy]
   layout 'admin_site'
+  before_action :secure
+
   include(AdminSiteHelper)
   def index
-    @specialities = Speciality.all
+    if current_admin.type_admin_id != 1
+      @specialities = current_admin.restaurant.specialities
+    else
+      @specialities = Speciality.all
+    end
   end
 
   def new
@@ -99,5 +105,11 @@ class AdminSite::SpecialitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_speciality
       @speciality = Speciality.find(params[:id])
+    end
+
+    def secure
+      if !current_admin
+        redirect_to new_admin_session_path
+      end
     end
 end

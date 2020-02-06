@@ -213,7 +213,7 @@
           <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
           </li>
           <li class="divider"></li>
-          <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+          <li><a href="<%= destroy_admin_session_path %>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </li>
         </ul>
         <!-- /.dropdown-user -->
@@ -236,33 +236,38 @@
             </div>
             <!-- /input-group -->
           </li>
-          <li>
-            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_users_path %>"> Utilisateurs</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_restaurants_path %>"> Nos Restaurants</a>
-          </li>
-          <li>
-            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Paniers</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_specialities_categories_path %>"><i class="fa fa-dashboard fa-fw"></i> Catégories de spécialités</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_specialities_path %>"><i class="fa fa-dashboard fa-fw"></i> Spécilités de nos Restaurants</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_dishes_path %>"> Nos Plats</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_types_path %>">Types des plats</a>
-          </li>
-          <li>
-            <a href="<%= admin_site_specialities_categories_path %>"><i class="fa fa-bar-chart-o fa-fw"></i> Catégories des plats</a>
-          </li>
+          <% if  %>
+            <li>
+              <a href="<%= admin_site_dashboards_path %>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <% end %>
+              <% if current_admin.type_admin_id == 1 %>
+                <li>
+                  <a href="<%= admin_site_users_path %>"> Utilisateurs</a>
+                </li>
+                <li>
+                  <a href="<%= admin_site_restaurants_path %>"> Nos Restaurants</a>
+                </li>
+                <li>
+                  <a href="<%= admin_site_specialities_categories_path %>"><i class="fa fa-dashboard fa-fw"></i> Catégories de spécialités</a>
+                </li>
+                <li>
+                  <a href="<%= admin_site_types_path %>">Types des plats</a>
+                </li>
+                <li>
+                  <a href="<%= admin_site_category_dishes_path %>"><i class="fa fa-bar-chart-o fa-fw"></i> Catégories des plats</a>
+                </li>
+                <% end %>
+
+                  <li>
+                    <a href="<%= admin_site_specialities_path %>"><i class="fa fa-dashboard fa-fw"></i> Nos Spécialités</a>
+                  </li>
+                  <li>
+                    <a href="<%= admin_site_dishes_path %>"> Nos Plats</a>
+                  </li>
+                  <li>
+                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Commandes</a>
+                  </li>
         </ul>
       </div>
       <!-- /.sidebar-collapse -->

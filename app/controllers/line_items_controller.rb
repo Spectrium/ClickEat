@@ -63,7 +63,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_path(@current_cart), notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -96,11 +96,15 @@ class LineItemsController < ApplicationController
     end
 
     def is_included(dish)
-      current_cart.line_items.each do |line_item|
+      current_cart.list_item_not_to_order.each do |line_item|
         if line_item.dish.id == dish.id
           return true
         end
       end
       return false
+    end
+
+    def name
+      
     end
 end

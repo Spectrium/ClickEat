@@ -1,5 +1,6 @@
 class AdminSite::TypesController < ApplicationController
   before_action :set_type, only: [:edit, :update, :show, :destroy]
+  before_action :secure
   layout 'admin_site'
   include(AdminSiteHelper)
 
@@ -101,6 +102,12 @@ class AdminSite::TypesController < ApplicationController
 
   def type_password_params
     params[:type][:password]
+  end
+
+  def secure
+    if !current_admin || current_admin.type_admin_id != 1
+      redirect_to new_admin_session_path
+    end
   end
   
 end

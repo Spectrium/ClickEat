@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_132424) do
   create_table "orders", force: :cascade do |t|
     t.boolean "confirmed", default: false
     t.boolean "payed", default: false
+    t.decimal "amount", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -140,12 +141,14 @@ ActiveRecord::Schema.define(version: 2020_02_05_132424) do
     t.string "phone_number"
     t.string "email"
     t.bigint "subscription_id"
+    t.bigint "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
+    t.index ["admin_id"], name: "index_restaurants_on_admin_id"
     t.index ["cached_votes_down"], name: "index_restaurants_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_restaurants_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_restaurants_on_cached_votes_total"

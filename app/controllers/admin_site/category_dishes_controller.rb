@@ -1,5 +1,6 @@
 class AdminSite::CategoryDishesController < ApplicationController
   before_action :set_category_dish, only: [:edit, :update, :show, :destroy]
+  before_action :secure
   layout 'admin_site'
   include(AdminSiteHelper)
 
@@ -101,5 +102,11 @@ class AdminSite::CategoryDishesController < ApplicationController
 
   def category_dish_password_params
     params[:category_dish][:password]
+  end
+
+  def secure
+    if !current_admin || current_admin.type_admin_id != 1
+      redirect_to new_admin_session_path
+    end
   end
 end
