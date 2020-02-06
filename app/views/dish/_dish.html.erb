@@ -19,7 +19,7 @@
     <%=item.price%> MGA
   </p>
   <p>
-    <a href="#" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
+    <a href="<%= line_item_create_path(item.id) %>" data-method="post" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
   </p>
   <p>
     <div class="like-jaime">
