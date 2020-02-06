@@ -15,7 +15,9 @@
               <i class="fa fa-money fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge">26000000</div>
+              <div class="huge">
+                <%= number_to_currency(@turn_over.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %>
+              </div>
               <div>Chiffre d'affaire!</div>
             </div>
           </div>
@@ -37,7 +39,9 @@
               <i class="fa fa-shopping-cart fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge">124</div>
+              <div class="huge">
+                <%= @orders_not_confirmed %>
+              </div>
               <div>Commande en attente!</div>
             </div>
           </div>
