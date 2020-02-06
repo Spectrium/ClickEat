@@ -61,5 +61,6 @@ Rails.application.routes.draw do
     resources :dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :type_admins
     resources :dashboards, only:[:index]
+    resources :orders, only:[:index]
   end
 end
