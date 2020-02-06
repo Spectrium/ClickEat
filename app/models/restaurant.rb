@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
     has_many :specialities, through: :resto_specialities
     has_many :dishes
     belongs_to :subscription
+    belongs_to :admin, class_name: "Admin"
     acts_as_votable
     has_one_attached :logo  
     has_one_attached :picture

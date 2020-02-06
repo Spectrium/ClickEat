@@ -8,6 +8,7 @@
 
 # admin type
 TypeAdmin.create(name:"super admin")
+TypeAdmin.create(name:"admin restaurant")
 # Admin
 Admin.create(email:"tsiory@gmail.com",password:"azerty",type_admin_id:1)
 
@@ -334,8 +335,10 @@ email = ["jadeleresto@gmail.com",
 ]
 
 for index in 0...name.length do
+    a = Admin.create(email:email[index],password:"azerty",type_admin_id:2)
     Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(5..8))
+        subscription_id: rand(5..8),admin:a)
+
         print "."
 end
 

@@ -1,6 +1,7 @@
 class AdminSite::TypeAdminsController < ApplicationController
   before_action :set_admin_site_type_admin, only: [:show, :edit, :update, :destroy]
   layout 'admin_site'
+  before_action :secure
   # GET /admin_site/type_admins
   # GET /admin_site/type_admins.json
   def index
@@ -103,5 +104,11 @@ class AdminSite::TypeAdminsController < ApplicationController
 
     def admin_site_type_admin_password_params
       params[:admin_site_type_admin][:password]
+    end
+
+    def secure
+      if !current_admin || current_admin.type_admin_id != 1
+        redirect_to new_admin_session_path
+      end
     end
 end

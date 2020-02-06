@@ -4,5 +4,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :type_admin, class_name: "TypeAdmin"
-
+  has_one :restaurant, class_name: "Restaurant"
 end

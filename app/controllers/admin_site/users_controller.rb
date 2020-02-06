@@ -1,6 +1,7 @@
 module AdminSite
-  class UsersController < ActionController::Base
+  class UsersController < AdminSiteController
     layout 'admin_site'
+    before_action :secure
     def index
       @all_users = User.all
     end
@@ -76,7 +77,12 @@ module AdminSite
       @user_to_show = User.find_by(id: params[:id])
     end
     
-    
+    private
+    def secure
+      if !current_admin || current_admin.type_admin_id != 1
+        redirect_to new_admin_session_path
+      end
+    end
   end
     
 end
