@@ -1,26 +1,21 @@
-<h2>Log in</h2>
+<body class="background-sign-in">
+    <div class="container" id="container">
+        <!-- <div class="form-container sign-in-container"> -->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html =>{class:"container-form admin-f-sign"}) do |f| %>
+            <h2 class="header-h1 speccial-admin-header">Bon retour parmi nous cher Admnistrateur</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <%= f.label :email, class:"message-connection" %><br />
+                <%= f.email_field :email, autocomplete: "email",class:"form-input" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                    <%= f.label :password, class:"message-connection" %><br />
+                        <%= f.password_field :password, autocomplete: "current-password",class:"form-input" %>
+
+                            <%= f.submit "Se connecter", class:"connection-btn all-btn" %>
+                                <% end %>
+
+                                    <!-- <%= render "admins/shared/links" %> -->
+                                    <!-- </div> -->
+
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</body>
