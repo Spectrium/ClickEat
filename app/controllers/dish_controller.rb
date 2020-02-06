@@ -1,4 +1,5 @@
 class DishController < ApplicationController
+    layout 'homepage'
     def index
         @dishes = Dish.order(:name).page(params[:page])   
     end
