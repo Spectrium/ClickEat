@@ -465,13 +465,20 @@ for index in 0...plat.length do
 end
 
 puts "Dish created"
-
-
+subscr = [
+1,2,3,4,5,6
+]
+priv = [
+    "Livraison avec priorisation: Ultime",
+    "Livraison avec priorisation: Avant Silver",
+    "Livraison SANS priorisation",
+    "Le restaurant est toujours affiché en premier plan",
+    "Le restaurant est affiché aprés celui des Cristals",
+    "Le restaurant est affiché en dernier plan"
+]
 #Todo
-for index in 1..6 do
-    5.times do
-        SubscriptionPrivilege.create(privilege: Faker::Lorem.sentence(word_count: 4), subscription_id: index)
-        print "."
-    end
+for index in 0..subscr.length do
+    SubscriptionPrivilege.create(subscription_id: subscr[index],privilege: priv[index])
+    print "."
 end
 puts "SubscriptionPrivilege created"

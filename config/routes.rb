@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root'home#index'
   get 'admin_site/index'
-  
+  resources :charges
   resources :test
   resources :restaurant do 
     member do 

@@ -7,7 +7,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-
+gem 'stripe'
 gem 'table_print'
 gem 'faker'
 gem 'acts_as_votable'

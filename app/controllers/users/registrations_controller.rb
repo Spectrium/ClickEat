@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit]
-
+  
   # GET /resource/sign_up
   def new
     build_resource
@@ -18,13 +18,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource.subscription_id = session[:subscription_id].to_i
     resource.save
-    session[:subscription_id] = nil
+    
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+        respond_with resource, location: new_charge_path
+        #respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -167,4 +168,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     Devise.sign_in_after_change_password
   end
+
+  
 end

@@ -42,6 +42,14 @@
             </ul>
             <a href="#" id="pull"></a>
         </nav>
+        
+        <% if flash[:error] %>
+          <%= flash[:error] %>
+        <% end %>
+        <% if flash[:success] %>
+            <%= flash[:success] %>
+        <% end %>
+        
         <!-- <figure>
             <img src="<%= image_path('clickeat-min.png') %>" alt="Clickeat-logo" class="logo-clickeat">
             <figcaption>ClickEat</figcaption>
