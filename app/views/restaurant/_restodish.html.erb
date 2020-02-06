@@ -20,6 +20,6 @@
     <td data-th="Price">
         <%= item.price %> MGA</td>
 
-    <td><span class="box">Commander</span></td>
+    <td><a href="<%= line_item_create_path(item.id) %>" data-method="post"><span class="box">Commander</span></a></td>
 
 </tr>

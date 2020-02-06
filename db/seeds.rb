@@ -366,7 +366,7 @@ email = ["jadeleresto@gmail.com",
 for index in 0...name.length do
     a = Admin.create(email:email[index],password:"azerty",type_admin_id:2)
     resto = Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(5..8),admin:a)
+        subscription_id: rand(4..6),admin:a)
         resto.logo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', logo[index])),filename:logo[index])
         resto.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', picture[index])),filename:picture[index])
 
