@@ -1,4 +1,5 @@
 class RestaurantController < ApplicationController
+    layout 'homepage'
     def index
          @type = SubscriptionType.all
          @subscription = @type[1].subscriptions

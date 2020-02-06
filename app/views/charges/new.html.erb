@@ -1,0 +1,31 @@
+<main>
+<section id="popular-dishes">
+<img src="<%= image_path('title-detail.png') %>" alt="title-detail">
+  <h2>
+  <%= form_tag charges_path do %>
+  
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span class="price">Félicitation, il ne reste plus qu'une dernière étape avant d'être entièrement l'un des nôtres. Il ne faut que régler l'abonnement <span style = "color: <%=@subscription.color%>"><%=@subscription.name%></span>, que vous avez choisi, par carte.</span>
+        </br>
+        <span class="price" >Prix: MGA <span style = "color: <%=@subscription.color%>"><%=@subscription.price%></span></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Abonnement mensuel: <%=@subscription.name%>"
+            data-amount= <%=@subscription.price%>
+            data-locale="auto"
+            data-currency="MGA">
+    </script>
+            
+  <% end %>
+  </h2>
+</section>
+</main>

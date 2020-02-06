@@ -11,7 +11,7 @@ TypeAdmin.create(name:"super admin")
 TypeAdmin.create(name:"admin restaurant")
 # Admin
 Admin.create(email:"tsiory@gmail.com",password:"azerty",type_admin_id:1)
-
+puts "Admin created"
 # Abonnement et type d'abonnement
 #type
 type = ["User",
@@ -21,40 +21,40 @@ type.each do |types|
     SubscriptionType.create(name: types)
     print "."
 end
+
+puts "subscriptionType created"
 #abonnement
 nameA = ["Cristal",
     "Gold",
     "Silver",
-    "Free",
     "Cristal",
     "Gold",
-    "Silver",
-    "Free"
+    "Silver"
 ]
 priceA = ["40000",
     "21000",
     "12000",
-    "0",
     "150000",
     "90000",
-    "50000",
-    "0"
+    "50000"
 ]
-
+picA = ["cristal2.jpg",
+    "gold2.jpg",
+    "silver2.jpg",
+    "cristal2.jpg",
+    "gold2.jpg",
+    "silver2.jpg"
+]
 colorA = ["#f20dd5",
     "#feff00",
     "#c0c0c0",
-    "#f28023",
     "#f20dd5",
     "#feff00",
-    "#c0c0c0",
-    "#f28023"
+    "#c0c0c0"
 ]
 referenceA = ["1",
     "1",
     "1",
-    "1",
-    "2",
     "2",
     "2",
     "2"
@@ -64,10 +64,12 @@ for index in 0...nameA.length do
     subs = Subscription.create(name: nameA[index],
         price: priceA[index],
         color: colorA[index],
+        picture: picA[index],
         subscription_type_id: referenceA[index])
     print "."
 end
 
+    puts "subscription created"
 # user
 emails =  ["danielrazafindrakoto@gmail.com",
             "joellerakoto@gmail.com",
@@ -116,13 +118,16 @@ for index_user in 0 ... last_names.size do
         username:usernames[index_user],password:"sayna2019")
         print "."
 end
+
+puts "User created"
+
 # cart_id
  for index_cart in 0 ... 10 do
     Cart.create(user:User.find_by(id: index_cart))
     print "."
  end
 
-
+ puts "cart created"
 
 # Categories des Specialités de restaurant
 categories = ["Malagasy",
@@ -133,11 +138,16 @@ categories = ["Malagasy",
     "Fast-food",
     "Autres"
 ]
-
+logoC = ["Madagascar.jpg",
+"asiatique.jpg", "indou.jpg","europe.jpg","usa.jpg","logofast.jpg",
+"other.jpg"
+]
 for index in 0..6 do
-Category.create(name: categories[index])
+Category.create(name: categories[index], logo:logoC[index])
 print "."
 end
+
+puts "CategorieResto created"
 
 #Specialités des restaurants
 asiatique = ["Chinoise",
@@ -147,56 +157,72 @@ asiatique = ["Chinoise",
     "Vietnamienne",
     "Asiatique"
 ]
+logoA = ["chinoise.jpg","japanese.jpg",
+"coree.jpg","thai.jpg","viet.jpg","asia.jpg"
+]
 europeen = ["Française",
     "Italienne",
     "Turque",
     "Européenne"
 ]
+logoE = ["french.jpeg","italia.jpeg",
+"turc.png","euro.jpeg"
+]
 americaine = ["Grillade",
     "Mexicaine",
     "Americaine"
+]
+logoAM = ["grill.jpg","mexique.jpg",
+"americ.jpg"
 ]
 autres = ["Fruit de mer",
     "Boulangerie",
     "Coffee Shop"
 ]
-
-Speciality.create(name: "Malagasy", category_id: 1)
+logoAU = ["fdemer.jpeg","boul.jpeg",
+"cof.jpeg"
+]
+Speciality.create(name: "Malagasy",logo: "malagasy.jpg", category_id: 1)
 print "."
 
 for index in 0..5 do
-    Speciality.create(name: asiatique[index], category_id: 2)
+    Speciality.create(name: asiatique[index],logo: logoA[index],  category_id: 2)
     print "."
 end
 
-Speciality.create(name: "Indienne", category_id: 3)
+Speciality.create(name: "Indienne",logo: "inde.jpg" ,category_id: 3)
 print "."
 
 for index in 0..3 do
-    Speciality.create(name: europeen[index], category_id: 4)
+    Speciality.create(name: europeen[index],logo: logoE[index], category_id: 4)
     print "."
 end
 
 for index in 0..2 do
-    Speciality.create(name: americaine[index], category_id: 5)
+    Speciality.create(name: americaine[index],logo: logoAM[index], category_id: 5)
     print "."
 end
 
-Speciality.create(name: "Fast-food", category_id: 6)
+Speciality.create(name: "Fast-food",logo: "ffood.jpeg", category_id: 6)
 print "."
 
 for index in 0..2 do
-    Speciality.create(name: autres[index], category_id: 7)
+    Speciality.create(name: autres[index],logo: logoAU[index], category_id: 7)
     print "."
 end
+
+puts "specialities created"
 
 #Types des plats
-type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chaudes"]
+type = ["Boissons","Desserts et douceurs","Entrée et Fast-food", "Plats chauds"]
 icon = ["db-icon.png","ds-icon.png","ff-icon.png","sc-icon.png"]
+logoT = ["drinks.jpg","Dessert.jpeg","fastfoods.jpg","hotplat.jpeg"]
 for index in 0..3 do
-    Type.create(name: type[index], icon: icon[index])
+    Type.create(name: type[index], icon: icon[index],logo: logoT[index])
     print "."
 end
+puts "Dish type created"
+
 #Categories des plats
 boissons = ["Alcoolisés",
     "Non-Alcoolisés",
@@ -269,6 +295,8 @@ for index in 0..5 do
     print "."
 end
 
+puts "CategoriesDish created"
+
 #Generer Restaurant
 name = ["Au coeur de JADE",
     "Tend'M",
@@ -288,15 +316,6 @@ location = ["Mahamasina",
     "Mahamasina",
     "Andraharo"
 ]
-description = ["Green for Hope",
-    "Food is BAE, NoRegime",
-    "it's time to EAT",
-    "The Chief is on board",
-    "Meal Meal Meal",
-    "Authentic food quality",
-    "President's favorite food",
-    "Douceurs tous les jours"
-]
 logo = ["logoJADE.png",
     "logoTendM.jpg",
     "logoDynastie.png",
@@ -315,6 +334,16 @@ picture = ["aboutJade.jpg",
     "aboutGpg.jpg",
     "aboutBanana.jpg"
 ]
+description = ["Green for Hope",
+    "Food is BAE, NoRegime",
+    "it's time to EAT",
+    "The Chief is on board",
+    "Meal Meal Meal",
+    "Authentic food quality",
+    "President's favorite food",
+    "Douceurs tous les jours"
+]
+
 phone = ["334202748",
     "322739194",
     "335814195",
@@ -335,21 +364,25 @@ email = ["jadeleresto@gmail.com",
 ]
 
 for index in 0...name.length do
-    a = Admin.create(email:email[index],password:"azerty",type_admin_id:2)
-    Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(5..8),admin:a)
 
+    a = Admin.create(email:email[index],password:"azerty",type_admin_id:2)
+    resto = Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
+        subscription_id: rand(4..6),admin:a)
+        resto.logo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', logo[index])),filename:logo[index])
+        resto.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', picture[index])),filename:picture[index])
         print "."
 end
 
+puts "Restaurant created"
+
 #Associer resto et Specialité
-jade = [1, 2, 7, 15]
-tendm = [2, 12, 15, 10]
-dyna = [ 2 ]
-marmite = [ 1 ]
-carni = [12, 14]
-koots = [1, 2, 19]
-gpg = [12, 14, 16]
+jade = [1, 2, 7, 15,8,11]
+tendm = [2, 12, 15, 10, 4,9]
+dyna = [ 2, 5,6,7, ]
+marmite = [ 1,10,13,17, ]
+carni = [12, 14,13,15,16]
+koots = [1, 2, 19,14]
+gpg = [12, 14, 16, 3]
 banana = [18, 19]
 
 for index in 0...jade.length do
@@ -385,77 +418,71 @@ for index in 0...banana.length do
     print "."
 end
 
+puts "Restospeciality created"
+
 #Generer les plats
 
 
-for index in 0..4 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 1 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 5..9 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 2 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 10..14 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 3 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 15..19 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 4 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 20..24 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 5 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 25..29 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 6 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 30..34 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 7 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
-        print "."
-end
-for index in 35..39 do
-    d = Dish.create(name:Faker::Food.dish , description:Faker::Food.description ,price: rand(2..26)*1000,
-        preparation_time: rand(20..59),picture: "#{rand(1..16)}" ,
-        restaurant_id: 8 ,category_dish_id: rand(1..21))
-        index = d.picture
-        d.image.attach(io: File.open(Rails.root.join('app','assets','images',index)), filename:index )
+plat = [
+"Biryani","Café",
+"Gâteau au chocolat","Coca-cola",
+"Crepe Tend'M","Burger Valentin's Day",
+"Emincé de Dinde", "Falafel Vegan", "Plateau délice des mers",
+"Glace en pots","Kinder Bueno", "Buffet Carnivore", "Obama's nuggets",
+"Pizza du Roi","Pain au raisin","Salade mixte","Kebab Cordon Bleu",
+"Fidel Castro's Sandwich","Soupe chinoise","Tacos del diablo","Three Horse Beer"
+]
+photoplat = [
+"birhyani.jpg","cafe.jpg","choco.jpg","coca.jpg",
+"crepeT.jpg","crepehh.jpeg","dinde.jpg", "falafel.jpeg", "fruitdemer.jpg",
+"glaceP.jpg","kinder.jpg","Buffet.jpg","nuggets.jpeg","pizzaFr.jpeg",
+"raisin.jpg","saladeV.jpeg","sandKebab.jpg","sandwichW.jpeg","soupeT.jpg",
+"Tacos.jpeg","thb.jpg"
+]
+dishdescrip = [
+"Plat typique indien,riz,poulet ou chèvre","Noir 100% Arabica",
+"Chocolat de Madagascar 72%","Brrrrrrr, savourez le moment",
+"Douceur supreme","Un délice pour sceller l'amour","délice 100% Halal",
+"Magique et délicieux sans avoir à tuer", "saveur des mers malagasy",
+"Parfum au choix","Muy bueno","Manger comme un lion","les nuggets de poulet du Président",
+"Pizza royale ingrédients au choix", "pain au raisin à la french",
+"la nature dans votre assiette","Spécialité Turc avec touche française",
+"Sandwich au porc de Castro de 1kg","Soupe chinoise de la région SAVA",
+"Muy Caliente, Muy Picante","Soa ny fiarahantsika"
+]
+priceD = [
+16000,3000,5000,3400,8000,20000,18000,23000,30000,4000,8000,50000,15000,
+14000,2000,6000,11000,28000,10500,12000,2800
+]
+categD = [
+21,3,5,2,8,10,17,20,18,4,7,19,13,14,6,9,12,11,16,15,1
+]
+restoD = [
+1,8,8,2,2,6,3,6,4,8,8,5,7,4,8,3,1,7,3,6,5
+]
+for index in 0...plat.length do
+   d =  Dish.create(name:plat[index] , description:dishdescrip[index] ,price: priceD[index],
+        preparation_time: rand(20..59),
+        restaurant_id: restoD[index] ,category_dish_id: categD[index])
+        d.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', photoplat[index])),filename: photoplat[index])
         print "."
 end
 
-for index in 1..8 do
-    5.times do
-        SubscriptionPrivilege.create(privilege: Faker::Lorem.sentence(word_count: 4), subscription_id: index)
-        print "."
-    end
+puts "Dish created"
+subscr = [
+1,2,3,4,5,6
+]
+priv = [
+    "Livraison avec priorisation: Ultime",
+    "Livraison avec priorisation: Avant Silver",
+    "Livraison SANS priorisation",
+    "Le restaurant est toujours affiché en premier plan",
+    "Le restaurant est affiché aprés celui des Cristals",
+    "Le restaurant est affiché en dernier plan"
+]
+#Todo
+for index in 0..subscr.length do
+    SubscriptionPrivilege.create(subscription_id: subscr[index],privilege: priv[index])
+    print "."
 end
+puts "SubscriptionPrivilege created"

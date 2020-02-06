@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :order_details
   resources :orders
   # resources :line_items
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   delete 'carts/:id' => "carts#destroy"
   post 'to_order', to:"carts#add_to_order", as: "to_order"
 
+
+  resources :charges
   resources :test
   resources :restaurant do 
     member do 
@@ -32,8 +35,11 @@ Rails.application.routes.draw do
       put 'dislike', to: "dish#downvote"
     end
   end
-  # get '/added_to_cart/:id', to: 'dish#added_to_cart', as:'dish_added_to_cart'
-  resources :type ,only: [:show]
+
+  resources :category ,only: [:show , :index]
+  resources :speciality ,only: [:show]
+  resources :type ,only: [:show , :index]
+
   resources :category_dish ,only: [:show]
   resources :subscription_type ,only: [:show]
   

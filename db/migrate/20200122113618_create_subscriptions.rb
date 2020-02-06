@@ -4,6 +4,7 @@ class CreateSubscriptions < ActiveRecord::Migration[6.0]
       t.string :name
       t.decimal :price
       t.string :color
+      t.string :picture
       t.references :subscription_type, index: true
 
       t.timestamps
