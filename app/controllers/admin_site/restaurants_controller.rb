@@ -1,6 +1,7 @@
 module AdminSite
   class RestaurantsController < ActionController::Base
     layout 'admin_site'
+    before_action :secure
     def index
       @all_restaurants = Restaurant.all
     end
@@ -75,6 +76,13 @@ module AdminSite
       rescue StandardError => error
         flash[:error] = error
         redirect_to admin_site_restaurants_path
+      end
+    end
+
+    private
+    def secure
+      if !current_admin || current_admin.type_admin_id != 1
+        redirect_to new_admin_session_path
       end
     end
   end

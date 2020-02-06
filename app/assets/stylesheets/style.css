@@ -528,7 +528,6 @@
                         display: none;
                     }
                     
-                    #main-nav>ul>li:nth-child(3),
                     #main-nav>ul>li:nth-child(4) {
                         float: right;
                     }
@@ -567,7 +566,7 @@
 ---------------*/
                     
                     #main-nav>ul>li>ul {
-                        width: 200px;
+                        width: 143px;
                         background-color: #141414;
                         position: relative;
                         z-index: 2;
@@ -3296,8 +3295,8 @@
                         background: rgb(138, 173, 85);
                         cursor: pointer;
                         border: 0px;
-                        width: 20%;
-                        height: 40px;
+                        width: 100%;
+                        height: auto;
                         float: left;
                         text-align: center;
                         color: rgb(255, 255, 255);

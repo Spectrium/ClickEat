@@ -1,0 +1,73 @@
+<section id="blog">
+  <h5 style="text-align: center;">Votre panier</h6>
+    <div class="container">
+      <table id="cart" class="table table-condensed">
+        <thead>
+          <tr class="header-table">
+
+            <th style="width:15%">Plats</th>
+            <th style="width:18%">Prix unitaire</th>
+            <th style="width:20%">Quantité</th>
+            <th style="width:15%">Total</th>
+            <th style="width: 10%;"></th>
+            <th style="width: 10%;"></th>
+            <th style="width: 10%;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cart = @cart.list_item_not_to_order
+        cart.each do |line_item| %>
+            <tr>
+              <td data-th="title">
+                <%= line_item.dish.name %>
+              </td>
+              <td data-th="price">
+                <%= number_to_currency(line_item.dish.price) %>
+              </td>
+              <td class="hidden-xs">
+                <%= line_item.quantity %>
+              </td>
+              <td data-th="price">
+                <%= number_to_currency(line_item.total_price) %>
+              </td>
+              <td>
+                <%= link_to "Ajouter ", line_item_add_path(:id => line_item),class:"btn btn-success", method: :post %>
+              </td>
+              <td>
+                <%= link_to "Reduire ", line_item_reduce_path(:id => line_item), class:"btn btn-warning", method: :post %>
+              </td>
+              <td>
+                <%= link_to "Supprimer ", line_item_destroy_path(line_item),class:"btn btn-danger", method: :delete %>
+              </td>
+            </tr>
+            <% end %>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <h5>Prix total:
+                  </h5>
+                </td>
+                <td>
+                  <h5>
+                    <%= number_to_currency(@cart.sub_total) %>
+                      <% session[:amount] = @cart.sub_total %>
+                  </h5>
+
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <% if cart.size > 0 %>
+                    <a href="<%= to_order_path %>" data-method="post" class="btn btn-primary">Passer la commande</a>
+                    <% end %>
+                </td>
+
+              </tr>
+        </tbody>
+      </table>
+    </div>
+</section>

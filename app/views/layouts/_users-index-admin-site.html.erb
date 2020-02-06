@@ -48,7 +48,7 @@
                         <%= @all_users[index_user].email %>
                       </td>
                       <td class="center">
-                        <%= @all_users[index_user].cart_id %>
+                        <%= @all_users[index_user].cart.id %>
                       </td>
                       <td class="center">
                         <%= link_to admin_site_user_path(@all_users[index_user].id), method: :delete,:data => {confirm: 'Are you sure?'}, class:"btn" do %>
@@ -82,9 +82,11 @@
 <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+
+<script src="/assets/vendor/metisMenu/metisMenu.min.js"></script>
+<script src="/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
 <script>
   $(document).ready(function() {
     $('#dataTables-example').DataTable({

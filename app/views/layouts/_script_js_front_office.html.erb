@@ -1,0 +1,71 @@
+<!-- aos -->
+<!-- jQuery -->
+<script type="text/javascript" src="/assets/jquery-1.11.1.min.js"></script>
+<!-- bxSlider -->
+<script type="text/javascript" src="/assets/jquery.bxslider.min.js"></script>
+<!-- magnificPopup -->
+<script type="text/javascript" src="/assets/jquery.magnific-popup.min.js"></script>
+<!-- Img Liquid -->
+<script type="text/javascript" src="/assets/imgLiquid-min.js"></script>
+<!-- Tooltipster -->
+<script type="text/javascript" src="/assets/jquery.tooltipster.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="/assets/main.js"></script>
+<!-- Validate -->
+<!-- <script type="text/javascript" src="/assets/main-validate.js"></script> -->
+<!-- Contact -->
+<script type="text/javascript" src="/assets/contact.js"></script>
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="/assets/calendar.js"></script>
+<!-- Google Maps Config -->
+<script type="text/javascript" src="/assets/gmaps.js"></script>
+<script type="text/javascript" src="/assets/pager.js"></script>
+<script>
+  $(function() {
+    /*-----------------
+    	MAIN SLIDER
+    -----------------*/
+    $('.main-slider').bxSlider({
+      pagerCustom: '.pager-container',
+      controls: false,
+      easing: 'ease-in',
+      speed: 800,
+      auto: true,
+      pause: 6000
+    });
+
+    /*-------------
+    	VIDEO
+    -------------*/
+    $('#video .radial-progress').on('click', function() {
+      $('#video > iframe').show();
+    });
+
+    /*----------------
+    	TOOLTIP
+    ----------------*/
+    $('.tooltip').tooltipster({
+      animation: 'grow',
+      position: 'bottom'
+    });
+
+    /*-----------------
+    	RESIZE IMAGE
+    -----------------*/
+    $("figure.imgLiquidFill").imgLiquid();
+
+    /*----------------
+    	IMAGE POPUP
+    ----------------*/
+    $('ul.dishes > li > div > a').magnificPopup({
+      type: 'image',
+      removalDelay: 300,
+      mainClass: 'mfp-fade',
+      image: {
+        tError: 'The image could not be loaded.'
+      },
+      closeMarkup: '<span class="mfp-close"></span>'
+    });
+  });
+</script>

@@ -8,6 +8,7 @@
 
 # admin type
 TypeAdmin.create(name:"super admin")
+TypeAdmin.create(name:"admin restaurant")
 # Admin
 Admin.create(email:"tsiory@gmail.com",password:"azerty",type_admin_id:1)
 puts "Admin created"
@@ -66,7 +67,7 @@ for index in 0...nameA.length do
         picture: picA[index],
         subscription_type_id: referenceA[index])
     print "."
-    end
+end
 
     puts "subscription created"
 # user
@@ -363,10 +364,12 @@ email = ["jadeleresto@gmail.com",
 ]
 
 for index in 0...name.length do
+    a = Admin.create(email:email[index],password:"azerty",type_admin_id:2)
     resto = Restaurant.create(name: name[index], location: location[index], description: description[index],phone_number: phone[index],email: email[index],
-        subscription_id: rand(4..6))
+        subscription_id: rand(5..8),admin:a)
         resto.logo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', logo[index])),filename:logo[index])
         resto.picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', picture[index])),filename:picture[index])
+
         print "."
 end
 

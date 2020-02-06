@@ -281,3 +281,12 @@ contenue du formulaire
         transform: translateY(0px) translateX(100px);
     }
 }
+
+.admin-f-sign {
+    padding: 68px;
+    padding-top: 80px;
+}
+
+.speccial-admin-header {
+    margin-bottom: 30px;
+}

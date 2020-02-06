@@ -9,6 +9,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :email
       t.references :subscription, index: true
+      t.references :admin, index: true
       t.timestamps
     end
   end

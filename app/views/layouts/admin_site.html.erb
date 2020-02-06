@@ -5,16 +5,24 @@
   <title>Connection</title>
   <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.css">
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.css">
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css"></script>
+      <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css"></script> -->
+      <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/vendor/metisMenu/metisMenu.css">
+      <link rel="stylesheet" href="/assets/dist/css/sb-admin-2.css">
+      <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/assets/vendor/datatables-plugins/dataTables.bootstrap.css">
+      <link rel="stylesheet" href="/assets/vendor/datatables-responsive/dataTables.responsive.css">
+      <script src="/assets/vendor/jquery/jquery.min.js"></script>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'admin_site', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
   <%= render 'layouts/navbar-admin-site' %>
     <%= yield %>
+      <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/assets/dist/js/sb-admin-2.js"></script>
 </body>
 
 </html>

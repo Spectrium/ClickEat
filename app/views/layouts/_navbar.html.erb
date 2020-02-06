@@ -1,22 +1,18 @@
-<!--HEADER-->
-<%= render 'layouts/sociallink' %>
-    <header>
-        <nav id="main-nav">
-            <ul>
-                <li>
-                    <%=link_to "Home", "/"%>
-                </li>
-                <li>
-                    <%=link_to "Plats",dish_index_path%>
-                </li>
-
-                <li>
-                    <%=link_to "Restaurant",restaurant_index_path %>
-                </li>
-                <!-- <a href="menu.html">Restaurant</a> -->
-                <!-- <li><a href="index.html#contact">Contact</a></li> -->
-                <!-- if connected -->
-
+<header>
+  <nav id="main-nav">
+    <ul>
+      <li>
+        <%=link_to "Home", "/"%>
+      </li>
+      <li>
+        <%=link_to "Plats",dish_index_path%>
+      </li>
+      <li>
+        <%=link_to "Restaurant",restaurant_index_path %>
+      </li>
+      <!-- <a href="menu.html">Restaurant</a> -->
+      <!-- <li><a href="index.html#contact">Contact</a></li> -->
+      <!-- if connected -->
                 <% unless current_user %>
 
                     <li class="sub-items"><a href="">Connexion</a>

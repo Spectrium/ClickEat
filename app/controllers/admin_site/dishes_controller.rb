@@ -1,25 +1,35 @@
 module AdminSite
   class DishesController < ActionController::Base
     before_action :set_dish, only: [:edit, :update, :show, :destroy]
+    before_action :secure
     layout 'admin_site'
     include(AdminSiteHelper)
 
     def index
-      @dishes = Dish.all
+      if current_admin.type_admin_id != 1
+        @dishes = current_admin.restaurant.dishes
+      else
+        @dishes = Dish.all
+      end
     end
   
     def new
       @dish = Dish.new
+      session[:restaurant_id] = current_admin.restaurant.id
     end
   
     def create
       begin
         @dish = Dish.new(dish_params)
+        if current_admin.type_admin_id != 1
+          @dish.restaurant_id = session[:restaurant_id]
+        end
         respond_to do |format|
           if current_admin.valid_password?(dish_password_params)
             if @dish.save
               format.html {
                 flash[:success] = "Plat créée avec succès"
+                session[:restaurant_id] = nil
                 redirect_to admin_site_dishes_path
               }
               format.json {
@@ -27,6 +37,7 @@ module AdminSite
               }
             else
               format.html {
+                session[:restaurant_id] = nil
                 flash[:error] = "Il y a un erreur lors de la création d'un plat"
                 render :new
               }
@@ -36,35 +47,43 @@ module AdminSite
             raise StandardError.new("Vous n'êtes pas administrateur")
           end
         end
-      rescue StandardError => error 
+      rescue StandardError => error
+        session[:restaurant_id] = nil
         flash[:error] = error
         render :new
       end
     end
   
     def edit
+      session[:restaurant_id] = current_admin.restaurant.id
     end
   
     def update
       begin
         respond_to do |format|
           if current_admin.valid_password?(dish_password_params)
+            if current_admin.type_admin_id != 1
+              @dish.restaurant_id = session[:restaurant_id].to_i
+            end
             if @dish.update(dish_params)
               format.html {
+                session[:restaurant_id] = nil
                 flash[:success] = "Plat mise à jour avec succès"
-                redirect_to admin_site_type_admins_path
+                redirect_to admin_site_dishes_path
               }
               format.json {
                 render :show, status: :created, location: @type
               }
             else
               format.html {
+                session[:restaurant_id] = nil
                 flash[:error] = "Il y a un erreur lors de la mise à jour de catégorie de plat"
                 render :new 
               }
               format.json { render json: @dish.errors, status: :unprocessable_entity }
             end
           else
+            session[:restaurant_id] = nil
             raise StandardError.new("Vous n'êtes pas administrateur")
           end
         end
@@ -91,7 +110,10 @@ module AdminSite
     private
   
     def dish_params
-      params.require(:dish).permit(:name, :description, :price, :preparation_time,:restaurant_id,:category_dish_id)
+      if current_admin.type_admin_id != 1
+        return params.require(:dish).permit(:name, :description, :price, :preparation_time,:category_dish_id)
+      end
+      return params.require(:dish).permit(:name, :description, :price, :preparation_time,:restaurant_id,:category_dish_id)
     end
     
   
@@ -102,6 +124,12 @@ module AdminSite
   
     def dish_password_params
       params[:dish][:password]
+    end
+
+    def secure
+      if !current_admin
+        redirect_to new_admin_session_path
+      end
     end
     
   end

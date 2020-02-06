@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
-  root'home#index'
-  get 'admin_site/index'
   resources :charges
+  resources :order_details
+  resources :orders
+  # resources :line_items
+
+
+  post 'line_items/:id/add' => "line_items#add_quantity", as: "line_item_add"
+  post 'items/:dish_id/line_items' => "line_items#create", as: "line_item_create"
+  post 'line_items/:id/reduce' => "line_items#reduce_quantity", as: "line_item_reduce"
+  # post 'line_items' => "line_items#create"
+  # get 'line_items/:id' => "line_items#show", as: "line_item"
+  delete 'line_items/:id' => "line_items#destroy", as: "line_item_destroy"
+  
+  root 'home#index'
+  get 'admin_site/index', to:"admin_site#index", as: "root_admin"
+  
+  get 'carts', to:"carts#show", as: "cart"
+  delete 'carts/:id' => "carts#destroy"
+  post 'to_order', to:"carts#add_to_order", as: "to_order"
+
   resources :test
   resources :restaurant do 
     member do 
@@ -10,6 +27,7 @@ Rails.application.routes.draw do
     end
   end
   resources :dish do
+    resources :line_items
     member do 
       put 'like', to: "dish#upvote"
       put 'dislike', to: "dish#downvote"
@@ -28,7 +46,11 @@ Rails.application.routes.draw do
   devise_for :users, paths: 'users', controllers: { sessions: "users/sessions", confirmations: "users/confirmations", registrations: "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :editprofil, only: [:index]
-  devise_for :admins, paths: 'admins', controllers: { sessions: "admins/sessions", confirmations: "admins/confirmations", registrations: "admins/registrations"}
+  devise_for :admins, paths: 'admins', controllers: { 
+    sessions: "admins/sessions",
+    confirmations: "admins/confirmations", 
+    registrations: "admins/registrations"
+  }
   devise_for :admins_restaurants, paths: 'admins_restaurants', controllers: { sessions: "admins_restaurants/sessions", confirmations: "admins_restaurants/confirmations", registrations: "admins_restaurants/registrations"}
   namespace :admin_site do
     resources :types, only: [:index, :new, :create, :edit, :update, :destroy, :show]
@@ -40,5 +62,6 @@ Rails.application.routes.draw do
     resources :category_dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :type_admins
+    resources :dashboards, only:[:index]
   end
 end

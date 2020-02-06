@@ -29,10 +29,12 @@
                 <th>name</th>
                 <th>price</th>
                 <th>temps de préparation</th>
-                <th>restaurant</th>
-                <th>suppression</th>
-                <th>edit</th>
-                <th>voir</th>
+                <% if current_admin.type_admin_id ==1 %>
+                  <th>restaurant</th>
+                  <% end %>
+                    <th>suppression</th>
+                    <th>edit</th>
+                    <th>voir</th>
               </tr>
               <!-- /tr -->
             </thead>
@@ -56,31 +58,33 @@
                     <%= @dishes[index_dish].preparation_time %>
                   </td>
                   <!-- /td -->
-                  <td>
-                    <%= @dishes[index_dish].restaurant.name %>
-                  </td>
-                  <!-- /td -->
-                  <td>
-                    <a href="<%= admin_site_dish_path(@dishes[index_dish]) %>" data-confirm="Are you sure?" rel="nofollow" data-method="delete">
-                      <i class="fa fa-trash" aria-hidden="true">
+                  <% if current_admin.type_admin_id ==1 %>
+                    <td>
+                      <%= @dishes[index_dish].restaurant.name %>
+                    </td>
+                    <% end %>
+                      <!-- /td -->
+                      <td>
+                        <a href="<%= admin_site_dish_path(@dishes[index_dish]) %>" data-confirm="Are you sure?" rel="nofollow" data-method="delete">
+                          <i class="fa fa-trash" aria-hidden="true">
                       </i>
-                    </a>
-                  </td>
-                  <!-- /td -->
-                  <td>
-                    <a href="<%= edit_admin_site_dish_path(@dishes[index_dish]) %>">
-                      <i class="fa fa-edit" aria-hidden="true">
+                        </a>
+                      </td>
+                      <!-- /td -->
+                      <td>
+                        <a href="<%= edit_admin_site_dish_path(@dishes[index_dish]) %>">
+                          <i class="fa fa-edit" aria-hidden="true">
                           </i>
-                    </a>
-                  </td>
-                  <!-- /td -->
-                  <td>
-                    <a href="#">
-                      <i class="fa fa-eye" aria-hidden="true">
+                        </a>
+                      </td>
+                      <!-- /td -->
+                      <td>
+                        <a href="#">
+                          <i class="fa fa-eye" aria-hidden="true">
                           </i>
-                    </a>
-                  </td>
-                  <!-- /td -->
+                        </a>
+                      </td>
+                      <!-- /td -->
                 </tr>
                 <!-- /tr -->
                 <% end %>
@@ -94,4 +98,14 @@
   <!-- ./row -->
 </div>
 <!-- /wrapper -->
-<%= render "script-js-index" %>
+<script src="/assets/vendor/metisMenu/metisMenu.min.js"></script>
+<script src="/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#dataTables-example').DataTable({
+      responsive: true
+    });
+  });
+</script>

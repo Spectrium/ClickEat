@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_135433) do
+ActiveRecord::Schema.define(version: 2020_02_05_132424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,15 +85,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.index ["type_id"], name: "index_category_dishes_on_type_id"
   end
 
-  create_table "details_orders", force: :cascade do |t|
-    t.bigint "dish_id"
-    t.bigint "order_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dish_id"], name: "index_details_orders_on_dish_id"
-    t.index ["order_id"], name: "index_details_orders_on_order_id"
-  end
-
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -116,8 +107,30 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.bigint "dish_id", null: false
+    t.bigint "cart_id", null: false
+    t.boolean "done", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["dish_id"], name: "index_line_items_on_dish_id"
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "line_item_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["line_item_id"], name: "index_order_details_on_line_item_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.string "name"
+    t.boolean "confirmed", default: false
+    t.boolean "payed", default: false
+    t.decimal "amount", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,12 +142,14 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
     t.string "phone_number"
     t.string "email"
     t.bigint "subscription_id"
+    t.bigint "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
+    t.index ["admin_id"], name: "index_restaurants_on_admin_id"
     t.index ["cached_votes_down"], name: "index_restaurants_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_restaurants_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_restaurants_on_cached_votes_total"
@@ -246,4 +261,8 @@ ActiveRecord::Schema.define(version: 2020_01_29_135433) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "dishes"
+  add_foreign_key "order_details", "line_items"
+  add_foreign_key "order_details", "orders"
 end

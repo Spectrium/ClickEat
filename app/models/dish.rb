@@ -7,4 +7,5 @@ class Dish < ApplicationRecord
     has_many :details_orders
     has_many :orders, through: :details_orders
     acts_as_votable
+    has_many :line_items
 end
