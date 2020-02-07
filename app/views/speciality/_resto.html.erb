@@ -12,7 +12,20 @@
     <h5>
         <%= item.name %>
     </h5>
+    <% unless current_user %>
     <div class="like-jaime">
+                <%= link_to "/users/sign_in" do %>
+                    <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+                    <% end %>
+                        <%= link_to "/users/sign_in" do %>
+                            <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
+                            <% end %>
+                                <br>
+                                <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                                    <%= item.get_downvotes.size %>
+            </div>
+            <% else %>
+            <div class="like-jaime">
                 <%= link_to like_restaurant_path(item), method: :put do %>
                     <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
                     <% end %>
@@ -23,4 +36,5 @@
                                 <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
                                     <%= item.get_downvotes.size %>
             </div>
+            <% end %>
 </li>
