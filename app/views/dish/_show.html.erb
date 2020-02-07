@@ -9,7 +9,7 @@
           <%= content_tag(:h2, item.restaurant.name)%>
             <%= content_tag(:h3, "Description: ",:class => "title-dish")%>
               <%= content_tag(:p, item.description)%>
-                <span class="title-dish-price">Price:<%= item.price%></span>
+                <span class="title-dish-price">Price:<%= item.price%> MGA</span>
 
                 <% unless current_user %>
                 <div>
