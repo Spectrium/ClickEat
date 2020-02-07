@@ -16,7 +16,7 @@
     <%=item.restaurant.name%>
   </p>
   <p>
-    <%=item.price%> MGA
+    <%= number_to_currency(item.price.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %>
   </p>
   <% unless current_user %>
   <p>

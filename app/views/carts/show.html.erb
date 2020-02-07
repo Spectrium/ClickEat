@@ -21,13 +21,13 @@
                 <%= line_item.dish.name %>
               </td>
               <td data-th="price">
-                <%= number_to_currency(line_item.dish.price) %>
+                <%= number_to_currency(line_item.dish.price.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %>
               </td>
               <td class="hidden-xs">
                 <%= line_item.quantity %>
               </td>
               <td data-th="price">
-                <%= number_to_currency(line_item.total_price) %>
+                <%= number_to_currency(line_item.total_price.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %>
               </td>
               <td>
                 <%= link_to "Ajouter ", line_item_add_path(:id => line_item),class:"btn btn-success", method: :post %>
@@ -49,7 +49,7 @@
                 </td>
                 <td>
                   <h5>
-                    <%= number_to_currency(@cart.sub_total) %>
+                    <%= number_to_currency(@cart.sub_total.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %>
                       <% session[:amount] = @cart.sub_total %>
                   </h5>
 
