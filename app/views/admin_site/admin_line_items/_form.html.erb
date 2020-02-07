@@ -1,0 +1,10 @@
+<%= @line_item.dish.name %>
+  <%= @line_item.quantity %>
+    <% session[:line_item_order] = true %>
+      <% session[:annulation_line_item_order] = true %>
+        Nom d'article:
+        <%= @line_item.dish.name %>
+          <%= @line_item.quantity %>
+            <br>
+            <a href="<%= admin_site_admin_line_item_path(@line_item) %>" class="btn btn-success" data-method="put">Accepter</a>
+            <a href="<%= admin_site_canceled_path(@line_item) %>" data-method="post" class="btn btn-danger">Annuler</a>

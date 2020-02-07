@@ -9,6 +9,22 @@ module AdminSite
       @orders = Order.where(confirmed:false)
     end
 
+    def edit_validation_line_item
+      @line_item = LineItem.find(params[:id])
+    end
+
+    def edit_validation_order
+      @order = Order.find(params[:id])
+    end
+
+    def validation_order
+      
+    end
+
+    def validation_line_item
+      
+    end
+
     # GET /orders/1
     # GET /orders/1.json
     def show

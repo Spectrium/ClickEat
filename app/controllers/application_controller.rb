@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :current_cart
+    before_action :secure_admin
     include(ApplicationHelper)
 
     def configure_permitted_parameters
@@ -18,6 +19,14 @@ class ApplicationController < ActionController::Base
           else
             session[:cart_id] = nil
           end
+      end
+    end
+
+    def secure_admin
+      if controller_name != "admin_line_items"
+        if session[:line_item_order]
+          session.delete(:line_item_order)
+        end
       end
     end
 end

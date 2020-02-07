@@ -3,14 +3,14 @@ module AdminSite
     before_action :secure
 
     def index
-      @orders_payed = Order.where(payed:true)
+      @line_item_payed = LineItem.where(payed:true)
       if current_admin.type_admin_id == 1
-        @orders_not_confirmed = Order.where(confirmed:false).count
-        @turn_over = turn_over(@orders_payed)
+        @line_item_not_confirmed = LineItem.where(received:false).count
+        @turn_over = turn_over(@line_item_payed)
       else
-        @turn_over = turn_over_restaurant(@orders_payed)
-        orders_waiting = Order.where(confirmed:false)
-        @orders_not_confirmed = order_not_confirmed(orders_waiting).size
+        @turn_over = turn_over_restaurant(@line_item_payed)
+        line_items_waiting = LineItem.where(received:false)
+        @line_item_not_confirmed = line_item_not_confirmed(line_items_waiting).size
       end
     end
 
@@ -21,43 +21,39 @@ module AdminSite
       end
     end
 
-    def turn_over(orders)
+    def turn_over(line_items)
       result = 0
-      orders.each do |order|
-        result += order.amount.to_f
+      line_items.each do |line_item|
+        result += line_item.amount.to_f
       end
       return result
     end
 
-    def line_item_of_restaurant(orders)
+    def line_item_of_restaurant(line_items)
       result = []
-      orders.each do |order|
-        order.order_details.each do |order_detail|
-          if order_detail.line_item.dish.restaurant.id == current_admin.restaurant.id
-            result.push(order_detail.line_item)
+      line_items.each do |line_item|
+          if line_item.dish.restaurant.id == current_admin.restaurant.id
+            result.push(line_item)
           end
-        end
       end
       return result
     end
 
-    def turn_over_restaurant(orders) 
+    def turn_over_restaurant(line_items) 
       result = 0
-      items = line_item_of_restaurant(orders)
+      items = line_item_of_restaurant(line_items)
       items.each do |item|
         result+= item.quantity * item.dish.price
       end
       return result
     end
 
-    def order_not_confirmed(orders)
+    def line_item_not_confirmed(line_items)
       result = []
-      orders.each do |order|
-        order.order_details.each do |order_detail|
-          if order_detail.line_item.dish.restaurant.id == current_admin.restaurant.id
-            result.push(order_detail)
+      line_items.each do |item|
+          if item.dish.restaurant.id == current_admin.restaurant.id
+            result.push(item)
           end
-        end
       end
       return result
     end

@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
-  has_many :order_details, class_name: "OrderDetail"
+  has_many :line_items, class_name: "LineItem"
 end

@@ -1,0 +1,29 @@
+<%= form_for(order, url: admin_site_validation_order_path ) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <%= form.label :confirmed do %>
+        Commande envoyé au(x) restaurant(s):
+        <% end %>
+          <%= form.check_box :confirmed, class:'form-control' %>
+            <br>
+            <br>
+            <%= form.label :payed do %>
+              Payé:
+              <% end %>
+                <%= form.check_box :payed, class:'form-control' %>
+                  <br>
+                  <br>
+                  <%= form.submit :enregistrer, class:"btn btn-primary" %>
+                    <% end %>
