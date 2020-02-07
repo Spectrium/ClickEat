@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'admin_line_items/index'
-  get 'admin_line_items/show'
+  
   resources :order_details
   resources :orders
   # resources :line_items
@@ -70,6 +69,8 @@ Rails.application.routes.draw do
     resources :dashboards, only:[:index]
     resources :orders, only:[:index,:edit]
     resources :admin_line_items, only: [:index, :show, :edit, :update]
+    resources :order_states, only: [:index, :edit, :update]
+    
     post '/annulation/:id', to: 'admin_line_items#cancel', as:"canceled"
     
     get '/edit_validation_line_item/:id', to: 'orders#edit_validation_line_item', as:'edit_validation_line_item'
