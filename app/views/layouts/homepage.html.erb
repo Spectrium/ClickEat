@@ -2,10 +2,6 @@
 <html>
 
 <head>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     <title>Clickeat</title>
     <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
@@ -15,10 +11,9 @@
             <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
                 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
   <main>
-    <%= render 'layouts/navbar' %>
+  <%= render 'layouts/navbar' %>
         <%= yield %>
   </main>
     <script>
