@@ -9,7 +9,13 @@
                 <span class="icon-bar"></span>
             </button>
       <a class="navbar-brand" href="index.html">
-        <%= current_admin.restaurant.name %> admin</a>
+        <% if current_admin.type_admin.id == 1 %>
+          super admin
+          <% else %>
+            <%= current_admin.restaurant.name %> admin</a>
+      <% end %>
+        </a>
+
     </div>
     <!-- /.navbar-header -->
 
