@@ -13,7 +13,7 @@
       <label class="amount">
         <span class="price">Félicitation, il ne reste plus qu'une dernière étape avant d'être entièrement l'un des nôtres. Il ne faut que régler l'abonnement <span style = "color: <%=@subscription.color%>"><%=@subscription.name%></span>, que vous avez choisi, par carte.</span>
         </br>
-        <span class="price" >Prix: MGA <span style = "color: <%=@subscription.color%>"><%=@subscription.price%></span></span>
+        <span class="price" >Prix: <span style = "color: <%=@subscription.color%>"><%= number_to_currency(@subscription.price.to_i, unit: "MGA", delimiter: " ", format: "%n %u") %></span></span>
       </label>
     </article>
 

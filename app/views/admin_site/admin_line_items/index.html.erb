@@ -32,7 +32,9 @@
                     <th>id</th>
                     <th>plat</th>
                     <th>Quantité</th>
-                    <th>Editer</th>
+                    <% if current_admin.type_admin_id != 1 %>
+                      <th>Editer</th>
+                      <% end %>
                   </tr>
                   <!-- /tr -->
                 </thead>
@@ -52,13 +54,15 @@
                         <%= @line_items[index_line_item].quantity %>
                       </td>
                       <!-- /td -->
-                      <td>
-                        <a href="<%= edit_admin_site_admin_line_item_path(@line_items[index_line_item].id) %>">
-                          <i class="fa fa-edit" aria-hidden="true">
+                      <% if current_admin.type_admin_id != 1 %>
+                        <td>
+                          <a href="<%= edit_admin_site_admin_line_item_path(@line_items[index_line_item].id) %>">
+                            <i class="fa fa-edit" aria-hidden="true">
                           </i>
-                        </a>
-                      </td>
-                      <!-- /td -->
+                          </a>
+                        </td>
+                        <% end %>
+                          <!-- /td -->
                     </tr>
                     <!-- /tr -->
                     <% end %>
