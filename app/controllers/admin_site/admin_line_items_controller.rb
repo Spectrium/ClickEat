@@ -10,6 +10,8 @@ module AdminSite
       end
       if current_admin.type_admin_id != 1 
         @line_items = LineItem.where(received:false, canceled:false).select{|line_item| line_item.dish.restaurant.id == current_admin.restaurant.id }
+      else
+        @line_items = LineItem.where(received:false)
       end
     end
 

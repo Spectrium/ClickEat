@@ -1,0 +1,5 @@
+<% if item.payed %>
+  <a href="<%= admin_site_order_state_path(item) %>" data-remote="true" data-method="put" id="paiement" class="btn btn-success">Payé</a>
+  <% else %>
+    <a href="<%= admin_site_order_state_path(item) %>" data-remote="true" data-method="put" id="paiement" class="btn btn-danger">Non Payé</a>
+    <% end %>
