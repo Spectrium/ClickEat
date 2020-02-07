@@ -40,6 +40,7 @@ class LineItemsController < ApplicationController
     end
 
     # Save and redirect to cart show path
+    @line_item.amount = @line_item.quantity.to_i * @line_item.dish.price
     @line_item.save
     redirect_to cart_path
   end
@@ -71,6 +72,7 @@ class LineItemsController < ApplicationController
   def add_quantity
     @line_item = LineItem.find(params[:id])
     @line_item.quantity += 1
+    @line_item.amount = @line_item.quantity.to_i * @line_item.dish.price
     @line_item.save
     redirect_to cart_path(@current_cart)
   end
@@ -80,6 +82,7 @@ class LineItemsController < ApplicationController
     if @line_item.quantity > 1
       @line_item.quantity -= 1
     end
+    @line_item.amount = @line_item.quantity.to_i * @line_item.dish.price
     @line_item.save
     redirect_to cart_path(@current_cart)
   end

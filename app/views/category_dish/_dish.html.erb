@@ -35,7 +35,7 @@
   </div>
   <% else %>
   <p>
-    <a href="<%= line_item_create_path(item.id) %>" data-method="post" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
+    <a href="<%= line_item_create_path(item.id) %>" data-method="post" title="plat du <%= item.restaurant.name %>" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
   </p>
   <div class="like-jaime">
     <%= link_to like_dish_path(item), method: :put do %>

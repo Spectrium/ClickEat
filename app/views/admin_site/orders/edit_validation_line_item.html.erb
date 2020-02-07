@@ -1,0 +1,49 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Mettre à jour l'etat de validation</h1>
+      <!-- /page-header -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span style="font-size: 23px;font-weight: bold;">
+                  Formulaire de modification d'un type
+                </span><br>
+          <a href="<%= admin_site_types_path %>"><i class="fa fa-plus fa-fw"></i>Liste des catégories des spécialités</a> &nbsp; |
+          <a href="<%= new_admin_site_type_path %>"><i class="fa fa-edit fa-fw"></i>Créer une nouvelle catégorie de spécialité</a>
+          <!-- /span -->
+        </div>
+        <!-- /panel-heading -->
+        <div class="panel-body">
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+            <!-- /alert alert-success -->
+            <% end %>
+              <% if flash[:error] %>
+                <div class="alert alert-danger">
+                  <%= flash[:error] %>
+                </div>
+                <% end %>
+                  <div class="col-md-offset-2 col-md-8">
+                    <!-- Formulaire -->
+                    <%= render "form_validation_admin_restaurant", line_item: @line_item %>
+                      <!-- /Formulaire -->
+                  </div>
+                  <!-- /col-md-offset-2 col-md-8 -->
+        </div>
+        <!-- /panel-body -->
+      </div>
+      <!-- /panel panel-default -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /page-wrapper -->

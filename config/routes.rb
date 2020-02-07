@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin_line_items/index'
+  get 'admin_line_items/show'
   resources :order_details
   resources :orders
   # resources :line_items
@@ -66,5 +68,15 @@ Rails.application.routes.draw do
     resources :dishes, only: [:index, :new, :create, :edit, :update, :destroy, :show]
     resources :type_admins
     resources :dashboards, only:[:index]
+    resources :orders, only:[:index,:edit]
+    resources :admin_line_items, only: [:index, :show, :edit, :update]
+    post '/annulation/:id', to: 'admin_line_items#cancel', as:"canceled"
+    
+    get '/edit_validation_line_item/:id', to: 'orders#edit_validation_line_item', as:'edit_validation_line_item'
+    get '/edit_validation_order/:id', to: 'orders#edit_validation_order', as:'edit_validation_order'
+
+    post '/validation_commande', to: 'orders#validation_order', as:"validation_order"
+    post '/validation_commande_restaurant', to: 'orders#validation_line_item', as:"validation_line_item"
+    
   end
 end
