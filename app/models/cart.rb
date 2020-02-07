@@ -1,7 +1,9 @@
 class Cart < ApplicationRecord
     #relation
     belongs_to :user
-    has_many :line_items, class_name: "LineItem"
+    has_many :orders
+    has_many :line_items, dependent: :destroy
+    has_many :dishes, through: :line_items
     # LOGIC
 
   def sub_total

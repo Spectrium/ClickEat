@@ -1,8 +1,11 @@
-<main>
+
     <section id="popular-dishes">
         <img src="<%= image_path('title-detail.png') %>" alt="title-detail">
         <h2>Nos Plats</h2>
-        <p>les plats qui sont disponibles pour vous chez nous. </p>
+        <p>Dévorer les plats avec les yeux?? </br>
+            Non!!!! Cliquez et commandez.</br>
+            N’oubliez pas de “Liker” vos plats préférés.
+        </p>
         <hr>
         <ul class="dishes">
             <% @dishes.order(:cached_votes_down).each do |dish|%>
@@ -11,7 +14,7 @@
         </ul>
         <%= paginate @dishes %>
     </section>
-</main>
+
 
 <!-- jQuery -->
 <script type="text/javascript" src="/assets/jquery-1.11.1.min.js"></script>

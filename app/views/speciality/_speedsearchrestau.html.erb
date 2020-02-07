@@ -1,5 +1,5 @@
 <% item.each do |items|%>
-    <a href="<%= category_path(items.id)%>" class="btn badge badge-info badge-pill pt-3 active col-sm-auto w-auto mx-1 mb-2 " role="button" aria-pressed="true">
+    <a href="<%= category_path(items.id)%>" class="badge badge-info badge-pill pt-3 active col-sm-auto w-auto mx-1 mb-2 " role="button" aria-pressed="true">
         <%= items.name%>
     </a>
     <%end%>

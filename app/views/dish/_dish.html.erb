@@ -18,7 +18,24 @@
   <p>
     <%=item.price%> MGA
   </p>
+  <% unless current_user %>
   <p>
+    <a href="/users/sign_in" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
+  </p>
+  <p>
+    <div class="like-jaime">
+      <%= link_to "/users/sign_in"  do %>
+        <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+        <% end %>
+          <%= link_to "/users/sign_in" do %>
+            <i class="fa fa-thumbs-down fa-2x" style="color: #ff6a00"></i>
+            <% end %>
+              <br>
+              <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                <%= item.get_downvotes.size %>
+    </div>
+    <% else %>
+    <p>
     <a href="<%= line_item_create_path(item.id) %>" data-method="post" class="Color-add-tocart">Commander<i class="fa fa-shopping-cart"></i></a>
   </p>
   <p>
@@ -33,6 +50,7 @@
               <%= item.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
                 <%= item.get_downvotes.size %>
     </div>
+    <% end %>
     <!-- <button class="btn btn-warning"><%= image_tag("icons8-caddie-64.png")%></button> -->
   </p>
 </li>

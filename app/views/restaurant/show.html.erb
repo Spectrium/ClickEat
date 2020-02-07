@@ -1,6 +1,3 @@
-<%= render 'layouts/sociallink' %>
-    <main>
-        <%= render 'layouts/navbar'%>
             <section id="blog" style="border-right: 3px solid <%= @restaurant.subscription.color %>; border-left: 3px solid <%= @restaurant.subscription.color %>">
 
                 <article>
@@ -26,7 +23,19 @@
                                     Email:
                                     <%= @restaurant.email%>
                                 </p>
+                                <% unless current_user %>
                                 <div>
+                                    <%= link_to "/users/sign_in" do %>
+                                        <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
+                                        <% end %>
+                                            <%= link_to "/users/sign_in" do %>
+                                                <i class="fa fa-thumbs-down fa-2x " style="color: #ff6a00"></i>
+                                                <% end %>
+                                                    <br>
+                                                    <%= @restaurant.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
+                                                        <%= @restaurant.get_downvotes.size %>
+                                </div>
+                                <% else %>
                                     <%= link_to like_restaurant_path(@restaurant), method: :put do %>
                                         <i class="fa fa-thumbs-up fa-2x" style="color: #ff6a00"></i>
                                         <% end %>
@@ -36,7 +45,7 @@
                                                     <br>
                                                     <%= @restaurant.get_upvotes.size %> &nbsp&nbsp&nbsp&nbsp
                                                         <%= @restaurant.get_downvotes.size %>
-                                </div>
+                                <% end %>
                             </div>
                     </div>
                 </section>
@@ -61,7 +70,6 @@
 
                         </tbody>
                     </table>
-    </main>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

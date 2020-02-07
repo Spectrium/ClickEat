@@ -8,7 +8,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-      <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+      <a class="navbar-brand" href="index.html">
+        <% if current_admin.type_admin.id == 1 %>
+          super admin
+          <% else %>
+            <%= current_admin.restaurant.name %> admin</a>
+      <% end %>
+        </a>
+
     </div>
     <!-- /.navbar-header -->
 
@@ -73,7 +80,7 @@
                     <a href="<%= admin_site_dishes_path %>"> Nos Plats</a>
                   </li>
                   <li>
-                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Commandes</a>
+                    <a href="<%= admin_site_admin_line_items_path %>"><i class="fa fa-dashboard fa-fw"></i> Commandes</a>
                   </li>
         </ul>
       </div>

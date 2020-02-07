@@ -1,0 +1,23 @@
+<%= form_for(line_item, url: admin_site_validation_line_item_path ) do |form| %>
+  <% if line_item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
+
+      <ul>
+        <% line_item.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <%= form.label :confirmed do %>
+        Commande reçu
+        <% end %>
+          <%= form.check_box :received, class:'form-control' %>
+            <br>
+            <br>
+            <%= form.submit :enregistrer, class:"btn btn-primary" %>
+              <% end %>

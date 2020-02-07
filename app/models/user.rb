@@ -6,6 +6,8 @@ belongs_to :subscription
 has_one :cart, dependent: :destroy
 has_many :orders, dependent: :destroy
 acts_as_voter
+has_many :orders
+has_many :carts, through: :orders
 
 validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 #  validates :username, presence: true
